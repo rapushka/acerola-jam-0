@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.rapuska.entitas-generic": {
+      "version": "https://github.com/rapushka/Entitas.Generic.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "bb841000d80842724d736d48c427a2bf48550848"
+    },
     "com.unity.collab-proxy": {
       "version": "2.2.0",
       "depth": 0,
