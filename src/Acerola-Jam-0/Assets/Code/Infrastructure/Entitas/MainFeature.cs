@@ -1,3 +1,4 @@
+using Code.System;
 using Entitas.Generic;
 using Zenject;
 
@@ -10,6 +11,11 @@ namespace Code
 			: base(nameof(MainFeature), factory)
 		{
 			Add<RegisterBehavioursSystem>();
+
+			// Dragging
+			Add<Drag>();
+
+			Add<BoilerplateFeature>();
 		}
 	}
 }

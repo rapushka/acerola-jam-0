@@ -14,7 +14,5 @@ namespace Code
 		private void OnMouseDown() => IsPressed = true;
 
 		private void OnMouseUp() => IsPressed = false;
-
-		private void OnMouseExit() => IsPressed = false;
 	}
 }

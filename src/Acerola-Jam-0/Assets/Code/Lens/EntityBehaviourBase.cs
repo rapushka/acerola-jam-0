@@ -1,4 +1,3 @@
-using Code.Scope;
 using Entitas.Generic;
 
 namespace Code
@@ -6,6 +5,6 @@ namespace Code
 	public abstract class EntityBehaviourBase<TScope> : EntityBehaviourBase
 		where TScope : IScope
 	{
-		public abstract Entity<Game> Entity { get; }
+		public abstract Entity<TScope> Entity { get; }
 	}
 }

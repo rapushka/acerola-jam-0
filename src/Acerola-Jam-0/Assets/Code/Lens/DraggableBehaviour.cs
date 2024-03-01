@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code
 {
-	public class DraggableBehaviourBase : EntityBehaviourBase<Game>
+	public class DraggableBehaviour : EntityBehaviourBase<Game>
 	{
 		[SerializeField] private BaseListener<Game, Position> _positionView;
 

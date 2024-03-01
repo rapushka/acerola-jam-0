@@ -2,7 +2,7 @@ using Code.Component;
 
 namespace Code
 {
-	public class LensBehaviour : DraggableBehaviourBase
+	public class LensBehaviour : DraggableBehaviour
 	{
 		public override void Initialize()
 		{
