@@ -13,6 +13,7 @@ namespace Code
 			Add<RegisterBehavioursSystem>();
 
 			// Dragging
+			Add<DropDraggableOnMouseTooFar>();
 			Add<Drag>();
 
 			Add<BoilerplateFeature>();

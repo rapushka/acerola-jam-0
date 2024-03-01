@@ -925,6 +925,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6285828539999792692, guid: abb3f561b4e2ad5fca8ab5910bd80eee, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7392511933730284332, guid: abb3f561b4e2ad5fca8ab5910bd80eee, type: 3}
       propertyPath: m_Name
       value: Lense
