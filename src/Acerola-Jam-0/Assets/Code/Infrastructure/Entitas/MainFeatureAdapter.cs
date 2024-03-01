@@ -12,5 +12,4 @@ namespace Code
 
 		protected override Systems CreateSystems() => _feature;
 	}
-
 }

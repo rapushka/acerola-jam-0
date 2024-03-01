@@ -12,6 +12,8 @@ namespace Code
 		{
 			Container.BindInstance(_behavioursCollector.Behaviours).AsSingle();
 
+			Container.Rebind<SystemsFactory>().AsSingle();
+
 			Container.Bind<MainFeature>().AsSingle();
 			Container.Bind<MainFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 		}
