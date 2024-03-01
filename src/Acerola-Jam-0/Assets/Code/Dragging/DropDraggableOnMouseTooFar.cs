@@ -2,6 +2,7 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
@@ -28,7 +29,10 @@ namespace Code.System
 				var distance = _inputService.CursorWorldPoint.DistanceTo(e.Get<Position>().Value);
 
 				if (distance >= _gameConfig.Input.DistanceToDropDraggable)
+				{
 					e.Is<Pressed>(false);
+					e.Replace<Position, Vector2>(e.Get<ActualPosition>().Value);
+				}
 			}
 		}
 	}
