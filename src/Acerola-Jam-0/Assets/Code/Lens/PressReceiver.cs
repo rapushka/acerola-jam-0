@@ -1,5 +1,6 @@
 using Code.Component;
 using Code.Scope;
+using Entitas.Generic;
 using UnityEngine;
 
 namespace Code
@@ -9,10 +10,10 @@ namespace Code
 	{
 		[SerializeField] private EntityBehaviourBase<Game> _behaviour;
 
-		private bool IsPressed { set => _behaviour.Entity.Is<Pressed>(value); }
+		private Entity<Game> Entity => _behaviour.Entity;
 
-		private void OnMouseDown() => IsPressed = true;
+		private void OnMouseDown() => Entity.Is<Pressed>(true);
 
-		private void OnMouseUp() => IsPressed = false;
+		private void OnMouseUp() => Entity.Is<Dropped>(true);
 	}
 }

@@ -11,4 +11,6 @@ namespace Code.Component
 	public sealed class ActualPosition : ValueComponent<Vector2>, IInScope<Game>, IEvent<Self> { }
 
 	public sealed class Pressed : FlagComponent, IInScope<Game> { }
+
+	public sealed class Dropped : FlagComponent, IInScope<Game>, ICleanup<RemoveComponent> { }
 }

@@ -3,7 +3,7 @@ using Code.Scope;
 using Entitas.Generic;
 using Zenject;
 
-namespace Code
+namespace Code.System
 {
 	public class BoilerplateFeature : InjectableFeature
 	{
@@ -12,6 +12,8 @@ namespace Code
 			: base(nameof(BoilerplateFeature), factory)
 		{
 			Add<SelfEventSystem<Game, Position>>();
+
+			Add<RemoveComponentsSystem<Game, Dropped>>();
 		}
 	}
 }
