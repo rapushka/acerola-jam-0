@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ViewConfig
   m_EditorClassIdentifier: 
   <CommonMovementSpeed>k__BackingField: 5
-  <DistanceBetweenCards>k__BackingField: 2
+  <DistanceBetweenCards>k__BackingField: 0.23
