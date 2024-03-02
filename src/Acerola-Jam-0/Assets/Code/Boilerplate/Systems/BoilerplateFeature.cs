@@ -12,6 +12,7 @@ namespace Code.System
 			: base(nameof(BoilerplateFeature), factory)
 		{
 			Add<SelfEventSystem<Game, Position>>();
+			Add<SelfEventSystem<Game, DeltaRotation>>();
 
 			Add<RemoveComponentsSystem<Game, Dropped>>();
 		}

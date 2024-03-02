@@ -7,5 +7,6 @@ namespace Code
 	public class InputConfig
 	{
 		[field: SerializeField] public float DistanceToDropDraggable { get; private set; }
+		[field: SerializeField] public float RotationSpeed           { get; private set; }
 	}
 }

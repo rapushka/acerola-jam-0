@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   <Input>k__BackingField:
-    <DistanceToDropDraggable>k__BackingField: 1
+    <DistanceToDropDraggable>k__BackingField: 2.5
+    <RotationSpeed>k__BackingField: 5

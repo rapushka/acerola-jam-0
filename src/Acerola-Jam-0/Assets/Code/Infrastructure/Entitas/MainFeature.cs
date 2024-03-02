@@ -16,6 +16,9 @@ namespace Code
 			Add<MarkDroppedOnCursorTooFar>();
 			Add<Drag>();
 			Add<DropDraggable>();
+			
+			// Rotating
+			Add<Rotate>();
 
 			Add<BoilerplateFeature>();
 		}
