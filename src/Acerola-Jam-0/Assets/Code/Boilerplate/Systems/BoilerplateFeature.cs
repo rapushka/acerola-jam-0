@@ -13,6 +13,7 @@ namespace Code.System
 		{
 			Add<SelfEventSystem<Game, Position>>();
 			Add<SelfEventSystem<Game, DeltaRotation>>();
+			Add<SelfEventSystem<Game, VectorToLight>>();
 
 			Add<RemoveComponentsSystem<Game, Dropped>>();
 		}
