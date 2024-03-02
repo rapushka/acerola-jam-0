@@ -1,9 +1,12 @@
 using Entitas.Generic;
+using UnityEngine;
 
 namespace Code
 {
 	public class ProjectInstaller : MonoInstallerBase<ProjectInstaller>
 	{
+		[SerializeField] private DeckViewConfig _deckViewConfig;
+
 		public override void InstallBindings()
 		{
 			base.InstallBindings();

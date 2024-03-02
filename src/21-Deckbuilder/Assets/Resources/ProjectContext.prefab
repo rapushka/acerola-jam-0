@@ -74,3 +74,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d828233cb2204955b7146d170cbab831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deckViewConfig: {fileID: 11400000, guid: 601197fc2f56fa12b85785b018892499, type: 2}
