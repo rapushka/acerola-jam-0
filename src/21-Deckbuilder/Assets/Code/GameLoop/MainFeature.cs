@@ -15,6 +15,8 @@ namespace Code
 			Add<DealTwoCardsOnStart>();
 			Add<CalculateScore>();
 
+			Add<SideHit>();
+
 			// # View
 			// ## UI
 			Add<UpdatePlayerScoreView>();
