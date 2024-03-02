@@ -19,6 +19,7 @@ namespace Code
 		public Entity<Game> Create(CardFace cardFace, CardSuit cardSuit, Transform parent, float height)
 		{
 			var card = _resources.SpawnCardView(parent, height).Entity;
+			card.Is<Card>(true);
 			card.Add<Face, CardFace>(cardFace);
 			card.Add<Suit, CardSuit>(cardSuit);
 
