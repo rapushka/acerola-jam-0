@@ -7,7 +7,7 @@ namespace Code
 {
 	public class ReflectionBehaviour : EntityBehaviourBase<Game>
 	{
-		[SerializeField] private BaseListener<Game, VectorToLight> _view;
+		[SerializeField] private BaseListener<Game, VectorFromLight> _view;
 
 		private Entity<Game> _entity;
 		public override Entity<Game> Entity => _entity;

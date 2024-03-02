@@ -16,11 +16,16 @@ namespace Code
 			Add<MarkDroppedOnCursorTooFar>();
 			Add<Drag>();
 			Add<DropDraggable>();
-			
+
 			// Rotating
 			Add<Rotate>();
+
+			// Reflections
+			Add<TranslatePositionFromLensToReflection>();
+			Add<CalculateVectorToLightSource>();
 
 			Add<BoilerplateFeature>();
 		}
 	}
+
 }
