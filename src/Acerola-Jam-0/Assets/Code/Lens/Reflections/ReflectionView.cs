@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Code
@@ -6,21 +5,24 @@ namespace Code
 	public class ReflectionView : MonoBehaviour
 	{
 		[SerializeField] private MeshFilter _meshFilter;
+		[Header("Options")]
+		[SerializeField] private float _principleFocus;
+		[SerializeField] private float _maxRayDistance;
+		[SerializeField] private float _angle;
+		[SerializeField] private float _radius;
+
+		private Vector3[] _vertexes;
+		private Mesh _mesh;
 
 		private void Start()
 		{
-			var mesh = new Mesh();
+			_mesh = new Mesh();
 
-			var vertexes = new Vector3[5];
+			_vertexes = new Vector3[5];
 			var uv = new Vector2[5];
 			var triangles = new int[6];
 
-			var step = 1f;
-			vertexes[0] = new Vector3(0, -step);
-			vertexes[1] = new Vector3(0, step);
-			vertexes[2] = new Vector3(step, 0);
-			vertexes[3] = new Vector3(step * 2, step);
-			vertexes[4] = new Vector3(step * 2, -step);
+			UpdateVertexes();
 
 			uv[0] = new Vector2(0, 0);
 			uv[1] = new Vector2(0, 1);
@@ -36,11 +38,29 @@ namespace Code
 			triangles[4] = 3;
 			triangles[5] = 4;
 
-			mesh.vertices = vertexes;
-			mesh.uv = uv;
-			mesh.triangles = triangles;
+			_mesh.vertices = _vertexes;
+			_mesh.uv = uv;
+			_mesh.triangles = triangles;
 
-			_meshFilter.mesh = mesh;
+			_meshFilter.mesh = _mesh;
+		}
+
+		private void Update() => UpdateVertexes();
+
+		private void UpdateVertexes()
+		{
+			_vertexes[0] = new Vector3(0, -_radius);
+			_vertexes[1] = new Vector3(0, _radius);
+
+			_vertexes[2] = new Vector3(_principleFocus, _angle);
+
+			var fromUpToBottom = (_vertexes[2] - _vertexes[0]).normalized;
+			_vertexes[3] = fromUpToBottom * _maxRayDistance + _vertexes[2];
+
+			var fromBottomToTop = (_vertexes[2] - _vertexes[1]).normalized;
+			_vertexes[4] = fromBottomToTop * _maxRayDistance + _vertexes[2];
+
+			_mesh.vertices = _vertexes;
 		}
 	}
 }
