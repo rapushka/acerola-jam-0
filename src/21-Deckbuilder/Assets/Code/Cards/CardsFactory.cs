@@ -24,6 +24,7 @@ namespace Code
 			card.Add<Face, CardFace>(cardFace);
 			card.Add<Suit, CardSuit>(cardSuit);
 			card.Add<Position, Vector3>(cardView.transform.position);
+			card.Add<Rotation, Quaternion>(cardView.transform.rotation);
 
 			return card;
 		}

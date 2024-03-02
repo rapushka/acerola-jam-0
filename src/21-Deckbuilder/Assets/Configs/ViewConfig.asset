@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: ViewConfig
   m_EditorClassIdentifier: 
   <CommonMovementSpeed>k__BackingField: 5
+  <CommonRotationSpeed>k__BackingField: 5
   <DistanceBetweenCards>k__BackingField: 0.23
+  <RotationToPlayer>k__BackingField: {x: 330, y: 165.00003, z: 0}

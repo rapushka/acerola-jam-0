@@ -18,6 +18,8 @@ namespace Code
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCardsInHands>();
 			Add<MoveToDestination>();
+			Add<RotatePlayerCards>();
+			Add<RotateToTarget>();
 
 			Add<BoilerplateFeature>();
 		}
