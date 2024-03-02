@@ -2,15 +2,15 @@ using Code.Component;
 
 namespace Code
 {
-	public class LensBehaviour : RotatableBehaviour
+	public class LightSourceBehaviour : PositionedBehaviour
 	{
 		public override void Initialize()
 		{
 			base.Initialize();
 
 			Entity
-				.Add<DebugName, string>("Lens")
-				.Is<Lens>(true)
+				.Add<DebugName, string>("Light source")
+				.Is<LightSource>(true)
 				;
 		}
 	}

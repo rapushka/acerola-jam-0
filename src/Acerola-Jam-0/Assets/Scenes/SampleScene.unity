@@ -168,7 +168,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _behaviours:
+  - {fileID: 295285594}
   - {fileID: 8544960022857014646}
+--- !u!114 &295285594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3437716146439277714, guid: b9a59c172b7606d54a051ee56f2dd185, type: 3}
+  m_PrefabInstance: {fileID: 1879453981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531eb6fd99be4972868a474a7f72b4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &482633261
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +214,7 @@ Transform:
   - {fileID: 238923481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &575532209
+--- !u!43 &830325873
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1074,9 +1086,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshFilter: {fileID: 1647713491}
-  _principleFocus: 1
+  _gameConfig: {fileID: 0}
   _maxRayDistance: 20
-  _angle: 0
   _radius: 1
 --- !u!4 &1647713493
 Transform:

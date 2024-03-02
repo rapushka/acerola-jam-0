@@ -30,7 +30,7 @@ namespace Code
 		private void InitializeFormatters()
 		{
 #if UNITY_EDITOR
-			// Entity<Scope.Game>.Formatter = new GameEntityFormatter();
+			Entity<Scope.Game>.Formatter = new GameEntityFormatter();
 #endif
 		}
 	}
