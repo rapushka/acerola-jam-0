@@ -8,7 +8,9 @@ namespace Code
 		public MainFeature(SystemsFactory factory)
 			: base(nameof(MainFeature), factory)
 		{
-			//
+			Add<SpawnRandomCard>();
+
+			Add<BoilerplateFeature>();
 		}
 	}
 }
