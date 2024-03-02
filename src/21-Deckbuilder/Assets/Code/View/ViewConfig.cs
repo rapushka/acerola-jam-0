@@ -6,5 +6,6 @@ namespace Code
 	public class ViewConfig : ScriptableObject
 	{
 		[field: SerializeField] public float CommonMovementSpeed { get; private set; }
+		[field: SerializeField] public float DistanceBetweenCards { get; private set; }
 	}
 }
