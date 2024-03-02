@@ -13,6 +13,7 @@ namespace Code
 
 		private Vector3[] _vertexes;
 		private Mesh _mesh;
+		private bool _flipped = true;
 
 		private void Start()
 		{
@@ -43,13 +44,15 @@ namespace Code
 			_meshFilter.mesh = _mesh;
 		}
 
-		public void UpdateVertexes(Vector3 vectorToLight)
+		public void UpdateVertexes(Vector3 vectorFromLight)
 		{
+			Flip(vectorFromLight);
+
 			_vertexes[0] = new Vector3(0, -_radius);
 			_vertexes[1] = new Vector3(0, _radius);
 
-			var principleFocus = vectorToLight.magnitude * _gameConfig.Physics.LensPrincipleFocus;
-			_vertexes[2] = Quaternion.Inverse(transform.rotation) * vectorToLight.normalized * principleFocus;
+			var principleFocus = vectorFromLight.magnitude * _gameConfig.Physics.LensPrincipleFocus;
+			_vertexes[2] = Quaternion.Inverse(transform.rotation) * vectorFromLight.normalized * principleFocus;
 
 			var fromUpToBottom = (_vertexes[2] - _vertexes[0]).normalized;
 			_vertexes[3] = fromUpToBottom * _maxRayDistance + _vertexes[2];
@@ -58,6 +61,19 @@ namespace Code
 			_vertexes[4] = fromBottomToTop * _maxRayDistance + _vertexes[2];
 
 			_mesh.vertices = _vertexes;
+		}
+
+		private void Flip(Vector3 vectorFromLight)
+		{
+			var localRight = transform.right;
+			var dotProduct = Vector3.Dot(localRight, vectorFromLight);
+
+			var turnedWithRight = dotProduct > 0;
+			if (_flipped != turnedWithRight)
+			{
+				_flipped = !_flipped;
+				transform.rotation *= Quaternion.Euler(180f, 0f, 0f);
+			}
 		}
 	}
 }
