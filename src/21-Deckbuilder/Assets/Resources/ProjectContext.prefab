@@ -76,3 +76,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deckViewConfig: {fileID: 11400000, guid: 601197fc2f56fa12b85785b018892499, type: 2}
   _resourceConfig: {fileID: 11400000, guid: 39ad1205a5d3a51fdb13dd4759cde35d, type: 2}
+  _viewConfig: {fileID: 11400000, guid: 85b0ed6303db32bd08b09657697956b2, type: 2}

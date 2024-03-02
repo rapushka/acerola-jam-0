@@ -11,9 +11,11 @@ namespace Code
 		{
 			Add<SpawnDeck>();
 			Add<SpawnSides>();
-			
+
 			Add<DealTwoCardsOnStart>();
-			
+
+			// View
+			Add<MoveHeldCardToSideHands>();
 
 			Add<BoilerplateFeature>();
 		}
