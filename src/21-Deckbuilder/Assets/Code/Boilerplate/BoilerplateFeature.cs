@@ -9,7 +9,8 @@ namespace Code
 		public BoilerplateFeature(SystemsFactory factory)
 			: base(nameof(BoilerplateFeature), factory)
 		{
-			Add<SelfEventSystem<Game, Sprite>>();
+			Add<SelfEventSystem<Game, Face>>();
+			Add<SelfEventSystem<Game, Suit>>();
 		}
 	}
 }

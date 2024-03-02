@@ -17,6 +17,8 @@ namespace Code
 			Container.BindInstance(Contexts.Instance).AsSingle();
 			Container.Bind<ContextsInitializer>().AsSingle().NonLazy();
 			Container.Bind<IResourcesProvider>().FromInstance(_resourceConfig).AsSingle();
+
+			Container.Inject(_resourceConfig);
 		}
 	}
 }
