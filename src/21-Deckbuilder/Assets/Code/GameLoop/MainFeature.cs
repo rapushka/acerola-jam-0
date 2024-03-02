@@ -16,6 +16,7 @@ namespace Code
 
 			// View
 			Add<MoveHeldCardToSideHands>();
+			Add<MoveToDestination>();
 
 			Add<BoilerplateFeature>();
 		}

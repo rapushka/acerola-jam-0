@@ -18,10 +18,12 @@ namespace Code
 
 		public Entity<Game> Create(CardFace cardFace, CardSuit cardSuit, Transform parent, float height)
 		{
-			var card = _resources.SpawnCardView(parent, height).Entity;
+			var cardView = _resources.SpawnCardView(parent, height);
+			var card = cardView.Entity;
 			card.Is<Card>(true);
 			card.Add<Face, CardFace>(cardFace);
 			card.Add<Suit, CardSuit>(cardSuit);
+			card.Add<Position, Vector3>(cardView.transform.position);
 
 			return card;
 		}

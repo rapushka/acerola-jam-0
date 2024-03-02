@@ -11,6 +11,7 @@ namespace Code.System
 		{
 			Add<SelfEventSystem<Game, Face>>();
 			Add<SelfEventSystem<Game, Suit>>();
+			Add<SelfEventSystem<Game, Position>>();
 		}
 	}
 }
