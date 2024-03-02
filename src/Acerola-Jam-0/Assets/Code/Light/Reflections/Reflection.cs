@@ -49,7 +49,7 @@ namespace Code
 			_vertexes[1] = new Vector3(0, _radius);
 
 			var principleFocus = vectorToLight.magnitude * _gameConfig.Physics.LensPrincipleFocus;
-			_vertexes[2] = vectorToLight.normalized * principleFocus;
+			_vertexes[2] = Quaternion.Inverse(transform.rotation) * vectorToLight.normalized * principleFocus;
 
 			var fromUpToBottom = (_vertexes[2] - _vertexes[0]).normalized;
 			_vertexes[3] = fromUpToBottom * _maxRayDistance + _vertexes[2];
