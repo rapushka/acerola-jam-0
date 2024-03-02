@@ -4,7 +4,7 @@ using System.Linq;
 using Entitas;
 using Zenject;
 
-namespace Code
+namespace Code.System
 {
 	public class SpawnDeck : IInitializeSystem
 	{

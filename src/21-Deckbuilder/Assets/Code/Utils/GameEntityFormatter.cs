@@ -12,6 +12,13 @@ namespace Code
 			yield return entity.creationIndex.ToString();
 
 			yield return entity.ToString<DebugName, string>(defaultValue: "e");
+
+			if (entity.Has<Face>() && entity.Has<Suit>())
+			{
+				yield return entity.ToString<Face, CardFace>();
+				yield return "of";
+				yield return entity.ToString<Suit, CardSuit>();
+			}
 		}
 	}
 }

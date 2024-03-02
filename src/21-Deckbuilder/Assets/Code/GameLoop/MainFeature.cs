@@ -1,3 +1,4 @@
+using Code.System;
 using Zenject;
 
 namespace Code
@@ -9,6 +10,10 @@ namespace Code
 			: base(nameof(MainFeature), factory)
 		{
 			Add<SpawnDeck>();
+			Add<SpawnSides>();
+			
+			Add<DealTwoCardsOnStart>();
+			
 
 			Add<BoilerplateFeature>();
 		}
