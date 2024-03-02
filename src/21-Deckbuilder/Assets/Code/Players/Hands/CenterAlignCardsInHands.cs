@@ -11,6 +11,7 @@ namespace Code.System
 	public sealed class CenterAlignCardsInHands : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly HoldersProvider _holders;
 		private readonly ViewConfig _viewConfig;
 		private readonly IGroup<Entity<Game>> _sides;
 
@@ -18,20 +19,22 @@ namespace Code.System
 		public CenterAlignCardsInHands(Contexts contexts, HoldersProvider holders, ViewConfig viewConfig)
 		{
 			_contexts = contexts;
+			_holders = holders;
 			_viewConfig = viewConfig;
 			_sides = contexts.GetGroup(Get<Component.Side>());
 		}
 
 		public void Execute()
 		{
-			foreach (var side in _sides)
+			foreach (var e in _sides)
 			{
-				var cards = _contexts.Get<Game>().GetIndex<HeldBy, Side>()
-				                     .GetEntities(side.Get<Component.Side>().Value);
+				var side = e.Get<Component.Side>().Value;
+				var cards = _contexts.Get<Game>().GetIndex<HeldBy, Side>().GetEntities(side);
+				var hand = side is Side.Player ? _holders.PlayerHand : _holders.DealerHand;
 
 				var spacing = _viewConfig.DistanceBetweenCards;
 				var length = cards.Count * spacing;
-				var currentPosition = length * -0.5f;
+				var currentX = length * -0.5f + hand.position.x;
 
 				foreach (var card in cards)
 				{
@@ -39,10 +42,10 @@ namespace Code.System
 						? card.Get<DestinationPosition>().Value
 						: card.Get<Position>().Value;
 
-					if (!cardPosition.x.ApproximatelyEquals(currentPosition))
-						card.Replace<DestinationPosition, Vector3>(cardPosition.Set(x: currentPosition));
+					if (!cardPosition.x.ApproximatelyEquals(currentX))
+						card.Replace<DestinationPosition, Vector3>(cardPosition.Set(x: currentX));
 
-					currentPosition += spacing;
+					currentX += spacing;
 				}
 			}
 		}
