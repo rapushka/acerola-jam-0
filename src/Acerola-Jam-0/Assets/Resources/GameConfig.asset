@@ -15,3 +15,5 @@ MonoBehaviour:
   <Input>k__BackingField:
     <DistanceToDropDraggable>k__BackingField: 2.5
     <RotationSpeed>k__BackingField: 1
+  <Physics>k__BackingField:
+    <LensPrincipleFocus>k__BackingField: 1

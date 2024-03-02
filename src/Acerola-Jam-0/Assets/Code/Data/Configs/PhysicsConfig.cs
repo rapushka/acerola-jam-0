@@ -1,10 +1,11 @@
 using System;
+using UnityEngine;
 
 namespace Code
 {
 	[Serializable]
 	public class PhysicsConfig
 	{
-		public float LensPrincipleFocus { get; set; }
+		[field: SerializeField] public float LensPrincipleFocus { get; private set; }
 	}
 }
