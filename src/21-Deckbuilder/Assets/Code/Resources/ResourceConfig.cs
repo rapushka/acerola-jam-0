@@ -7,7 +7,7 @@ namespace Code
 {
 	public interface IResourcesProvider
 	{
-		EntityBehaviour<Game> SpawnCardView();
+		EntityBehaviour<Game> SpawnCardView(Transform parent, float height);
 	}
 
 	[CreateAssetMenu(fileName = "Resources", menuName = "+375/Resources", order = -99)]
@@ -17,11 +17,17 @@ namespace Code
 
 		[SerializeField] private EntityBehaviour<Game> _cardPrefab;
 
-		public EntityBehaviour<Game> SpawnCardView() => Spawn(_cardPrefab);
-
-		private EntityBehaviour<Game> Spawn(EntityBehaviour<Game> prefab)
+		public EntityBehaviour<Game> SpawnCardView(Transform parent, float height)
 		{
-			var gameObject = _diContainer.InstantiatePrefab(prefab);
+			var cardView = Spawn(_cardPrefab, parent);
+			cardView.transform.Set(y: height);
+			cardView.transform.LookAt(Vector3.down);
+			return cardView;
+		}
+
+		private EntityBehaviour<Game> Spawn(EntityBehaviour<Game> prefab, Transform parent)
+		{
+			var gameObject = _diContainer.InstantiatePrefab(prefab, parent);
 			var behaviour = gameObject.GetComponent<EntityBehaviour<Game>>();
 			behaviour.Register(Contexts.Instance);
 			return behaviour;
