@@ -13,10 +13,11 @@ namespace Code
 			Add<SpawnSides>();
 
 			Add<DealTwoCardsOnStart>();
+			Add<CalculateScore>();
 
 			// # View
 			// ## UI
-			Add<UpdatePlayerScore>();
+			Add<UpdatePlayerScoreView>();
 			// ## Movement
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCardsInHands>();

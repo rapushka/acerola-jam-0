@@ -7,11 +7,11 @@ using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
 namespace Code.System
 {
-	public sealed class UpdatePlayerScore : ReactiveSystem<Entity<Game>>
+	public sealed class UpdatePlayerScoreView : ReactiveSystem<Entity<Game>>
 	{
 		private readonly HudMediator _hud;
 
-		public UpdatePlayerScore(Contexts contexts, HudMediator hud)
+		public UpdatePlayerScoreView(Contexts contexts, HudMediator hud)
 			: base(contexts.Get<Game>())
 			=> _hud = hud;
 
