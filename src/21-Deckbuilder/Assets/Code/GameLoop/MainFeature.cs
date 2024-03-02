@@ -14,10 +14,14 @@ namespace Code
 
 			Add<DealTwoCardsOnStart>();
 
-			// View
+			// # View
+			// ## UI
+			Add<UpdatePlayerScore>();
+			// ## Movement
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCardsInHands>();
 			Add<MoveToDestination>();
+			// ## Rotation
 			Add<RotatePlayerCards>();
 			Add<RotateToTarget>();
 
