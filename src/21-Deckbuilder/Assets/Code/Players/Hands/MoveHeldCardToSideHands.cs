@@ -27,7 +27,7 @@ namespace Code.System
 			foreach (var e in entities)
 			{
 				var hand = _holders[e.Get<HeldBy>().Value].Hand;
-				e.Replace<DestinationPosition, Vector3>(hand.position);
+				e.Replace<TargetPosition, Vector3>(hand.position);
 			}
 		}
 	}

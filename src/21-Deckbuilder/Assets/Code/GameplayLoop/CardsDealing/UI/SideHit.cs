@@ -22,7 +22,7 @@ namespace Code
 		{
 			foreach (var side in _entities)
 			foreach (var card in _deckCards.GetEntities().TakeLast(1))
-				card.Replace<HeldBy, Side>(side.Get<Component.Side>().Value);
+				card.Replace<Candidate, Side>(side.Get<Component.Side>().Value);
 		}
 	}
 }

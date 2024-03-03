@@ -1,3 +1,4 @@
+using Code.Players;
 using Code.System;
 using Entitas.Generic;
 using Zenject;
@@ -16,16 +17,17 @@ namespace Code
 			Add<SpawnSides>();
 
 			// On Start Deal
+			Add<ResetScore>();
 			Add<DestroyOldDeck>();
 			Add<SpawnDeck>();
 			Add<StartWithPlayerTurn>();
-			Add<DealTwoCards>();
 
 			Add<AiChooseAction>();
 
 			Add<CalculateScore>();
 
 			Add<SideHit>();
+			Add<MoveCandidate>();
 			Add<PassTurnToNext>();
 
 			Add<System.EndDeal>();

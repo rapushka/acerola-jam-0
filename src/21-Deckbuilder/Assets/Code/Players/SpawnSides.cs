@@ -25,6 +25,7 @@ namespace Code.System
 			var e = _contexts.Get<Game>().CreateEntity();
 			e.Add<Component.Side, Side>(side);
 			e.Add<Score, int>(0);
+			e.Is<KeepPlaying>(true);
 		}
 	}
 }

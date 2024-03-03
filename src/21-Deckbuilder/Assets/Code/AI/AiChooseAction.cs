@@ -29,7 +29,7 @@ namespace Code.System
 			if (Random.value >= 0.5f)
 				dealer.Is<Hit>(true);
 			else
-				dealer.Is<Stand>(true);
+				dealer.Is<KeepPlaying>(false);
 		}
 	}
 }

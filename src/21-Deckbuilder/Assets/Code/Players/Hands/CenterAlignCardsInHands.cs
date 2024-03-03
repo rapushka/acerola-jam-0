@@ -38,12 +38,12 @@ namespace Code.System
 
 				foreach (var card in cards)
 				{
-					var cardPosition = card.Has<DestinationPosition>()
-						? card.Get<DestinationPosition>().Value
+					var cardPosition = card.Has<TargetPosition>()
+						? card.Get<TargetPosition>().Value
 						: card.Get<Position>().Value;
 
 					if (!cardPosition.x.ApproximatelyEquals(currentX))
-						card.Replace<DestinationPosition, Vector3>(cardPosition.Set(x: currentX));
+						card.Replace<TargetPosition, Vector3>(cardPosition.Set(x: currentX));
 
 					currentX += spacing;
 				}

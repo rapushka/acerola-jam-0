@@ -11,11 +11,13 @@ namespace Code
 	public sealed class RotatePlayerCards : ReactiveSystem<Entity<Game>>
 	{
 		private readonly ViewConfig _viewConfig;
+		private readonly HoldersProvider _holders;
 
-		public RotatePlayerCards(Contexts contexts, ViewConfig viewConfig)
+		public RotatePlayerCards(Contexts contexts, ViewConfig viewConfig, HoldersProvider holders)
 			: base(contexts.Get<Game>())
 		{
 			_viewConfig = viewConfig;
+			_holders = holders;
 		}
 
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
@@ -27,7 +29,7 @@ namespace Code
 		protected override void Execute(List<Entity<Game>> entities)
 		{
 			foreach (var e in entities)
-				e.Replace<TargetRotation, Quaternion>(_viewConfig.RotationToPlayer.AsEuler());
+				e.Replace<TargetRotation, Quaternion>(_holders[e.Get<HeldBy>().Value].Hand.rotation);
 		}
 	}
 }

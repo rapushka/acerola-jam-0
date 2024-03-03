@@ -18,7 +18,7 @@ namespace Code.System
 		[Inject]
 		public MoveToDestination(Contexts contexts, ViewConfig viewConfig, ITimeService timeService)
 		{
-			_entities = contexts.GetGroup(AllOf(Get<Position>(), Get<DestinationPosition>()));
+			_entities = contexts.GetGroup(AllOf(Get<Position>(), Get<TargetPosition>()));
 			_viewConfig = viewConfig;
 			_timeService = timeService;
 		}
@@ -28,7 +28,7 @@ namespace Code.System
 			foreach (var e in _entities.GetEntities())
 			{
 				var position = e.Get<Position>().Value;
-				var destination = e.Get<DestinationPosition>().Value;
+				var destination = e.Get<TargetPosition>().Value;
 				var speed = _viewConfig.CommonMovementSpeed;
 
 				var direction = (destination - position).normalized;
@@ -38,7 +38,7 @@ namespace Code.System
 				if (distance <= moveDistance)
 				{
 					e.Replace<Position, Vector3>(destination);
-					e.Remove<DestinationPosition>();
+					e.Remove<TargetPosition>();
 					continue;
 				}
 

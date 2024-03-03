@@ -6,6 +6,6 @@ namespace Code
 {
 	public class StandButton : PlayerTurnButtonBase
 	{
-		protected override void OnClick() => Contexts.Instance.GetPlayer().Is<Stand>(true);
+		protected override void OnClick() => Contexts.Instance.GetPlayer().Is<KeepPlaying>(false);
 	}
 }

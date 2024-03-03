@@ -16,7 +16,7 @@ namespace Code.System
 		public PassTurnToNext(Contexts contexts)
 		{
 			_contexts = contexts;
-			_entities = contexts.GetGroup(AnyOf(Get<Hit>(), Get<Stand>()));
+			_entities = contexts.GetGroup(AnyOf(Get<EndTurn>()));
 		}
 
 		public void Execute()
@@ -28,17 +28,16 @@ namespace Code.System
 
 				e.Is<CurrentTurn>(false);
 
-				var nextCurrentTurnSide = e.Get<Component.Side>().Value is Side.Player
-					? _contexts.GetDealer()
-					: _contexts.GetPlayer();
+				var lastSide = e.Get<Component.Side>().Value;
+				var nextSide = _contexts.GetSide(lastSide.Flip());
 
-				if (!nextCurrentTurnSide.Is<Stand>())
+				if (nextSide.Is<KeepPlaying>())
 				{
-					nextCurrentTurnSide.Is<CurrentTurn>(true);
+					nextSide.Is<CurrentTurn>(true);
 					continue;
 				}
 
-				if (!e.Is<Stand>())
+				if (e.Is<KeepPlaying>())
 				{
 					e.Is<CurrentTurn>(true);
 					continue;
