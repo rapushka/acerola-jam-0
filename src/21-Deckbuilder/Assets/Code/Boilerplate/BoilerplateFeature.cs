@@ -16,6 +16,7 @@ namespace Code.System
 
 			Add<RemoveComponentsSystem<Game, Hit>>();
 
+			Add<DestroyEntitySystem<Game, StartDeal>>();
 			Add<DestroyEntitySystem<Game, Component.EndDeal>>();
 		}
 	}

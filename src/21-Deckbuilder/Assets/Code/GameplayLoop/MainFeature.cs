@@ -9,13 +9,16 @@ namespace Code
 		public MainFeature(SystemsFactory factory)
 			: base(nameof(MainFeature), factory)
 		{
-			Add<SpawnDeck>();
+			Add<StartGame>();
 			Add<SpawnSides>();
+
+			// On Start Deal
+			Add<SpawnDeck>();
 			Add<StartWithPlayerTurn>();
+			Add<DealTwoCards>();
 
 			Add<AiChooseAction>();
 
-			Add<DealTwoCardsOnStart>();
 			Add<CalculateScore>();
 
 			Add<SideHit>();
