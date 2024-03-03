@@ -26,7 +26,7 @@ namespace Code.System
 		{
 			foreach (var e in entities)
 			{
-				var hand = e.Get<HeldBy>().Value is Side.Player ? _holders.PlayerHand : _holders.DealerHand;
+				var hand = _holders[e.Get<HeldBy>().Value].Hand;
 				e.Replace<DestinationPosition, Vector3>(hand.position);
 			}
 		}

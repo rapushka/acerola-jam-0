@@ -1239,8 +1239,8 @@ Transform:
   - {fileID: 1040186920}
   - {fileID: 842908047}
   - {fileID: 1882321104}
-  - {fileID: 477494722}
   - {fileID: 16079752}
+  - {fileID: 477494722}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1031362041
@@ -1256,8 +1256,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Deck>k__BackingField: {fileID: 1040186920}
-  <PlayerHand>k__BackingField: {fileID: 1035854900}
-  <DealerHand>k__BackingField: {fileID: 1670700267}
+  <BurnCard>k__BackingField: {fileID: 842908047}
+  <BurnLoupe>k__BackingField: {fileID: 1882321104}
+  _sides:
+  - <Side>k__BackingField: 0
+    <Hand>k__BackingField: {fileID: 1035854900}
+    <CandidateCard>k__BackingField: {fileID: 205131341}
+    <CandidateLoupe>k__BackingField: {fileID: 371932267}
+  - <Side>k__BackingField: 1
+    <Hand>k__BackingField: {fileID: 1670700267}
+    <CandidateCard>k__BackingField: {fileID: 948474735}
+    <CandidateLoupe>k__BackingField: {fileID: 512672789}
 --- !u!1001 &1033879644
 PrefabInstance:
   m_ObjectHideFlags: 0

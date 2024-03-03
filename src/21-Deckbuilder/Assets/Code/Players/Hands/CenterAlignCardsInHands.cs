@@ -30,7 +30,7 @@ namespace Code.System
 			{
 				var side = e.Get<Component.Side>().Value;
 				var cards = _contexts.Get<Game>().GetIndex<HeldBy, Side>().GetEntities(side);
-				var hand = side is Side.Player ? _holders.PlayerHand : _holders.DealerHand;
+				var hand = _holders[side].Hand;
 
 				var spacing = _viewConfig.DistanceBetweenCards;
 				var length = cards.Count * spacing;
