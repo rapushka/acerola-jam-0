@@ -25,6 +25,9 @@ namespace Code.System
 				var playerScore = _contexts.GetPlayer().Get<Score>().Value;
 				var dealerScore = _contexts.GetDealer().Get<Score>().Value;
 
+				playerScore = playerScore > 21 ? -1 : playerScore;
+				dealerScore = dealerScore > 21 ? -1 : dealerScore;
+
 				var result = playerScore.CompareTo(dealerScore) switch
 				{
 					-1 => "Loose",
@@ -33,8 +36,8 @@ namespace Code.System
 					_  => throw new ArgumentOutOfRangeException(),
 				};
 
-				var playerScoreView = playerScore > 21 ? "Busted!" : playerScore.ToString();
-				var dealerScoreView = dealerScore > 21 ? "Busted!" : dealerScore.ToString();
+				var playerScoreView = playerScore == -1 ? "Busted!" : playerScore.ToString();
+				var dealerScoreView = dealerScore == -1 ? "Busted!" : dealerScore.ToString();
 
 				Debug.Log($"{result}. Player: {playerScoreView}. Dealer: {dealerScoreView}");
 				Debug.Break();
