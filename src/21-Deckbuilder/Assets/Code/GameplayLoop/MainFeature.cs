@@ -15,6 +15,7 @@ namespace Code
 
 			Add<StartGame>();
 			Add<SpawnSides>();
+			Add<SpawnLens>();
 
 			// On Start Deal
 			Add<ResetScore>();
