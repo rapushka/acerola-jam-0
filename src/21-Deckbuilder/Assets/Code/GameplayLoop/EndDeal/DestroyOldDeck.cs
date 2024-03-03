@@ -1,3 +1,4 @@
+using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
@@ -12,15 +13,15 @@ namespace Code.System
 
 		public DestroyOldDeck(Contexts contexts)
 		{
-			_startDeal = contexts.GetGroup(Get<Component.StartDeal>());
-			_cards = contexts.GetGroup(Get<Component.Card>());
+			_startDeal = contexts.GetGroup(Get<StartDeal>());
+			_cards = contexts.GetGroup(Get<Card>());
 		}
 
 		public void Execute()
 		{
 			foreach (var _ in _startDeal)
 			foreach (var card in _cards.GetEntities())
-				card.Destroy();
+				card.Is<Destroyed>(true);
 		}
 	}
 }
