@@ -11,11 +11,13 @@ namespace Code
 		{
 			Add<SpawnDeck>();
 			Add<SpawnSides>();
+			Add<StartWithPlayerTurn>();
 
 			Add<DealTwoCardsOnStart>();
 			Add<CalculateScore>();
 
 			Add<SideHit>();
+			Add<PassTurnToNext>();
 
 			// # View
 			// ## UI

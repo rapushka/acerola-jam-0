@@ -1,3 +1,6 @@
+using Code.Component;
+using Code.System;
+using Entitas.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,5 +15,10 @@ namespace Code
 		private void OnDisable() => _button.onClick.RemoveListener(OnClick);
 
 		protected abstract void OnClick();
+
+		private void Update()
+		{
+			_button.enabled = Contexts.Instance.GetPlayer().Is<CurrentTurn>();
+		}
 	}
 }
