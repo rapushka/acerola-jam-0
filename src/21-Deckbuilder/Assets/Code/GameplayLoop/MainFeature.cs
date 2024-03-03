@@ -47,6 +47,10 @@ namespace Code
 			Add<RotateToTarget>();
 
 			Add<BoilerplateFeature>();
+
+			// Tear Down
+			Add(new ClearReactivitySystem(this));
+			Add<DestroyAll>();
 		}
 	}
 }
