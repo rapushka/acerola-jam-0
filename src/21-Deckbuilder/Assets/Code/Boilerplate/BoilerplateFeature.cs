@@ -13,10 +13,14 @@ namespace Code.System
 			Add<SelfEventSystem<Game, Suit>>();
 			Add<SelfEventSystem<Game, Position>>();
 			Add<SelfEventSystem<Game, Rotation>>();
+			Add<SelfEventSystem<Game, Visible>>();
+			Add<SelfEventSystem<Game, Destroyed>>();
 
 			Add<RemoveComponentsSystem<Game, Hit>>();
 
+			Add<DestroyEntitySystem<Game, StartDeal>>();
 			Add<DestroyEntitySystem<Game, Component.EndDeal>>();
+			Add<DestroyEntitySystem<Game, Destroyed>>();
 		}
 	}
 }

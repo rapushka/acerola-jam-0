@@ -1,3 +1,4 @@
+using Entitas.Generic;
 using UnityEngine;
 
 namespace Code
@@ -6,6 +7,7 @@ namespace Code
 	{
 		[SerializeField] private HoldersProvider _holdersProvider;
 		[SerializeField] private HudMediator _hud;
+		[SerializeField] private BehavioursCollector _behavioursCollector;
 
 		public override void InstallBindings()
 		{
@@ -14,6 +16,7 @@ namespace Code
 			Container.Bind<MainFeature>().AsSingle();
 			Container.Bind<MainFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 
+			Container.BindInstance(_behavioursCollector.Behaviours).AsSingle();
 			Container.BindInstance(_holdersProvider).AsSingle();
 			Container.BindInstance(_hud).AsSingle();
 

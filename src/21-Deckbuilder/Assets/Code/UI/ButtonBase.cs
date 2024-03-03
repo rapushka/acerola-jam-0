@@ -1,6 +1,3 @@
-using Code.Component;
-using Code.System;
-using Entitas.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,15 +7,12 @@ namespace Code
 	{
 		[SerializeField] private Button _button;
 
-		private void OnEnable() => _button.onClick.AddListener(OnClick);
+		protected Button Button => _button;
 
-		private void OnDisable() => _button.onClick.RemoveListener(OnClick);
+		private void OnEnable() => Button.onClick.AddListener(OnClick);
+
+		private void OnDisable() => Button.onClick.RemoveListener(OnClick);
 
 		protected abstract void OnClick();
-
-		private void Update()
-		{
-			_button.enabled = Contexts.Instance.GetPlayer().Is<CurrentTurn>();
-		}
 	}
 }

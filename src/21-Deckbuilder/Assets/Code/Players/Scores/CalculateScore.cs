@@ -29,7 +29,8 @@ namespace Code.System
 			foreach (var side in _sides)
 			{
 				side.Replace<Score, int>(0);
-				var cards = _cardsIndex.GetEntities(side.Get<Component.Side>().Value);
+				var cards = _cardsIndex.GetEntities(side.Get<Component.Side>().Value)
+				                       .Where((c) => !c.Is<Destroyed>());
 
 				foreach (var points in cards.Select((c) => c.Get<Face>().Value.GetPoints()))
 					side.Replace<Score, int>(side.Get<Score>().Value + points);
