@@ -13,11 +13,15 @@ namespace Code
 			Add<SpawnSides>();
 			Add<StartWithPlayerTurn>();
 
+			Add<AiChooseAction>();
+
 			Add<DealTwoCardsOnStart>();
 			Add<CalculateScore>();
 
 			Add<SideHit>();
 			Add<PassTurnToNext>();
+
+			Add<EndDeal>();
 
 			// # View
 			// ## UI

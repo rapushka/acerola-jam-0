@@ -41,7 +41,7 @@ namespace Code.System
 					continue;
 				}
 
-				_contexts.Get<Game>().CreateEntity().Is<EndDeal>(true);
+				_contexts.Get<Game>().CreateEntity().Is<Component.EndDeal>(true);
 			}
 		}
 	}
