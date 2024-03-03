@@ -40,7 +40,6 @@ namespace Code.System
 				var dealerScoreView = dealerScore == -1 ? "Busted!" : dealerScore.ToString();
 
 				Debug.Log($"{result}. Player: {playerScoreView}. Dealer: {dealerScoreView}");
-				Debug.Break();
 			}
 		}
 	}

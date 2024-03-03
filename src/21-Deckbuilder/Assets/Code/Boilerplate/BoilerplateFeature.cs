@@ -13,6 +13,7 @@ namespace Code.System
 			Add<SelfEventSystem<Game, Suit>>();
 			Add<SelfEventSystem<Game, Position>>();
 			Add<SelfEventSystem<Game, Rotation>>();
+			Add<SelfEventSystem<Game, Visible>>();
 
 			Add<RemoveComponentsSystem<Game, Hit>>();
 

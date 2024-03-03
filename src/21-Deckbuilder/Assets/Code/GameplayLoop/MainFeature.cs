@@ -1,4 +1,5 @@
 using Code.System;
+using Entitas.Generic;
 using Zenject;
 
 namespace Code
@@ -9,10 +10,13 @@ namespace Code
 		public MainFeature(SystemsFactory factory)
 			: base(nameof(MainFeature), factory)
 		{
+			Add<RegisterBehavioursSystem>();
+
 			Add<StartGame>();
 			Add<SpawnSides>();
 
 			// On Start Deal
+			Add<DestroyOldDeck>();
 			Add<SpawnDeck>();
 			Add<StartWithPlayerTurn>();
 			Add<DealTwoCards>();
@@ -24,7 +28,8 @@ namespace Code
 			Add<SideHit>();
 			Add<PassTurnToNext>();
 
-			Add<EndDeal>();
+			Add<System.EndDeal>();
+			Add<ShowOnDealEnd>();
 
 			// # View
 			// ## UI
