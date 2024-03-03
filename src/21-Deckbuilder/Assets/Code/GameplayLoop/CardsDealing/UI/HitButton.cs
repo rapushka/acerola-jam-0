@@ -4,7 +4,7 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public class HitButton : ButtonBase
+	public class HitButton : GameplayButtonBase
 	{
 		protected override void OnClick() => Contexts.Instance.GetPlayer().Is<Hit>(true);
 	}
