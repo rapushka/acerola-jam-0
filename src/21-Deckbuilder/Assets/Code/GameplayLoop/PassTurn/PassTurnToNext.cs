@@ -23,6 +23,9 @@ namespace Code.System
 		{
 			foreach (var e in _entities)
 			{
+				if (!e.Is<CurrentTurn>())
+					continue;
+
 				e.Is<CurrentTurn>(false);
 
 				var nextCurrentTurnSide = e.Get<Component.Side>().Value is Side.Player

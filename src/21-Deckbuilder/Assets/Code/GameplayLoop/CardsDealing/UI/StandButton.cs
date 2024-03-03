@@ -4,7 +4,7 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public class StandButton : GameplayButtonBase
+	public class StandButton : PlayerTurnButtonBase
 	{
 		protected override void OnClick() => Contexts.Instance.GetPlayer().Is<Stand>(true);
 	}

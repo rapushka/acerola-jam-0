@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code.EndDeal
 {
-	public class RestartButton : GameplayButtonBase
+	public class RestartButton : ButtonBase
 	{
 		[SerializeField] private EntityBehaviour<Game> _behaviour;
 

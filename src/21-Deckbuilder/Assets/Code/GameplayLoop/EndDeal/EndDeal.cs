@@ -11,11 +11,13 @@ namespace Code.System
 	{
 		private readonly Contexts _contexts;
 		private readonly IGroup<Entity<Game>> _entities;
+		private readonly IGroup<Entity<Game>> _sides;
 
 		public EndDeal(Contexts contexts)
 		{
 			_contexts = contexts;
 			_entities = contexts.GetGroup(ScopeMatcher<Game>.Get<Component.EndDeal>());
+			_sides = contexts.GetGroup(ScopeMatcher<Game>.Get<Component.Side>());
 		}
 
 		public void Execute()
@@ -40,6 +42,9 @@ namespace Code.System
 				var dealerScoreView = dealerScore == -1 ? "Busted!" : dealerScore.ToString();
 
 				Debug.Log($"{result}. Player: {playerScoreView}. Dealer: {dealerScoreView}");
+
+				foreach (var side in _sides)
+					side.Is<Stand>(false);
 			}
 		}
 	}
