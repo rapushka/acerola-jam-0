@@ -10,13 +10,11 @@ namespace Code
 {
 	public sealed class RotatePlayerCards : ReactiveSystem<Entity<Game>>
 	{
-		private readonly ViewConfig _viewConfig;
 		private readonly HoldersProvider _holders;
 
-		public RotatePlayerCards(Contexts contexts, ViewConfig viewConfig, HoldersProvider holders)
+		public RotatePlayerCards(Contexts contexts, HoldersProvider holders)
 			: base(contexts.Get<Game>())
 		{
-			_viewConfig = viewConfig;
 			_holders = holders;
 		}
 

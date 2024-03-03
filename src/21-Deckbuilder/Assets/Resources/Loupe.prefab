@@ -93,6 +93,9 @@ GameObject:
   m_Component:
   - component: {fileID: 663272292088514816}
   - component: {fileID: 7039709117833225249}
+  - component: {fileID: 2621354337464142508}
+  - component: {fileID: 4397910708101834011}
+  - component: {fileID: 7573607832092291709}
   m_Layer: 0
   m_Name: Loupe
   m_TagString: Untagged
@@ -126,6 +129,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6113ce3b12a84e74ae234f84e65baa6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2621354337464142508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151639715423980488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f90e9a127ca4e51963a444c8b207835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentBehaviours: []
+  _listeners:
+  - {fileID: 4397910708101834011}
+  - {fileID: 7573607832092291709}
+  _subEntities: []
+  _ensureComponentsCountOnAwake: 1
+  _forceSubEntitiesAutoCollect: 1
+--- !u!114 &4397910708101834011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151639715423980488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dddd061de18d4376a8416cd62b5a62ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7573607832092291709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151639715423980488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb14a8979a804f85bf17f6ae92421362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2426227850355186451

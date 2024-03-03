@@ -10,7 +10,6 @@ namespace Code.System
 	{
 		private readonly Contexts _contexts;
 		private readonly IGroup<Entity<Game>> _entities;
-		private readonly IGroup<Entity<Game>> _sides;
 		private readonly HudMediator _hud;
 
 		public EndDeal(Contexts contexts, HudMediator hud)
@@ -19,7 +18,7 @@ namespace Code.System
 			_contexts = contexts;
 
 			_entities = contexts.GetGroup(ScopeMatcher<Game>.Get<Component.EndDeal>());
-			_sides = contexts.GetGroup(ScopeMatcher<Game>.Get<Component.Side>());
+			contexts.GetGroup(ScopeMatcher<Game>.Get<Component.Side>());
 		}
 
 		public void Execute()

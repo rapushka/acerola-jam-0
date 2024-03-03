@@ -28,6 +28,7 @@ namespace Code
 
 			Add<SideHit>();
 			Add<MoveCandidate>();
+			Add<MoveLensToCandidate>();
 			Add<PassTurnToNext>();
 
 			Add<System.EndDeal>();
