@@ -15,6 +15,8 @@ namespace Code.System
 			Add<SelfEventSystem<Game, Rotation>>();
 
 			Add<RemoveComponentsSystem<Game, Hit>>();
+
+			Add<DestroyEntitySystem<Game, EndDeal>>();
 		}
 	}
 }

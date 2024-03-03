@@ -29,7 +29,19 @@ namespace Code.System
 					? _contexts.GetDealer()
 					: _contexts.GetPlayer();
 
-				nextCurrentTurnSide.Is<CurrentTurn>(true);
+				if (!nextCurrentTurnSide.Is<Stand>())
+				{
+					nextCurrentTurnSide.Is<CurrentTurn>(true);
+					continue;
+				}
+
+				if (!e.Is<Stand>())
+				{
+					e.Is<CurrentTurn>(true);
+					continue;
+				}
+
+				_contexts.Get<Game>().CreateEntity().Is<EndDeal>(true);
 			}
 		}
 	}
