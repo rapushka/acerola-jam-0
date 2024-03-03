@@ -7,12 +7,12 @@ namespace Code.EndDeal
 {
 	public class RestartButton : ButtonBase
 	{
-		[SerializeField] private EntityBehaviour<Game> _behaviour;
+		[SerializeField] private HudMediator _hud;
 
 		protected override void OnClick()
 		{
 			Contexts.Instance.Get<Game>().CreateEntity().Is<StartDeal>(true);
-			_behaviour.Entity.Replace<Visible, bool>(false);
+			_hud.HideDealEndScreen();
 		}
 	}
 }

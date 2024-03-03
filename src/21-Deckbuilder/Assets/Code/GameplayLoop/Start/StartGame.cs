@@ -2,15 +2,26 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
+using Zenject;
 
 namespace Code
 {
 	public sealed class StartGame : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly HudMediator _hud;
 
-		public StartGame(Contexts contexts) => _contexts = contexts;
+		[Inject]
+		public StartGame(Contexts contexts, HudMediator hud)
+		{
+			_contexts = contexts;
+			_hud = hud;
+		}
 
-		public void Initialize() => _contexts.Get<Game>().CreateEntity().Is<StartDeal>(true);
+		public void Initialize()
+		{
+			_hud.HideDealEndScreen();
+			_contexts.Get<Game>().CreateEntity().Is<StartDeal>(true);
+		}
 	}
 }
