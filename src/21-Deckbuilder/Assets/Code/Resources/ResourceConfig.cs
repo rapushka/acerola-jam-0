@@ -21,7 +21,7 @@ namespace Code
 		{
 			var cardView = Spawn(_cardPrefab, parent);
 			cardView.transform.Set(y: height);
-			cardView.transform.LookAt(Vector3.down);
+			cardView.transform.LookAt(cardView.transform.position + Vector3.down);
 			return cardView;
 		}
 

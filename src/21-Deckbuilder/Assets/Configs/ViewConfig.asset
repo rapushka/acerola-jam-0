@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc415983ace34d25a143a13a542567f7, type: 3}
   m_Name: ViewConfig
   m_EditorClassIdentifier: 
-  <CommonMovementSpeed>k__BackingField: 5
-  <CommonRotationSpeed>k__BackingField: 5
-  <DistanceBetweenCards>k__BackingField: 0.23
+  <CommonMovementSpeed>k__BackingField: 10
+  <CommonRotationSpeed>k__BackingField: 10
+  <DistanceBetweenCards>k__BackingField: 0.125
   <RotationToPlayer>k__BackingField: {x: 330, y: 165.00003, z: 0}
