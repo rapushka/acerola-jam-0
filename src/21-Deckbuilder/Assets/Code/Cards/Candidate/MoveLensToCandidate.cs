@@ -47,7 +47,6 @@ namespace Code.System
 
 				void SendLens()
 				{
-					lens.Replace<MovementSpeed, float>(_viewConfig.MagnifyingGlassSpecificSpeed).RemoveOnReach();
 					lens.SetTargetTransform(transform);
 				}
 			}
