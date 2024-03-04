@@ -29,7 +29,7 @@ namespace Code.System
 			{
 				var position = e.Get<Position>().Value;
 				var destination = e.Get<TargetPosition>().Value;
-				var speed = _viewConfig.CommonMovementSpeed;
+				var speed = e.GetOrDefault<MovementSpeed>()?.Value ?? _viewConfig.CommonMovementSpeed;
 
 				var direction = (destination - position).normalized;
 				var distance = position.DistanceTo(destination);

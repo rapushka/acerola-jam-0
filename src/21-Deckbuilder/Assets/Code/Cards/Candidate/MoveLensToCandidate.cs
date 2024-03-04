@@ -35,16 +35,24 @@ namespace Code
 				var hasCandidate = e.TryGet<Candidate>(out var candidate);
 				var transform = hasCandidate ? _holders[candidate.Value].CandidateLense : _holders.DefaultLens;
 
-				var delay = hasCandidate ? _viewConfig.LensMoveToCandidateDelay : 0f;
-				lens.Add<Waiting, float>(delay);
-				lens.Add<Callback, Action>
-				(
-					() =>
-					{
-						lens.Replace<TargetPosition, Vector3>(transform.position);
-						lens.Replace<TargetRotation, Quaternion>(transform.rotation);
-					}
-				);
+				if (hasCandidate)
+				{
+					lens.Add<Waiting, float>(_viewConfig.LensMoveToCandidateDelay);
+					lens.Add<Callback, Action>(SendLens);
+				}
+				else
+				{
+					SendLens();
+				}
+
+				continue;
+
+				void SendLens()
+				{
+					lens.Replace<MovementSpeed, float>(_viewConfig.MagnifyingGlassSpecificSpeed);
+					lens.Replace<TargetPosition, Vector3>(transform.position);
+					lens.Replace<TargetRotation, Quaternion>(transform.rotation);
+				}
 			}
 		}
 	}
