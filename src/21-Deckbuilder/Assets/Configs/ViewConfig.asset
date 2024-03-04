@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CommonMovementSpeed>k__BackingField: 10
   <CommonRotationSpeed>k__BackingField: 10
-  <DistanceBetweenCards>k__BackingField: 0.125
-  <LensMoveToCandidateDelay>k__BackingField: 5
+  <DistanceBetweenCards>k__BackingField: 0.12
+  <LensMoveToCandidateDelay>k__BackingField: 0.2
