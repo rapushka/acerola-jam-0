@@ -22,6 +22,8 @@ namespace Code.System
 			Add<DestroyEntitySystem<Game, StartDeal>>();
 			Add<DestroyEntitySystem<Game, Component.EndDeal>>();
 			Add<DestroyEntitySystem<Game, Destroyed>>();
+			Add<DestroyEntitySystem<Game, TakeCandidate>>();
+			Add<DestroyEntitySystem<Game, BurnCandidate>>();
 		}
 	}
 }
