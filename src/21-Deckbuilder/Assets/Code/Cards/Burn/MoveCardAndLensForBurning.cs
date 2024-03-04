@@ -21,7 +21,7 @@ namespace Code.System
 		}
 
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
-			=> context.CreateCollector(AllOf(Get<Card>(), Get<ToBurn>()).AddedOrRemoved());
+			=> context.CreateCollector(Get<ToBurn>().AddedOrRemoved());
 
 		protected override bool Filter(Entity<Game> entity) => true;
 

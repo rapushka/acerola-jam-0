@@ -1,4 +1,3 @@
-using System.Linq;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -9,19 +8,19 @@ namespace Code
 {
 	public sealed class SideHit : IExecuteSystem
 	{
+		private readonly DeckProvider _deck;
 		private readonly IGroup<Entity<Game>> _entities;
-		private readonly IGroup<Entity<Game>> _deckCards;
 
-		public SideHit(Contexts contexts)
+		public SideHit(Contexts contexts, DeckProvider deck)
 		{
+			_deck = deck;
 			_entities = contexts.GetGroup(Get<Hit>());
-			_deckCards = contexts.GetGroup(AllOf(Get<Card>()).NoneOf(Get<HeldBy>()));
 		}
 
 		public void Execute()
 		{
 			foreach (var side in _entities)
-			foreach (var card in _deckCards.GetEntities().TakeLast(1))
+			foreach (var card in _deck.TakeCards(1))
 				card.Replace<Candidate, Side>(side.Get<Component.Side>().Value);
 		}
 	}

@@ -21,6 +21,8 @@ namespace Code
 			Container.BindInstance(_hud).AsSingle();
 
 			Container.Bind<CardsFactory>().AsSingle();
+
+			Container.Bind<DeckProvider>().AsSingle().NonLazy();
 		}
 	}
 }
