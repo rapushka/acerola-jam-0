@@ -21,7 +21,7 @@ namespace Code
 		public void Initialize()
 		{
 			_hud.HideDealEndScreen();
-			_hud.PickCardVisibility = false;
+			_hud.PickCardOptionsVisibility = false;
 			_contexts.Get<Game>().CreateEntity().Is<StartDeal>(true);
 		}
 	}

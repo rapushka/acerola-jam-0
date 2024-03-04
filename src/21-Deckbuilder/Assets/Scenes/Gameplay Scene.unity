@@ -288,6 +288,7 @@ MonoBehaviour:
   _playerScoreTextMesh: {fileID: 1588537842}
   _dealEndScreenRoot: {fileID: 1988956414}
   _dealEndTextMesh: {fileID: 1980693824}
+  _pickCardRoot: {fileID: 415177059}
 --- !u!1 &199559396
 GameObject:
   m_ObjectHideFlags: 0

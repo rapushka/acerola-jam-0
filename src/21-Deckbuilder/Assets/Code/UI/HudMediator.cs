@@ -12,7 +12,7 @@ namespace Code
 
 		public int PlayerScore { set => _playerScoreTextMesh.text = value.ToString(); }
 
-		public bool PickCardVisibility { set => _pickCardRoot.gameObject.SetActive(value); }
+		public bool PickCardOptionsVisibility { set => _pickCardRoot.gameObject.SetActive(value); }
 
 		private bool DealEndVisibility { set => _dealEndScreenRoot.gameObject.SetActive(value); }
 

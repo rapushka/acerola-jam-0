@@ -30,6 +30,7 @@ namespace Code
 			Add<SideHit>();
 			Add<MoveCandidate>();
 			Add<MoveLensToCandidate>();
+			Add<ShowPickingCardOptions>();
 			Add<PassTurnToNext>();
 
 			Add<System.EndDeal>();
