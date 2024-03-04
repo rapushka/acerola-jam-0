@@ -32,6 +32,9 @@ namespace Code
 			Add<MoveLensToCandidate>();
 			Add<ShowPickingCardOptions>();
 			Add<PassTurnToNext>();
+			// Both burn and take
+			Add<PickCandidate>();
+			Add<MoveCardAndLensForBurning>();
 
 			Add<System.EndDeal>();
 			Add<ShowOnDealEnd>();
