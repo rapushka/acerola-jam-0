@@ -23,9 +23,10 @@ namespace Code
 			Add<SpawnDeck>();
 			Add<StartWithPlayerTurn>();
 
-			Add<AiChooseAction>();
-
+			Add<WaitingSystem>();
 			Add<CalculateScore>();
+
+			Add<AiChooseAction>();
 
 			Add<SideHit>();
 			Add<MoveCandidate>();
@@ -46,7 +47,7 @@ namespace Code
 			// ## Movement
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCardsInHands>();
-			Add<MoveToDestination>();
+			Add<MoveToTarget>();
 			// ## Rotation
 			Add<RotatePlayerCards>();
 			Add<RotateToTarget>();

@@ -8,7 +8,7 @@ using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
 namespace Code.System
 {
-	public class MoveToDestination : IExecuteSystem
+	public class MoveToTarget : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly ViewConfig _viewConfig;
@@ -16,7 +16,7 @@ namespace Code.System
 		private readonly IGroup<Entity<Game>> _entities;
 
 		[Inject]
-		public MoveToDestination(Contexts contexts, ViewConfig viewConfig, ITimeService timeService)
+		public MoveToTarget(Contexts contexts, ViewConfig viewConfig, ITimeService timeService)
 		{
 			_entities = contexts.GetGroup(AllOf(Get<Position>(), Get<TargetPosition>()));
 			_viewConfig = viewConfig;

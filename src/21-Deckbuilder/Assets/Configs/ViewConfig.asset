@@ -15,4 +15,4 @@ MonoBehaviour:
   <CommonMovementSpeed>k__BackingField: 10
   <CommonRotationSpeed>k__BackingField: 10
   <DistanceBetweenCards>k__BackingField: 0.125
-  <RotationToPlayer>k__BackingField: {x: 330, y: 165.00003, z: 0}
+  <LensMoveToCandidateDelay>k__BackingField: 5

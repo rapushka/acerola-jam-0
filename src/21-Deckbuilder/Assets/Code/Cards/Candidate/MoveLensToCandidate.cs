@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Code.Component;
 using Code.Scope;
@@ -10,12 +11,14 @@ namespace Code
 	public sealed class MoveLensToCandidate : ReactiveSystem<Entity<Game>>
 	{
 		private readonly HoldersProvider _holders;
+		private readonly ViewConfig _viewConfig;
 		private readonly IGroup<Entity<Game>> _lenses;
 
-		public MoveLensToCandidate(Contexts contexts, HoldersProvider holders)
+		public MoveLensToCandidate(Contexts contexts, HoldersProvider holders, ViewConfig viewConfig)
 			: base(contexts.Get<Game>())
 		{
 			_holders = holders;
+			_viewConfig = viewConfig;
 			_lenses = contexts.GetGroup(ScopeMatcher<Game>.Get<Lens>());
 		}
 
@@ -29,12 +32,19 @@ namespace Code
 			foreach (var e in entities)
 			foreach (var lens in _lenses)
 			{
-				var transform = e.TryGet<Candidate>(out var candidate)
-					? _holders[candidate.Value].CandidateLense
-					: _holders.DefaultLens;
+				var hasCandidate = e.TryGet<Candidate>(out var candidate);
+				var transform = hasCandidate ? _holders[candidate.Value].CandidateLense : _holders.DefaultLens;
 
-				lens.Replace<TargetPosition, Vector3>(transform.position);
-				lens.Replace<TargetRotation, Quaternion>(transform.rotation);
+				var delay = hasCandidate ? _viewConfig.LensMoveToCandidateDelay : 0f;
+				lens.Add<Waiting, float>(delay);
+				lens.Add<Callback, Action>
+				(
+					() =>
+					{
+						lens.Replace<TargetPosition, Vector3>(transform.position);
+						lens.Replace<TargetRotation, Quaternion>(transform.rotation);
+					}
+				);
 			}
 		}
 	}
