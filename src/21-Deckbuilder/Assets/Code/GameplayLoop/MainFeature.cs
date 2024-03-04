@@ -35,6 +35,7 @@ namespace Code
 			// Both burn and take
 			Add<PickCandidate>();
 			Add<MoveCardAndLensForBurning>();
+			Add<BurnCard>();
 
 			Add<System.EndDeal>();
 			Add<ShowOnDealEnd>();
