@@ -3,5 +3,5 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	public sealed class Candidate : IndexComponent<Code.Side>, IInScope<Game>, IUnique { }
+	public sealed class Candidate : ValueComponent<Code.Side>, IInScope<Game>, IUnique { }
 }
