@@ -39,6 +39,13 @@ namespace Code.System
 				{
 					e.Replace<Position, Vector3>(destination);
 					e.Remove<TargetPosition>();
+
+					if (e.Is<RemoveMovementSpeedOnDestination>())
+					{
+						e.Remove<MovementSpeed>();
+						e.Remove<RemoveMovementSpeedOnDestination>();
+					}
+
 					continue;
 				}
 

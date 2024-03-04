@@ -4,7 +4,6 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
 namespace Code.System
@@ -32,16 +31,25 @@ namespace Code.System
 		{
 			foreach (var card in entities)
 			{
-				var cardTarget = _holders.BurnCard;
-				card.Replace<TargetPosition, Vector3>(cardTarget.position);
-				card.Replace<TargetRotation, Quaternion>(cardTarget.rotation);
+				card.SetTargetTransform(_holders.BurnCard);
+
+				if (card.Has<Waiting>())
+					continue;
+
+				card.Add<Waiting, float>(_viewConfig.BurningDuration);
+				card.Add<Callback, Action>(SendCard);
+				continue;
+
+				void SendCard()
+				{
+					card.Replace<MovementSpeed, float>(_viewConfig.BurnedCardFlipMovementSpeed).RemoveOnReach();
+					card.SetTargetTransform(_holders.BurnedCard);
+				}
 			}
 
 			foreach (var lens in _lenses)
 			{
-				var lensTarget = _holders.BurnLoupe;
-				lens.Replace<TargetPosition, Vector3>(lensTarget.position);
-				lens.Replace<TargetRotation, Quaternion>(lensTarget.rotation);
+				lens.SetTargetTransform(_holders.BurnLoupe);
 
 				if (lens.Has<Waiting>())
 					continue;
@@ -50,11 +58,7 @@ namespace Code.System
 				lens.Add<Callback, Action>(SendLens);
 				continue;
 
-				void SendLens()
-				{
-					lens.Replace<TargetPosition, Vector3>(_holders.DefaultLens.position);
-					lens.Replace<TargetRotation, Quaternion>(_holders.DefaultLens.rotation);
-				}
+				void SendLens() => lens.SetTargetTransform(_holders.DefaultLens);
 			}
 		}
 	}

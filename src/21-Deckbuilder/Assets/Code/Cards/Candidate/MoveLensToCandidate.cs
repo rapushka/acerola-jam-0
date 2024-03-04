@@ -4,9 +4,8 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 
-namespace Code
+namespace Code.System
 {
 	public sealed class MoveLensToCandidate : ReactiveSystem<Entity<Game>>
 	{
@@ -35,23 +34,21 @@ namespace Code
 				var hasCandidate = e.TryGet<Candidate>(out var candidate);
 				var transform = hasCandidate ? _holders[candidate.Value].CandidateLense : _holders.DefaultLens;
 
-				if (hasCandidate)
-				{
-					lens.Add<Waiting, float>(_viewConfig.LensMoveToCandidateDelay);
-					lens.Add<Callback, Action>(SendLens);
-				}
-				else
+				if (!hasCandidate)
 				{
 					SendLens();
+					continue;
 				}
+
+				lens.Add<Waiting, float>(_viewConfig.LensMoveToCandidateDelay);
+				lens.Add<Callback, Action>(SendLens);
 
 				continue;
 
 				void SendLens()
 				{
-					lens.Replace<MovementSpeed, float>(_viewConfig.MagnifyingGlassSpecificSpeed);
-					lens.Replace<TargetPosition, Vector3>(transform.position);
-					lens.Replace<TargetRotation, Quaternion>(transform.rotation);
+					lens.Replace<MovementSpeed, float>(_viewConfig.MagnifyingGlassSpecificSpeed).RemoveOnReach();
+					lens.SetTargetTransform(transform);
 				}
 			}
 		}

@@ -9,4 +9,6 @@ namespace Code.Component
 	public sealed class TargetPosition : ValueComponent<Vector3>, IInScope<Game> { }
 
 	public sealed class MovementSpeed : ValueComponent<float>, IInScope<Game> { }
+
+	public sealed class RemoveMovementSpeedOnDestination : FlagComponent, IInScope<Game> { }
 }

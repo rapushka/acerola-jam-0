@@ -10,6 +10,7 @@ namespace Code
 		[field: SerializeField] public Transform DefaultLens { get; private set; }
 		[field: SerializeField] public Transform BurnCard     { get; private set; }
 		[field: SerializeField] public Transform BurnLoupe    { get; private set; }
+		[field: SerializeField] public Transform BurnedCard     { get; private set; }
 
 		[SerializeField] private SideHolders[] _sides;
 
