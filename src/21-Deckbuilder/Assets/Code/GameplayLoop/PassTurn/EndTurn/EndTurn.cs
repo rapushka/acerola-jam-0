@@ -1,3 +1,4 @@
+using System;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -9,20 +10,34 @@ namespace Code.System
 	public sealed class EndTurn : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly ViewConfig _viewConfig;
 		private readonly IGroup<Entity<Game>> _entities;
 
-		public EndTurn(Contexts contexts)
+		public EndTurn(Contexts contexts, ViewConfig viewConfig)
 		{
 			_contexts = contexts;
+			_viewConfig = viewConfig;
 			_entities = contexts.GetGroup(AnyOf(Get<BurnCandidate>(), Get<TakeCandidate>()));
 		}
 
 		public void Execute()
 		{
-			foreach (var _ in _entities)
+			foreach (var e in _entities)
 			{
 				var side = _contexts.Get<Game>().Unique.GetEntity<CurrentTurn>();
-				side.Is<Component.EndTurn>(true);
+				if (e.Is<BurnCandidate>())
+				{
+					side.Add<Waiting, float>(_viewConfig.BurningDuration);
+					side.Add<Callback, Action>(DoEndTurn);
+				}
+				else
+				{
+					DoEndTurn();
+				}
+
+				continue;
+
+				void DoEndTurn() => side.Is<Component.EndTurn>(true);
 			}
 		}
 	}

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e5dd9a576540789efd2121243c06e3, type: 3}
   m_Name: Dealer Ai Config
   m_EditorClassIdentifier: 
-  <TurnActionThinkingDuration>k__BackingField: 2
+  <TurnActionThinkingDuration>k__BackingField: 1
