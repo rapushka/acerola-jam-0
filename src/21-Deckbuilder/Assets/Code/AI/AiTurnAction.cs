@@ -19,11 +19,13 @@ namespace Code.System
 			_config = config;
 		}
 
+		private bool HasCandidate => _contexts.Get<Game>().Unique.Has<Candidate>();
+
 		public void Execute()
 		{
 			var dealer = _contexts.GetDealer();
 
-			if (dealer.Is<CurrentTurn>() && !dealer.Has<Waiting>())
+			if (dealer.Is<CurrentTurn>() && !HasCandidate && !dealer.Has<Waiting>())
 				MakeDecision(dealer);
 		}
 
