@@ -17,7 +17,7 @@ namespace Code.System
 			Add<SelfEventSystem<Game, Destroyed>>();
 
 			Add<RemoveComponentsSystem<Game, Hit>>();
-			Add<RemoveComponentsSystem<Game, EndTurn>>();
+			Add<RemoveComponentsSystem<Game, Component.EndTurn>>();
 
 			Add<DestroyEntitySystem<Game, StartDeal>>();
 			Add<DestroyEntitySystem<Game, Component.EndDeal>>();

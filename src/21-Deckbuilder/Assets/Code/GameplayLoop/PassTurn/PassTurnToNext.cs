@@ -16,7 +16,7 @@ namespace Code.System
 		public PassTurnToNext(Contexts contexts)
 		{
 			_contexts = contexts;
-			_entities = contexts.GetGroup(AnyOf(Get<EndTurn>()));
+			_entities = contexts.GetGroup(AnyOf(Get<Component.EndTurn>()));
 		}
 
 		public void Execute()

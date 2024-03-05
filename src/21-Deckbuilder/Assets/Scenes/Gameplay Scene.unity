@@ -289,6 +289,7 @@ MonoBehaviour:
   _dealEndScreenRoot: {fileID: 1988956414}
   _dealEndTextMesh: {fileID: 1980693824}
   _pickCardRoot: {fileID: 415177059}
+  _turnActionsRoot: {fileID: 1327880533}
 --- !u!1 &199559396
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +841,7 @@ Transform:
   m_GameObject: {fileID: 512672788}
   serializedVersion: 2
   m_LocalRotation: {x: 0.39086354, y: 0.86405784, z: -0.28902587, w: 0.13074319}
-  m_LocalPosition: {x: 0.5, y: 0.774, z: 2.936}
+  m_LocalPosition: {x: -0.293, y: 0.739, z: 2.962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1446,7 +1447,7 @@ MonoBehaviour:
   - <Side>k__BackingField: 1
     <Hand>k__BackingField: {fileID: 1670700267}
     <CandidateCard>k__BackingField: {fileID: 948474735}
-    <CandidateLense>k__BackingField: {fileID: 948474735}
+    <CandidateLense>k__BackingField: {fileID: 512672789}
 --- !u!1 &1035854899
 GameObject:
   m_ObjectHideFlags: 0

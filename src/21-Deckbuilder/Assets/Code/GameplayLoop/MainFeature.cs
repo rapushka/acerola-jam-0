@@ -2,6 +2,7 @@ using Code.Players;
 using Code.System;
 using Entitas.Generic;
 using Zenject;
+using ShowOnDealEnd = Code.System.ShowOnDealEnd;
 
 namespace Code
 {
@@ -26,19 +27,21 @@ namespace Code
 			Add<WaitingSystem>();
 			Add<CalculateScore>();
 
-			Add<AiChooseAction>();
+			Add<AiTurnAction>();
 
 			Add<SideHit>();
 			Add<MoveCandidate>();
 			Add<MoveLensToCandidate>();
 			Add<ShowPickingCardOptions>();
-			Add<PassTurnToNext>();
 			// Both burn and take
 			Add<PickCandidate>();
 			Add<MoveCardAndLensForBurning>();
 			Add<BurnCard>();
 
-			Add<System.EndDeal>();
+			Add<EndTurn>();
+			Add<PassTurnToNext>();
+
+			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
 
 			// # View
