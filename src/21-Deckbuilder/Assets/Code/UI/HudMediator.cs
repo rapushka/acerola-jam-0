@@ -9,10 +9,12 @@ namespace Code
 		[SerializeField] private GameObject _dealEndScreenRoot;
 		[SerializeField] private TMP_Text _dealEndTextMesh;
 		[SerializeField] private GameObject _pickCardRoot;
+		[SerializeField] private GameObject _turnActionsRoot;
 
 		public int PlayerScore { set => _playerScoreTextMesh.text = value.ToString(); }
 
 		public bool PickCardOptionsVisibility { set => _pickCardRoot.gameObject.SetActive(value); }
+		public bool TurnActionsVisibility { set => _turnActionsRoot.gameObject.SetActive(value); }
 
 		private bool DealEndVisibility { set => _dealEndScreenRoot.gameObject.SetActive(value); }
 

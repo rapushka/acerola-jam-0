@@ -24,7 +24,12 @@ namespace Code
 		protected override void Execute(List<Entity<Game>> entities)
 		{
 			foreach (var e in entities)
-				_hud.PickCardOptionsVisibility = e.TryGet<Candidate, Side>(out var side) && side is Side.Player;
+			{
+				var isOurCandidate = e.TryGet<Candidate, Side>(out var side) && side is Side.Player;
+				
+				_hud.PickCardOptionsVisibility = isOurCandidate;
+				_hud.TurnActionsVisibility = !isOurCandidate;
+			}
 		}
 	}
 }
