@@ -55,6 +55,7 @@ namespace Code
 			// End Deal
 			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
+			Add<WinnersGetBank>();
 
 			// ---
 			// # View
