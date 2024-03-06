@@ -26,30 +26,34 @@ namespace Code
 			Add<SpawnDeck>();
 			Add<StartWithPlayerTurn>();
 
+			// Generic things
 			Add<WaitingSystem>();
 			Add<CalculateScore>();
 
+			// Enemy's AI (not ML!!!!!)
 			Add<AiTurnAction>();
 			Add<AiCardPickingAction>();
 
+			// Card Actions
 			Add<SideHit>();
 			Add<SideStand>();
-			Add<MoveCandidate>();
-			Add<MoveLensToCandidate>();
-			// Add<ShowPickingCardOptions>();
 			Add<PickCandidate>(); // Both burn and take
-			Add<MoveCardAndLensForBurning>();
 
 			// Cards burning
 			Add<BurnCard>();
 			Add<LogBurnedSystem>();
 
+			// Bets
 			Add<DoneCardActions>();
+
+			// End Turn
 			Add<PassTurnToNext>();
 
+			// End Deal
 			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
 
+			// ---
 			// # View
 			// ## UI
 			Add<UpdatePlayerScoreView>();
@@ -59,6 +63,9 @@ namespace Code
 			Add<ShowPlaceBetWindow>();
 			Add<HidePlaceBetWindow>();
 			// ## Movement
+			Add<MoveCandidate>();
+			Add<MoveLensToCandidate>();
+			Add<MoveCardAndLensForBurning>();
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCardsInHands>();
 			Add<MoveToTarget>();
