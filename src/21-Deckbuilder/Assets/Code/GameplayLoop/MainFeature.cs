@@ -24,6 +24,7 @@ namespace Code
 			Add<ResetScore>();
 			Add<DestroyOldDeck>();
 			Add<SpawnDeck>();
+			Add<ResetMinBetInBank>();
 			Add<StartWithPlayerTurn>();
 
 			// Generic things
@@ -45,6 +46,8 @@ namespace Code
 
 			// Bets
 			Add<DoneCardActions>();
+			Add<DoBet>();
+			Add<DoPass>();
 
 			// End Turn
 			Add<PassTurnToNext>();

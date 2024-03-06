@@ -18,8 +18,8 @@ namespace Code.System
 
 		public void Initialize()
 		{
-			Spawn(Side.Player);
-			Spawn(Side.Dealer).Is<Ai>(true);
+			Spawn(Side.Player).Add<DebugName, string>("Player");
+			Spawn(Side.Dealer).Add<DebugName, string>("Dealer").Is<Ai>(true);
 		}
 
 		private Entity<Game> Spawn(Side side)

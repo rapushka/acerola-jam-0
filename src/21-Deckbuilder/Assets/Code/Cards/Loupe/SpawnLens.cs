@@ -20,6 +20,7 @@ namespace Code.System
 		public void Initialize()
 		{
 			var behaviour = _resources.SpawnLoupe(_holders.DefaultLens);
+			behaviour.Entity.Add<DebugName, string>("Magnifying Glass");
 			behaviour.Entity.Add<Position, Vector3>(behaviour.transform.position);
 			behaviour.Entity.Add<Rotation, Quaternion>(behaviour.transform.rotation);
 			behaviour.Entity.Replace<MovementSpeed, float>(_viewConfig.MagnifyingGlassSpecificSpeed);
