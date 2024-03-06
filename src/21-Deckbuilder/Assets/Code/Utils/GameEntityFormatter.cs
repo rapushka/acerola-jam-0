@@ -22,6 +22,7 @@ namespace Code
 			}
 
 			yield return entity.ToString<Money, int>();
+			yield return entity.ToString<Waiting, float>(prefix: "timer: ", postfix: "s");
 
 			yield return entity.Is<CurrentTurn>() ? "<- current" : string.Empty;
 		}

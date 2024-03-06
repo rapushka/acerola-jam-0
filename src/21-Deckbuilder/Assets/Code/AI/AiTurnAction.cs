@@ -30,7 +30,6 @@ namespace Code.System
 		protected override bool Filter(Entity<Game> entity)
 			=> entity.Is<Ai>()
 			   && entity.Is<CurrentTurn>()
-			   && entity.Is<Stand>()
 			   && !HasCandidate;
 
 		protected override void Execute(List<Entity<Game>> entities)

@@ -33,6 +33,7 @@ namespace Code
 				Bank.AddValue<Money>(bet);
 
 				side.Is<Bet>(false);
+				side.Is<TurnEnded>(true);
 			}
 		}
 	}

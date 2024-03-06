@@ -16,9 +16,10 @@ namespace Code.System
 			=> _hud = hud;
 
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
-			=> context.CreateCollector(AnyOf(Get<Bet>(), Get<Pass>()).Added());
+			=> context.CreateCollector(AnyOf(Get<Bet>(), Get<Pass>(), Get<TurnEnded>()).Added());
 
-		protected override bool Filter(Entity<Game> entity) => entity.Is<Bet>() || entity.Is<Pass>();
+		protected override bool Filter(Entity<Game> entity)
+			=> entity.Is<Bet>() || entity.Is<Pass>() || entity.Is<TurnEnded>();
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{
