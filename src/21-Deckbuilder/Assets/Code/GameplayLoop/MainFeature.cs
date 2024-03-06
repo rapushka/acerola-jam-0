@@ -39,7 +39,10 @@ namespace Code
 			Add<ShowPickingCardOptions>();
 			Add<PickCandidate>(); // Both burn and take
 			Add<MoveCardAndLensForBurning>();
+			
+			// Cards burning
 			Add<BurnCard>();
+			Add<LogBurnedSystem>();
 
 			Add<EndTurn>();
 			Add<PassTurnToNext>();
