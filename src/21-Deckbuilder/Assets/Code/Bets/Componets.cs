@@ -10,4 +10,10 @@ namespace Code.Component
 	public sealed class CurrentBet : ValueComponent<int>, IInScope<Game> { }
 
 	public sealed class MinBet : ValueComponent<int>, IInScope<Game> { }
+
+	/// <summary> Means the current side places the bet == to Bank.CurrentBet </summary>
+	public sealed class Bet : FlagComponent, IInScope<Game> { }
+
+	/// <summary> Means the current side passes (i.e. leaves from deal) </summary>
+	public sealed class Pass : FlagComponent, IInScope<Game> { }
 }

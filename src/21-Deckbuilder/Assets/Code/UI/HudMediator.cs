@@ -10,6 +10,7 @@ namespace Code
 		[SerializeField] private TMP_Text _dealEndTextMesh;
 		[SerializeField] private GameObject _pickCardRoot;
 		[SerializeField] private GameObject _turnActionsRoot;
+		[SerializeField] private TMP_Text _currentBetTextMesh;
 
 		public int PlayerScore { set => _playerScoreTextMesh.text = value.ToString(); }
 
@@ -20,6 +21,8 @@ namespace Code
 			get => _turnActionsRoot.gameObject.activeSelf;
 			set => _turnActionsRoot.gameObject.SetActive(value);
 		}
+
+		public int CurrentBet { set => _currentBetTextMesh.text = value.ToString(); }
 
 		private bool DealEndVisibility { set => _dealEndScreenRoot.gameObject.SetActive(value); }
 

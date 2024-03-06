@@ -54,6 +54,8 @@ namespace Code
 			// # View
 			// ## UI
 			Add<UpdatePlayerScoreView>();
+			// ### Bets
+			Add<UpdateCurrentBet>();
 			// ## Movement
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCardsInHands>();
