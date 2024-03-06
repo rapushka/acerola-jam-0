@@ -50,9 +50,14 @@ namespace Code.System
 					}
 
 					if (Random.value >= _config.HitVsStandProbability)
+					{
 						dealer.Is<Hit>(true);
+					}
 					else
+					{
+						dealer.Is<Stand>(false);
 						dealer.Is<Stand>(true);
+					}
 				}
 			}
 		}

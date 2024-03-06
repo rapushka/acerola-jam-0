@@ -32,6 +32,12 @@ namespace Code.System
 				var lastSide = e.Get<Component.Side>().Value;
 				var nextSide = _contexts.GetSide(lastSide.Flip());
 
+				if (e.Is<Stand>() && nextSide.Is<Stand>())
+				{
+					EndDeal();
+					continue;
+				}
+
 				if (!nextSide.Is<Pass>())
 				{
 					nextSide.Is<CurrentTurn>(true);
@@ -44,8 +50,10 @@ namespace Code.System
 					continue;
 				}
 
-				_contexts.Get<Game>().CreateEntity().Is<Component.EndDeal>(true);
+				EndDeal();
 			}
 		}
+
+		private void EndDeal() => _contexts.Get<Game>().CreateEntity().Is<Component.EndDeal>(true);
 	}
 }

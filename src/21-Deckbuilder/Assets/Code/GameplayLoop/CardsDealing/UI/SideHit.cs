@@ -21,7 +21,10 @@ namespace Code
 		{
 			foreach (var side in _entities)
 			foreach (var card in _deck.TakeCards(1))
+			{
+				side.Is<Stand>(false);
 				card.Replace<Candidate, Side>(side.Get<Component.Side>().Value);
+			}
 		}
 	}
 }

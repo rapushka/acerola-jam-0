@@ -29,6 +29,7 @@ namespace Code
 				var minBet = Bank.Get<MinBet>().Value;
 				Bank.Replace<CurrentBet, int>(minBet);
 
+				side.Is<Stand>(true); // TODO: is it?
 				side.Is<TurnEnded>(true);
 			}
 		}
