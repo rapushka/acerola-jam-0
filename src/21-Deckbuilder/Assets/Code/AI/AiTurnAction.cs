@@ -25,7 +25,7 @@ namespace Code.System
 		{
 			var dealer = _contexts.GetDealer();
 
-			if (dealer.Is<CurrentTurn>() && !HasCandidate && !dealer.Has<Waiting>())
+			if (dealer.Is<KeepPlaying>() && dealer.Is<CurrentTurn>() && !HasCandidate && !dealer.Has<Waiting>())
 				MakeDecision(dealer);
 		}
 

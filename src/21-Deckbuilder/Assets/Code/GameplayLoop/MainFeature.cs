@@ -30,6 +30,7 @@ namespace Code
 			Add<AiTurnAction>();
 
 			Add<SideHit>();
+			Add<SideStand>();
 			Add<MoveCandidate>();
 			Add<MoveLensToCandidate>();
 			Add<ShowPickingCardOptions>();
