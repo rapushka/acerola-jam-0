@@ -19,11 +19,13 @@ namespace Code
 			Add<SpawnLens>();
 
 			// On Start Deal
+			Add<SidesKeepPlaying>();
 			Add<ResetScore>();
 			Add<DestroyOldDeck>();
 			Add<SpawnDeck>();
 			Add<StartWithPlayerTurn>();
 
+			Add<UpdateHud>();
 			Add<WaitingSystem>();
 			Add<CalculateScore>();
 
