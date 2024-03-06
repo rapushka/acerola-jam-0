@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Code.Component;
 using Code.Scope;
@@ -15,10 +16,15 @@ namespace Code
 
 			if (entity.Has<Face>() && entity.Has<Suit>())
 			{
-				yield return entity.ToString<Face, CardFace>();
+				var face = entity.ToString<Face, CardFace>();
+				yield return face.Replace("Number", string.Empty);
 				yield return "of";
 				yield return entity.ToString<Suit, CardSuit>();
 			}
+
+			yield return entity.ToString<Money, int>();
+
+			yield return entity.Is<CurrentTurn>() ? "<- current" : string.Empty;
 		}
 	}
 }
