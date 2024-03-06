@@ -30,7 +30,7 @@ namespace Code.System
 		{
 			foreach (var dealer in entities)
 			{
-				dealer.Add<Waiting, float>(_config.ThinkingDuration);
+				dealer.Add<Waiting, float>(_config.CardPickingActionThinkingDuration);
 				dealer.Add<Callback, Action>(Decide);
 				return;
 

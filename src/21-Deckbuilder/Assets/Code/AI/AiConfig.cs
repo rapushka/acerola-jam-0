@@ -8,7 +8,8 @@ namespace Code.System
 	{
 		private const string RandomTooltip = "on 1 - always right value\non 0 - always left value";
 
-		[field: SerializeField] public float ThinkingDuration { get; private set; }
+		[field: SerializeField] public float TurnActionThinkingDuration { get; private set; }
+		[field: SerializeField] public float CardPickingActionThinkingDuration { get; private set; }
 
 		[field: Header("Probabilities")]
 		[field: Tooltip(RandomTooltip)]

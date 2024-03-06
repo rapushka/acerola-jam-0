@@ -38,7 +38,7 @@ namespace Code.System
 			foreach (var dealer in entities)
 			{
 				// if !dealer.Has<Waiting>()
-				dealer.Add<Waiting, float>(_config.ThinkingDuration);
+				dealer.Add<Waiting, float>(_config.TurnActionThinkingDuration);
 				dealer.Add<Callback, Action>(Decide);
 				return;
 
