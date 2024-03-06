@@ -27,6 +27,7 @@ namespace Code.System
 					continue;
 
 				e.Is<CurrentTurn>(false);
+				e.Is<CardActionDone>(false);
 
 				var lastSide = e.Get<Component.Side>().Value;
 				var nextSide = _contexts.GetSide(lastSide.Flip());

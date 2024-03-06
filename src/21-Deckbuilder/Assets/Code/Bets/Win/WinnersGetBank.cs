@@ -28,10 +28,13 @@ namespace Code
 				var winnersCount = _winners.count;
 				var bankMoney = Bank.Get<Money>().Value;
 
-				var sidePrize = bankMoney / winnersCount;
+				if (winnersCount != 0)
+				{
+					var sidePrize = bankMoney / winnersCount;
 
-				foreach (var winner in _winners)
-					winner.AddValue<Money>(sidePrize);
+					foreach (var winner in _winners)
+						winner.AddValue<Money>(sidePrize);
+				}
 
 				Bank.Replace<Money, int>(0);
 			}

@@ -18,7 +18,6 @@ namespace Code.System
 
 			Add<RemoveComponentsSystem<Game, Hit>>();
 			Add<RemoveComponentsSystem<Game, Stand>>();
-			Add<RemoveComponentsSystem<Game, CardActionDone>>();
 			Add<RemoveComponentsSystem<Game, TurnEnded>>();
 
 			Add<DestroyEntitySystem<Game, StartDeal>>();

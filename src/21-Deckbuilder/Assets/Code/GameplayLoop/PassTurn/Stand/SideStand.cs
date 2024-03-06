@@ -19,7 +19,7 @@ namespace Code.System
 		protected override void Execute(List<Entity<Game>> entities)
 		{
 			foreach (var e in entities)
-				e.Is<TurnEnded>(true);
+				e.Is<CardActionDone>(true);
 		}
 	}
 }

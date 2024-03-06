@@ -43,8 +43,11 @@ namespace Code.System
 
 				void Decide()
 				{
-					if (Random.value >= _config.PassProbability)
+					if (Random.value <= _config.PassProbability)
+					{
 						dealer.Is<Pass>(true);
+						return;
+					}
 
 					if (Random.value >= _config.HitVsStandProbability)
 						dealer.Is<Hit>(true);

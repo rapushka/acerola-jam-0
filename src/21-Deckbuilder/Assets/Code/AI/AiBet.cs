@@ -31,14 +31,14 @@ namespace Code.System
 		{
 			foreach (var e in entities)
 			{
-				if (Random.value >= _config.RaiseBetChance)
+				if (Random.value <= _config.RaiseBetChance)
 				{
 					Bank.AddValue<CurrentBet>(_config.RaiseBetStep);
 					e.Is<Bet>(true);
 					continue;
 				}
 
-				if (Random.value >= _config.BetChance)
+				if (Random.value <= _config.BetChance)
 				{
 					e.Is<Bet>(true);
 					continue;
