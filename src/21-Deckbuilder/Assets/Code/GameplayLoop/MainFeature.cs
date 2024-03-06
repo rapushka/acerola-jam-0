@@ -16,6 +16,7 @@ namespace Code
 
 			Add<StartGame>();
 			Add<SpawnSides>();
+			Add<SpawnBank>();
 			Add<SpawnLens>();
 
 			// On Start Deal
@@ -39,7 +40,7 @@ namespace Code
 			Add<ShowPickingCardOptions>();
 			Add<PickCandidate>(); // Both burn and take
 			Add<MoveCardAndLensForBurning>();
-			
+
 			// Cards burning
 			Add<BurnCard>();
 			Add<LogBurnedSystem>();

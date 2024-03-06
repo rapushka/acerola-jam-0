@@ -8,10 +8,12 @@ namespace Code.System
 	public sealed class SpawnSides : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly BalanceConfig _balance;
 
-		public SpawnSides(Contexts contexts)
+		public SpawnSides(Contexts contexts, BalanceConfig balance)
 		{
 			_contexts = contexts;
+			_balance = balance;
 		}
 
 		public void Initialize()
@@ -25,6 +27,7 @@ namespace Code.System
 			var e = _contexts.Get<Game>().CreateEntity();
 			e.Add<Component.Side, Side>(side);
 			e.Add<Score, int>(0);
+			e.Add<Money, int>(_balance.SideMoneyOnStart);
 			e.Is<KeepPlaying>(true);
 			return e;
 		}

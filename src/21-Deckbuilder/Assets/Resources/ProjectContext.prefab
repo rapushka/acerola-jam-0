@@ -78,3 +78,4 @@ MonoBehaviour:
   _resourceConfig: {fileID: 11400000, guid: 39ad1205a5d3a51fdb13dd4759cde35d, type: 2}
   _viewConfig: {fileID: 11400000, guid: 85b0ed6303db32bd08b09657697956b2, type: 2}
   _aiConfig: {fileID: 11400000, guid: 4de8ec67279a5b7db9ae50d5f325af1d, type: 2}
+  _balance: {fileID: 11400000, guid: 600d633550820b92482382ecc3a76b01, type: 2}
