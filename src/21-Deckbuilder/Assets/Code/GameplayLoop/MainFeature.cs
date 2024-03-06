@@ -34,6 +34,7 @@ namespace Code
 			// Enemy's AI (not ML!!!!!)
 			Add<AiTurnAction>();
 			Add<AiCardPickingAction>();
+			Add<AiBet>();
 
 			// Card Actions
 			Add<SideHit>();

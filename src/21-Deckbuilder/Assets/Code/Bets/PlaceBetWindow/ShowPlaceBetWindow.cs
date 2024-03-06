@@ -18,7 +18,8 @@ namespace Code.System
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
 			=> context.CreateCollector(Get<CardActionDone>().Added());
 
-		protected override bool Filter(Entity<Game> entity) => entity.Is<CardActionDone>();
+		protected override bool Filter(Entity<Game> entity)
+			=> entity.Is<CardActionDone>() && entity.Get<Component.Side>().Value is Side.Player;
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{
