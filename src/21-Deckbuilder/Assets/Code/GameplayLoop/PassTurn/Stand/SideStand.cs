@@ -14,7 +14,7 @@ namespace Code.System
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
 			=> context.CreateCollector(Get<Stand>().Added());
 
-		protected override bool Filter(Entity<Game> entity) => !entity.Is<Stand>();
+		protected override bool Filter(Entity<Game> entity) => entity.Is<Stand>();
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{
