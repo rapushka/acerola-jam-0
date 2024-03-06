@@ -28,7 +28,6 @@ namespace Code.System
 			e.Add<Component.Side, Side>(side);
 			e.Add<Score, int>(0);
 			e.Add<Money, int>(_balance.SideMoneyOnStart);
-			e.Is<KeepPlaying>(true);
 			return e;
 		}
 	}

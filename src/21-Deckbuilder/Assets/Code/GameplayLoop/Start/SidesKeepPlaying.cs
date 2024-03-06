@@ -21,7 +21,11 @@ namespace Code.System
 		{
 			foreach (var _ in _entities)
 			foreach (var side in _sides)
-				side.Is<KeepPlaying>(true);
+			{
+				side.Is<Pass>(false);
+				side.Is<TurnEnded>(false);
+				side.Is<Stand>(false);
+			}
 		}
 	}
 }

@@ -3,7 +3,7 @@ using Code.Scope;
 using Entitas;
 using Entitas.Generic;
 
-namespace Code
+namespace Code.System
 {
 	public sealed class UpdateBets : IExecuteSystem
 	{

@@ -16,7 +16,7 @@ namespace Code.System
 		public PassTurnToNext(Contexts contexts)
 		{
 			_contexts = contexts;
-			_entities = contexts.GetGroup(AnyOf(Get<Component.EndTurn>()));
+			_entities = contexts.GetGroup(AnyOf(Get<TurnEnded>()));
 		}
 
 		public void Execute()
@@ -31,13 +31,13 @@ namespace Code.System
 				var lastSide = e.Get<Component.Side>().Value;
 				var nextSide = _contexts.GetSide(lastSide.Flip());
 
-				if (nextSide.Is<KeepPlaying>())
+				if (!nextSide.Is<Pass>())
 				{
 					nextSide.Is<CurrentTurn>(true);
 					continue;
 				}
 
-				if (e.Is<KeepPlaying>())
+				if (e.Is<Pass>())
 				{
 					e.Is<CurrentTurn>(true);
 					continue;

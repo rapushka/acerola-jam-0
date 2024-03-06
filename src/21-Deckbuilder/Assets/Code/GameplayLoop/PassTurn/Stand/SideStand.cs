@@ -12,14 +12,14 @@ namespace Code.System
 		public SideStand(Contexts contexts) : base(contexts.Get<Game>()) { }
 
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
-			=> context.CreateCollector(Get<KeepPlaying>().Removed());
+			=> context.CreateCollector(Get<Stand>().Added());
 
-		protected override bool Filter(Entity<Game> entity) => !entity.Is<KeepPlaying>();
+		protected override bool Filter(Entity<Game> entity) => !entity.Is<Stand>();
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{
 			foreach (var e in entities)
-				e.Is<Component.EndTurn>(true);
+				e.Is<TurnEnded>(true);
 		}
 	}
 }

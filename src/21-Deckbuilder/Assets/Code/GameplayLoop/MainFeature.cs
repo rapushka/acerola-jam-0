@@ -45,7 +45,7 @@ namespace Code
 			Add<BurnCard>();
 			Add<LogBurnedSystem>();
 
-			Add<EndTurn>();
+			Add<DoneCardActions>();
 			Add<PassTurnToNext>();
 
 			Add<EndDeal>();
@@ -56,6 +56,8 @@ namespace Code
 			Add<UpdatePlayerScoreView>();
 			// ### Bets
 			Add<UpdateBets>();
+			Add<ShowPlaceBetWindow>();
+			Add<HidePlaceBetWindow>();
 			// ## Movement
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCardsInHands>();
