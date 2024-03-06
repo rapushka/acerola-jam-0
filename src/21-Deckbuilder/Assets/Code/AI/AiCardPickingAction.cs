@@ -4,50 +4,42 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
-using Random = UnityEngine.Random;
 using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
+using Random = UnityEngine.Random;
 
 namespace Code.System
 {
-	public sealed class AiTurnAction : ReactiveSystem<Entity<Game>>
+	public sealed class AiCardPickingAction : ReactiveSystem<Entity<Game>>
 	{
 		private readonly Contexts _contexts;
 		private readonly AiConfig _config;
-		private readonly IGroup<Entity<Game>> _entities;
 
-		public AiTurnAction(Contexts contexts, AiConfig config)
+		public AiCardPickingAction(Contexts contexts, AiConfig config)
 			: base(contexts.Get<Game>())
 		{
 			_contexts = contexts;
 			_config = config;
 		}
 
-		private bool HasCandidate => _contexts.Get<Game>().Unique.Has<Candidate>();
-
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
-			=> context.CreateCollector(Get<CurrentTurn>().Added());
+			=> context.CreateCollector(Get<Hit>().Added());
 
-		protected override bool Filter(Entity<Game> entity)
-			=> entity.Is<Ai>()
-			   && entity.Is<CurrentTurn>()
-			   && entity.Is<KeepPlaying>()
-			   && !HasCandidate;
+		protected override bool Filter(Entity<Game> entity) => entity.Is<Ai>() && entity.Is<Hit>();
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{
 			foreach (var dealer in entities)
 			{
-				// if !dealer.Has<Waiting>()
 				dealer.Add<Waiting, float>(_config.ThinkingDuration);
 				dealer.Add<Callback, Action>(Decide);
 				return;
 
 				void Decide()
 				{
-					if (Random.value >= _config.HitVsStandProbability)
-						dealer.Is<Hit>(true);
+					if (Random.value >= _config.TakeVsBurnCandidateProbability)
+						_contexts.Get<Game>().CreateEntity().Is<TakeCandidate>(true);
 					else
-						dealer.Is<KeepPlaying>(false);
+						_contexts.Get<Game>().CreateEntity().Is<BurnCandidate>(false);
 				}
 			}
 		}

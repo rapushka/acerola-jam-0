@@ -28,14 +28,14 @@ namespace Code
 			Add<CalculateScore>();
 
 			Add<AiTurnAction>();
+			Add<AiCardPickingAction>();
 
 			Add<SideHit>();
 			Add<SideStand>();
 			Add<MoveCandidate>();
 			Add<MoveLensToCandidate>();
 			Add<ShowPickingCardOptions>();
-			// Both burn and take
-			Add<PickCandidate>();
+			Add<PickCandidate>(); // Both burn and take
 			Add<MoveCardAndLensForBurning>();
 			Add<BurnCard>();
 
