@@ -291,6 +291,7 @@ MonoBehaviour:
   _dealEndTextMesh: {fileID: 1980693824}
   _pickCardRoot: {fileID: 415177059}
   _turnActionsRoot: {fileID: 1327880533}
+  _placeBetWindowRoot: {fileID: 271082231}
   _currentBetTextMesh: {fileID: 1912580357}
   _minBetTextMesh: {fileID: 297572541}
 --- !u!1 &199559396
@@ -472,6 +473,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 16079752}
   m_LocalEulerAnglesHint: {x: -25, y: 180, z: 0}
+--- !u!1 &271082231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5971556483397664317, guid: 2c700ab490c1ceeefba2f8bd96d7f3c7, type: 3}
+  m_PrefabInstance: {fileID: 8435174524037555525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &271082232 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3353417683134183364, guid: 2c700ab490c1ceeefba2f8bd96d7f3c7, type: 3}

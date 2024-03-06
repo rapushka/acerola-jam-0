@@ -10,6 +10,8 @@ namespace Code
 		[SerializeField] private TMP_Text _dealEndTextMesh;
 		[SerializeField] private GameObject _pickCardRoot;
 		[SerializeField] private GameObject _turnActionsRoot;
+		[Header("Place a Bet window")]
+		[SerializeField] private GameObject _placeBetWindowRoot;
 		[SerializeField] private TMP_Text _currentBetTextMesh;
 		[SerializeField] private TMP_Text _minBetTextMesh;
 
@@ -23,8 +25,10 @@ namespace Code
 			set => _turnActionsRoot.gameObject.SetActive(value);
 		}
 
+		public bool PlaceBetWindowVisibility { set => _placeBetWindowRoot.gameObject.SetActive(value); }
+
 		public int CurrentBet { set => _currentBetTextMesh.text = value.ToString(); }
-		public int MinBet { set => _minBetTextMesh.text = $"Min Bet: {value}"; }
+		public int MinBet     { set => _minBetTextMesh.text = $"Min Bet: {value}"; }
 
 		private bool DealEndVisibility { set => _dealEndScreenRoot.gameObject.SetActive(value); }
 
