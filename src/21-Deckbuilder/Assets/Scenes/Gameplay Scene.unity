@@ -2758,6 +2758,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bet Window
       objectReference: {fileID: 0}
+    - target: {fileID: 5971556483397664317, guid: 2c700ab490c1ceeefba2f8bd96d7f3c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

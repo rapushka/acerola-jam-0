@@ -37,7 +37,7 @@ namespace Code
 			Add<SideStand>();
 			Add<MoveCandidate>();
 			Add<MoveLensToCandidate>();
-			Add<ShowPickingCardOptions>();
+			// Add<ShowPickingCardOptions>();
 			Add<PickCandidate>(); // Both burn and take
 			Add<MoveCardAndLensForBurning>();
 
