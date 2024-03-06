@@ -10,7 +10,6 @@ namespace Code.System
 	{
 		private readonly Contexts _contexts;
 		private readonly IGroup<Entity<Game>> _entities;
-		private readonly IGroup<Entity<Game>> _sides;
 		private readonly HudMediator _hud;
 
 		public EndDeal(Contexts contexts, HudMediator hud)
@@ -19,12 +18,12 @@ namespace Code.System
 			_contexts = contexts;
 
 			_entities = contexts.GetGroup(ScopeMatcher<Game>.Get<Component.EndDeal>());
-			_sides = contexts.GetGroup(ScopeMatcher<Game>.Get<Component.Side>());
+			contexts.GetGroup(ScopeMatcher<Game>.Get<Component.Side>());
 		}
 
 		public void Execute()
 		{
-			foreach (var _ in _entities)
+			foreach (var e in _entities.GetEntities())
 			{
 				var playerScore = _contexts.GetPlayer().Get<Score>().Value;
 				var dealerScore = _contexts.GetDealer().Get<Score>().Value;
@@ -46,8 +45,10 @@ namespace Code.System
 				var message = $"{result}\nPlayer: {playerScoreView}\nDealer: {dealerScoreView}";
 				_hud.ShowDealEndScreen(message);
 
-				foreach (var side in _sides)
-					side.Is<Stand>(false);
+				// foreach (var side in _sides)
+				// 	side.Is<KeepPlaying>(false);
+
+				e.Is<Destroyed>(true);
 			}
 		}
 	}

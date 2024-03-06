@@ -8,7 +8,7 @@ using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
 namespace Code.System
 {
-	public class MoveToDestination : IExecuteSystem
+	public class MoveToTarget : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly ViewConfig _viewConfig;
@@ -16,9 +16,9 @@ namespace Code.System
 		private readonly IGroup<Entity<Game>> _entities;
 
 		[Inject]
-		public MoveToDestination(Contexts contexts, ViewConfig viewConfig, ITimeService timeService)
+		public MoveToTarget(Contexts contexts, ViewConfig viewConfig, ITimeService timeService)
 		{
-			_entities = contexts.GetGroup(AllOf(Get<Position>(), Get<DestinationPosition>()));
+			_entities = contexts.GetGroup(AllOf(Get<Position>(), Get<TargetPosition>()));
 			_viewConfig = viewConfig;
 			_timeService = timeService;
 		}
@@ -28,8 +28,8 @@ namespace Code.System
 			foreach (var e in _entities.GetEntities())
 			{
 				var position = e.Get<Position>().Value;
-				var destination = e.Get<DestinationPosition>().Value;
-				var speed = _viewConfig.CommonMovementSpeed;
+				var destination = e.Get<TargetPosition>().Value;
+				var speed = e.GetOrDefault<MovementSpeed>()?.Value ?? _viewConfig.CommonMovementSpeed;
 
 				var direction = (destination - position).normalized;
 				var distance = position.DistanceTo(destination);
@@ -38,7 +38,14 @@ namespace Code.System
 				if (distance <= moveDistance)
 				{
 					e.Replace<Position, Vector3>(destination);
-					e.Remove<DestinationPosition>();
+					e.Remove<TargetPosition>();
+
+					if (e.Is<RemoveMovementSpeedOnDestination>())
+					{
+						e.Remove<MovementSpeed>();
+						e.Remove<RemoveMovementSpeedOnDestination>();
+					}
+
 					continue;
 				}
 

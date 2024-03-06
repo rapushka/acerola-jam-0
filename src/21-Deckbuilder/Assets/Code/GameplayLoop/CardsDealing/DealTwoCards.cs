@@ -1,4 +1,3 @@
-using System.Linq;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -10,13 +9,14 @@ namespace Code.System
 {
 	public class DealTwoCards : IExecuteSystem
 	{
+		private readonly DeckProvider _deck;
 		private readonly IGroup<Entity<Game>> _deckCards;
 		private readonly IGroup<Entity<Game>> _startDeal;
 
 		[Inject]
-		public DealTwoCards(Contexts contexts)
+		public DealTwoCards(Contexts contexts, DeckProvider deck)
 		{
-			_deckCards = contexts.GetGroup(AllOf(Get<Card>()).NoneOf(Get<HeldBy>()));
+			_deck = deck;
 			_startDeal = contexts.GetGroup(Get<StartDeal>());
 		}
 
@@ -24,10 +24,10 @@ namespace Code.System
 		{
 			foreach (var _ in _startDeal)
 			{
-				foreach (var card in _deckCards.GetEntities().TakeLast(2))
+				foreach (var card in _deck.TakeCards(2))
 					card.Add<HeldBy, Side>(Side.Player);
 
-				foreach (var card in _deckCards.GetEntities().TakeLast(2))
+				foreach (var card in _deck.TakeCards(2))
 					card.Add<HeldBy, Side>(Side.Dealer);
 			}
 		}

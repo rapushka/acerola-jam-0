@@ -30,7 +30,7 @@ namespace Code.System
 			{
 				var side = e.Get<Component.Side>().Value;
 				var cards = _contexts.Get<Game>().GetIndex<HeldBy, Side>().GetEntities(side);
-				var hand = side is Side.Player ? _holders.PlayerHand : _holders.DealerHand;
+				var hand = _holders[side].Hand;
 
 				var spacing = _viewConfig.DistanceBetweenCards;
 				var length = cards.Count * spacing;
@@ -38,12 +38,12 @@ namespace Code.System
 
 				foreach (var card in cards)
 				{
-					var cardPosition = card.Has<DestinationPosition>()
-						? card.Get<DestinationPosition>().Value
+					var cardPosition = card.Has<TargetPosition>()
+						? card.Get<TargetPosition>().Value
 						: card.Get<Position>().Value;
 
 					if (!cardPosition.x.ApproximatelyEquals(currentX))
-						card.Replace<DestinationPosition, Vector3>(cardPosition.Set(x: currentX));
+						card.Replace<TargetPosition, Vector3>(cardPosition.Set(x: currentX));
 
 					currentX += spacing;
 				}

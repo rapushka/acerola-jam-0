@@ -1,6 +1,8 @@
+using Code.Players;
 using Code.System;
 using Entitas.Generic;
 using Zenject;
+using ShowOnDealEnd = Code.System.ShowOnDealEnd;
 
 namespace Code
 {
@@ -14,21 +16,38 @@ namespace Code
 
 			Add<StartGame>();
 			Add<SpawnSides>();
+			Add<SpawnLens>();
 
 			// On Start Deal
+			Add<SidesKeepPlaying>();
+			Add<ResetScore>();
 			Add<DestroyOldDeck>();
 			Add<SpawnDeck>();
 			Add<StartWithPlayerTurn>();
-			Add<DealTwoCards>();
 
-			Add<AiChooseAction>();
-
+			Add<UpdateHud>();
+			Add<WaitingSystem>();
 			Add<CalculateScore>();
 
+			Add<AiTurnAction>();
+			Add<AiCardPickingAction>();
+
 			Add<SideHit>();
+			Add<SideStand>();
+			Add<MoveCandidate>();
+			Add<MoveLensToCandidate>();
+			Add<ShowPickingCardOptions>();
+			Add<PickCandidate>(); // Both burn and take
+			Add<MoveCardAndLensForBurning>();
+			
+			// Cards burning
+			Add<BurnCard>();
+			Add<LogBurnedSystem>();
+
+			Add<EndTurn>();
 			Add<PassTurnToNext>();
 
-			Add<System.EndDeal>();
+			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
 
 			// # View
@@ -37,12 +56,16 @@ namespace Code
 			// ## Movement
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCardsInHands>();
-			Add<MoveToDestination>();
+			Add<MoveToTarget>();
 			// ## Rotation
 			Add<RotatePlayerCards>();
 			Add<RotateToTarget>();
 
 			Add<BoilerplateFeature>();
+
+			// Tear Down
+			Add(new ClearReactivitySystem(this));
+			Add<DestroyAll>();
 		}
 	}
 }

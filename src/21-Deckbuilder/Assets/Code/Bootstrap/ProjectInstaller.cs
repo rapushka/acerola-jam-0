@@ -1,3 +1,4 @@
+using Code.System;
 using Entitas.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Code
 		[SerializeField] private DeckViewConfig _deckViewConfig;
 		[SerializeField] private ResourceConfig _resourceConfig;
 		[SerializeField] private ViewConfig _viewConfig;
+		[SerializeField] private AiConfig _aiConfig;
 
 		public override void InstallBindings()
 		{
@@ -19,6 +21,7 @@ namespace Code
 			Container.Bind<ContextsInitializer>().AsSingle().NonLazy();
 			Container.Bind<IResourcesProvider>().FromInstance(_resourceConfig).AsSingle();
 			Container.BindInstance(_viewConfig).AsSingle();
+			Container.BindInstance(_aiConfig).AsSingle();
 
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
 

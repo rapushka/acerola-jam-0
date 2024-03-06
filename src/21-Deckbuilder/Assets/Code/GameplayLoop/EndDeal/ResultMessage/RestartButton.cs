@@ -3,7 +3,7 @@ using Code.Scope;
 using Entitas.Generic;
 using UnityEngine;
 
-namespace Code.EndDeal
+namespace Code
 {
 	public class RestartButton : ButtonBase
 	{

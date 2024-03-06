@@ -17,14 +17,16 @@ namespace Code.System
 		public void Initialize()
 		{
 			Spawn(Side.Player);
-			Spawn(Side.Dealer);
+			Spawn(Side.Dealer).Is<Ai>(true);
 		}
 
-		private void Spawn(Side side)
+		private Entity<Game> Spawn(Side side)
 		{
 			var e = _contexts.Get<Game>().CreateEntity();
 			e.Add<Component.Side, Side>(side);
 			e.Add<Score, int>(0);
+			e.Is<KeepPlaying>(true);
+			return e;
 		}
 	}
 }
