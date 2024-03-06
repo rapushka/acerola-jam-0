@@ -39,7 +39,7 @@ namespace Code.System
 					if (Random.value >= _config.TakeVsBurnCandidateProbability)
 						_contexts.Get<Game>().CreateEntity().Is<TakeCandidate>(true);
 					else
-						_contexts.Get<Game>().CreateEntity().Is<BurnCandidate>(false);
+						_contexts.Get<Game>().CreateEntity().Is<BurnCandidate>(true);
 				}
 			}
 		}
