@@ -26,7 +26,6 @@ namespace Code
 			Add<SpawnDeck>();
 			Add<StartWithPlayerTurn>();
 
-			Add<UpdateHud>();
 			Add<WaitingSystem>();
 			Add<CalculateScore>();
 
@@ -54,6 +53,7 @@ namespace Code
 			// # View
 			// ## UI
 			Add<UpdatePlayerScoreView>();
+			Add<UpdateHud>();
 			// ### Bets
 			Add<UpdateBets>();
 			Add<ShowPlaceBetWindow>();

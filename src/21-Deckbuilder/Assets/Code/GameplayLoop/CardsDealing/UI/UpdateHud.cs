@@ -27,7 +27,7 @@ namespace Code
 			var isOurTurn = _contexts.GetPlayer().Is<CurrentTurn>();
 			var waitingForSomething = _timers.GetEntities().Any();
 
-			if (!isOurTurn || waitingForSomething)
+			if (!isOurTurn || waitingForSomething || _hud.IsPlaceBetWindowVisible)
 			{
 				_hud.TurnActionsVisibility = false;
 				_hud.PickCardOptionsVisibility = false;

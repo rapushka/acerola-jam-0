@@ -23,7 +23,7 @@ namespace Code.System
 		protected override void Execute(List<Entity<Game>> entities)
 		{
 			foreach (var _ in entities)
-				_hud.PlaceBetWindowVisibility = false;
+				_hud.IsPlaceBetWindowVisible = false;
 		}
 	}
 }
