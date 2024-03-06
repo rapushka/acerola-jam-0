@@ -16,4 +16,6 @@ namespace Code.Component
 
 	/// <summary> Means the current side passes (i.e. leaves from deal) </summary>
 	public sealed class Pass : FlagComponent, IInScope<Game> { }
+
+	public sealed class Winner : FlagComponent, IInScope<Game> { }
 }

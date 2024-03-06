@@ -23,6 +23,7 @@ namespace Code.System
 			bank.Is<Bank>(true);
 			bank.Add<MinBet, int>(_balance.MinBetOnStart);
 			bank.Add<CurrentBet, int>(_balance.MinBetOnStart);
+			bank.Add<Money, int>(0);
 		}
 	}
 }

@@ -18,8 +18,8 @@ namespace Code.System
 
 		public void Initialize()
 		{
-			Spawn(Side.Player);
-			Spawn(Side.Dealer).Is<Ai>(true);
+			Spawn(Side.Player).Add<DebugName, string>("Player");
+			Spawn(Side.Dealer).Add<DebugName, string>("Dealer").Is<Ai>(true);
 		}
 
 		private Entity<Game> Spawn(Side side)
@@ -28,7 +28,6 @@ namespace Code.System
 			e.Add<Component.Side, Side>(side);
 			e.Add<Score, int>(0);
 			e.Add<Money, int>(_balance.SideMoneyOnStart);
-			e.Is<KeepPlaying>(true);
 			return e;
 		}
 	}

@@ -9,7 +9,9 @@ namespace Code.Component
 
 	public sealed class EndDeal : FlagComponent, IInScope<Game>, ICleanup<DestroyEntity> { }
 
-	public sealed class KeepPlaying : FlagComponent, IInScope<Game> { }
+	/// <summary> Hit/Stand is done. but there's still a Bet </summary>
+	public sealed class CardActionDone : FlagComponent, IInScope<Game> { }
 
-	public sealed class EndTurn : FlagComponent, IInScope<Game>, ICleanup<RemoveComponent> { }
+	/// <summary> Action with Card is done AND Bet is placed </summary>
+	public sealed class TurnEnded : FlagComponent, IInScope<Game>, ICleanup<RemoveComponent> { }
 }

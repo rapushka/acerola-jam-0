@@ -25,7 +25,11 @@ namespace Code
 			set => _turnActionsRoot.gameObject.SetActive(value);
 		}
 
-		public bool PlaceBetWindowVisibility { set => _placeBetWindowRoot.gameObject.SetActive(value); }
+		public bool IsPlaceBetWindowVisible
+		{
+			get => _placeBetWindowRoot.gameObject.activeSelf;
+			set => _placeBetWindowRoot.gameObject.SetActive(value);
+		}
 
 		public int CurrentBet { set => _currentBetTextMesh.text = value.ToString(); }
 		public int MinBet     { set => _minBetTextMesh.text = $"Min Bet: {value}"; }

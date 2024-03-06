@@ -30,7 +30,6 @@ namespace Code.System
 		protected override bool Filter(Entity<Game> entity)
 			=> entity.Is<Ai>()
 			   && entity.Is<CurrentTurn>()
-			   && entity.Is<KeepPlaying>()
 			   && !HasCandidate;
 
 		protected override void Execute(List<Entity<Game>> entities)
@@ -44,10 +43,21 @@ namespace Code.System
 
 				void Decide()
 				{
+					if (Random.value <= _config.PassProbability)
+					{
+						dealer.Is<Pass>(true);
+						return;
+					}
+
 					if (Random.value >= _config.HitVsStandProbability)
+					{
 						dealer.Is<Hit>(true);
+					}
 					else
-						dealer.Is<KeepPlaying>(false);
+					{
+						dealer.Is<Stand>(false);
+						dealer.Is<Stand>(true);
+					}
 				}
 			}
 		}
