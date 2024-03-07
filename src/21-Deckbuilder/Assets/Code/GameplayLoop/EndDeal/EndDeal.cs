@@ -48,10 +48,10 @@ namespace Code.System
 				var message = $"{result}\nPlayer: {playerScoreView}\nDealer: {dealerScoreView}";
 				_hud.ShowDealEndScreen(message);
 
-				if (playerScore > dealerScore)
+				if (playerScore >= dealerScore && playerScore != -1)
 					player.Is<Winner>(true);
 
-				if (dealerScore > playerScore)
+				if (dealerScore >= playerScore && dealerScore != -1)
 					dealer.Is<Winner>(true);
 
 				e.Is<Destroyed>(true);
