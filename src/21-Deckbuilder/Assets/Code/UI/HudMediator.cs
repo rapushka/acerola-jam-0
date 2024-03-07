@@ -14,6 +14,7 @@ namespace Code
 		[SerializeField] private GameObject _placeBetWindowRoot;
 		[SerializeField] private TMP_Text _currentBetTextMesh;
 		[SerializeField] private TMP_Text _minBetTextMesh;
+		[SerializeField] private TMP_Text _statusTextMesh;
 
 		public int PlayerScore { set => _playerScoreTextMesh.text = value.ToString(); }
 
@@ -34,7 +35,8 @@ namespace Code
 		public int CurrentBet { set => _currentBetTextMesh.text = value.ToString(); }
 		public int MinBet     { set => _minBetTextMesh.text = $"Min Bet: {value}"; }
 
-		private bool DealEndVisibility { set => _dealEndScreenRoot.gameObject.SetActive(value); }
+		public  string StatusText        { set => _statusTextMesh.text = value; }
+		private bool   DealEndVisibility { set => _dealEndScreenRoot.gameObject.SetActive(value); }
 
 		public void ShowDealEndScreen(string message)
 		{
