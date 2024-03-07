@@ -64,6 +64,7 @@ namespace Code
 			Add<UpdatePlayerScoreView>();
 			Add<UpdateHud>();
 			Add<UpdateStatus>();
+			Add<UpdateStandView>();
 			// ### Bets
 			Add<UpdateBets>();
 			Add<ShowPlaceBetWindow>();

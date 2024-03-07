@@ -8,6 +8,7 @@ namespace Code
 		[SerializeField] private HoldersProvider _holdersProvider;
 		[SerializeField] private HudMediator _hud;
 		[SerializeField] private BehavioursCollector _behavioursCollector;
+		[SerializeField] private StandSign _opponentStandSign;
 
 		public override void InstallBindings()
 		{
@@ -19,6 +20,7 @@ namespace Code
 			Container.BindInstance(_behavioursCollector.Behaviours).AsSingle();
 			Container.BindInstance(_holdersProvider).AsSingle();
 			Container.BindInstance(_hud).AsSingle();
+			Container.BindInstance(_opponentStandSign).AsSingle();
 
 			Container.Bind<CardsFactory>().AsSingle();
 
