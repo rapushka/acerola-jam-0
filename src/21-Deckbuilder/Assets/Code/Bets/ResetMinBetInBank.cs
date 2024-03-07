@@ -25,6 +25,7 @@ namespace Code.Players
 			{
 				e.Replace<Money, int>(0);
 				e.Replace<MinBet, int>(_balance.MinBetOnStart);
+				e.Replace<CurrentBet, int>(_balance.MinBetOnStart);
 			}
 		}
 	}

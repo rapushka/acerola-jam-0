@@ -38,13 +38,13 @@ namespace Code.System
 					continue;
 				}
 
-				if (!nextSide.Is<Pass>())
+				if (!nextSide.Is<Pass>() && !nextSide.Is<AllIn>())
 				{
 					nextSide.Is<CurrentTurn>(true);
 					continue;
 				}
 
-				if (e.Is<Pass>())
+				if (e.Is<Pass>() && !e.Is<AllIn>())
 				{
 					e.Is<CurrentTurn>(true);
 					continue;

@@ -29,8 +29,18 @@ namespace Code
 				var bet = Bank.Get<CurrentBet>().Value;
 				Bank.Replace<MinBet, int>(bet);
 
-				side.SubtractValue<Money>(bet);
-				Bank.AddValue<Money>(bet);
+				var sideMoney = side.Get<Money>().Value;
+				if (bet >= sideMoney)
+				{
+					side.Is<AllIn>(true);
+					side.Replace<Money, int>(0);
+					Bank.AddValue<Money>(sideMoney);
+				}
+				else
+				{
+					side.SubtractValue<Money>(bet);
+					Bank.AddValue<Money>(bet);
+				}
 
 				side.Is<Bet>(false);
 				side.Is<TurnEnded>(true);

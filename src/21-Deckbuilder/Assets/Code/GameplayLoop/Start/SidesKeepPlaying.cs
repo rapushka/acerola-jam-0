@@ -26,6 +26,7 @@ namespace Code.System
 				side.Is<TurnEnded>(false);
 				side.Is<Stand>(false);
 				side.Is<Winner>(false);
+				side.Is<AllIn>(false);
 			}
 		}
 	}
