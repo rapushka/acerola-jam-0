@@ -1296,30 +1296,6 @@ PrefabInstance:
       value: 89.5
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.5258544
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.78782976
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.9528302
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4287023603
       objectReference: {fileID: 0}
@@ -1562,22 +1538,6 @@ PrefabInstance:
     - target: {fileID: 3384863035415193609, guid: fe774e9e918afc301b065cac4e03f3f8, type: 3}
       propertyPath: m_Name
       value: Background
-      objectReference: {fileID: 0}
-    - target: {fileID: 5718383419458076466, guid: fe774e9e918afc301b065cac4e03f3f8, type: 3}
-      propertyPath: m_Color.a
-      value: 0.9490196
-      objectReference: {fileID: 0}
-    - target: {fileID: 5718383419458076466, guid: fe774e9e918afc301b065cac4e03f3f8, type: 3}
-      propertyPath: m_Color.b
-      value: 0.032974366
-      objectReference: {fileID: 0}
-    - target: {fileID: 5718383419458076466, guid: fe774e9e918afc301b065cac4e03f3f8, type: 3}
-      propertyPath: m_Color.g
-      value: 0.032974366
-      objectReference: {fileID: 0}
-    - target: {fileID: 5718383419458076466, guid: fe774e9e918afc301b065cac4e03f3f8, type: 3}
-      propertyPath: m_Color.r
-      value: 0.122641504
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

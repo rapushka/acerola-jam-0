@@ -57,7 +57,7 @@ namespace Code
 			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
 			Add<WinnersGetBank>();
-			// TODO: end game on bankrupt
+			Add<CheckBankruptcy>();
 
 			// ---
 			// # View

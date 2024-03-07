@@ -24,6 +24,9 @@ namespace Code
 
 		public void Execute()
 		{
+			if (_contexts.GetPlayer() is null || _contexts.GetDealer() is null)
+				return;
+
 			var isOurTurn = _contexts.GetPlayer().Is<CurrentTurn>();
 			var waitingForSomething = _timers.GetEntities().Any();
 

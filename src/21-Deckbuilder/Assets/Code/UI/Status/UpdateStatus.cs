@@ -25,6 +25,9 @@ namespace Code.System
 
 		public void Execute()
 		{
+			if (Player is null || Dealer is null)
+				return;
+
 			_stringBuilder.Clear();
 
 			_stringBuilder.AppendLine($"Player's money: {Player.Get<Money>().Value}");

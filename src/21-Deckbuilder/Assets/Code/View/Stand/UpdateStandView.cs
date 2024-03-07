@@ -22,6 +22,10 @@ namespace Code
 
 		private Entity<Game> Dealer => _contexts.GetDealer();
 
-		public void Execute() => _standSign.TurnedOn = Dealer.Is<Stand>();
+		public void Execute()
+		{
+			if (Dealer is not null)
+				_standSign.TurnedOn = Dealer.Is<Stand>();
+		}
 	}
 }

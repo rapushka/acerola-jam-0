@@ -15,6 +15,8 @@ namespace Code
 		[SerializeField] private TMP_Text _currentBetTextMesh;
 		[SerializeField] private TMP_Text _minBetTextMesh;
 		[SerializeField] private TMP_Text _statusTextMesh;
+		[SerializeField] private GameObject _looseScreenRoot;
+		[SerializeField] private GameObject _winScreenRoot;
 
 		public int PlayerScore { set => _playerScoreTextMesh.text = value.ToString(); }
 
@@ -44,8 +46,25 @@ namespace Code
 			DealEndVisibility = true;
 		}
 
-		public void HideDealEndScreen()
+		public void HideDealEndScreen() => DealEndVisibility = false;
+
+		public void ShowLooseScreen()
 		{
+			HideAll();
+			_looseScreenRoot.SetActive(true);
+		}
+
+		public void ShowWinScreen()
+		{
+			HideAll();
+			_winScreenRoot.SetActive(true);
+		}
+
+		private void HideAll()
+		{
+			PickCardOptionsVisibility = false;
+			TurnActionsVisibility = false;
+			IsPlaceBetWindowVisible = false;
 			DealEndVisibility = false;
 		}
 	}
