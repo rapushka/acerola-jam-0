@@ -25,13 +25,13 @@ namespace Code
 		public Entity<Game> CreateDealer()
 			=> Create(Side.Dealer)
 			   .Add<DebugName, string>("Dealer")
-			   .Add<DealerNumber, int>(0)
+			   .Add<DealerNumber, int>(_counter++)
 			   .Is<Ai>(true);
 
 		private Entity<Game> Create(Side side)
 			=> _contexts.Get<Game>().CreateEntity()
 			            .Add<Component.Side, Side>(side)
-			            .Add<Score, int>(_counter++)
+			            .Add<Score, int>(0)
 			            .Add<Money, int>(_balance.SideMoneyOnStart);
 	}
 }
