@@ -75,6 +75,7 @@ namespace Code
 			Add<UpdateHud>();
 			Add<UpdateStatus>();
 			Add<UpdateStandView>();
+			Add<ShowCardDescription>();
 			// ### Bets
 			Add<UpdateBets>();
 			Add<ShowPlaceBetWindow>();

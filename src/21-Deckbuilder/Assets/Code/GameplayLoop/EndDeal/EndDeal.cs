@@ -31,8 +31,8 @@ namespace Code.System
 				var playerScore = player.Get<Score>().Value;
 				var dealerScore = dealer.Get<Score>().Value;
 
-				playerScore = playerScore > 21 ? -1 : playerScore;
-				dealerScore = dealerScore > 21 ? -1 : dealerScore;
+				playerScore = playerScore > Constants.MaxPointThreshold ? -1 : playerScore;
+				dealerScore = dealerScore > Constants.MaxPointThreshold ? -1 : dealerScore;
 
 				var result = playerScore.CompareTo(dealerScore) switch
 				{
