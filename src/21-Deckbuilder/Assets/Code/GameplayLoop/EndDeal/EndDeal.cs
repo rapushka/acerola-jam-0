@@ -42,6 +42,12 @@ namespace Code.System
 				var isPlayerWin = playerScore >= dealerScore || isDealerPass || isDealerBusted;
 				var isDealerWin = dealerScore >= playerScore || isPlayerPass || isPlayerBusted;
 
+				if (isPlayerBusted || isPlayerPass)
+					isPlayerWin = false;
+
+				if (isDealerBusted || isDealerPass)
+					isDealerWin = false;
+
 				player.Is<Winner>(isPlayerWin);
 				dealer.Is<Winner>(isDealerWin);
 
