@@ -2,7 +2,6 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 
 namespace Code.System
 {
@@ -19,6 +18,8 @@ namespace Code.System
 			_entities = contexts.GetGroup(ScopeMatcher<Game>.Get<StartDeal>());
 		}
 
+		private static CardId TargetCard => new(CardFace.Ace, CardSuit.Spades);
+
 		public void Execute()
 		{
 			foreach (var _ in _entities)
@@ -27,11 +28,7 @@ namespace Code.System
 
 		private void Put()
 		{
-			var cardID = new CardId(CardFace.Ace, CardSuit.Spades);
-			Debug.Log($"cardID = {cardID}");
-
-			var targetCards = _contexts.Get<Game>().GetIndex<Face, CardId>().GetEntities(cardID);
-			Debug.Log($"targetCards.Count = {targetCards.Count}");
+			var targetCards = _contexts.Get<Game>().GetIndex<Face, CardId>().GetEntities(TargetCard);
 
 			foreach (var card in targetCards)
 				card.Replace<Order, int>(_deckProvider.Count + 1);
