@@ -10,7 +10,6 @@ namespace Code.System
 			: base(nameof(BoilerplateFeature), factory)
 		{
 			Add<SelfEventSystem<Game, Face>>();
-			Add<SelfEventSystem<Game, Suit>>();
 			Add<SelfEventSystem<Game, Position>>();
 			Add<SelfEventSystem<Game, Rotation>>();
 			Add<SelfEventSystem<Game, Visible>>();

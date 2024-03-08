@@ -16,16 +16,16 @@ namespace Code
 			_resources = resources;
 		}
 
-		public Entity<Game> Create(CardFace cardFace, CardSuit cardSuit, Transform parent, float height)
+		public Entity<Game> Create(CardFace face, CardSuit suit, Transform parent, float height, int counter)
 		{
 			var cardView = _resources.SpawnCardView(parent, height);
 			var card = cardView.Entity;
 			card.Is<Card>(true);
-			card.Add<Face, CardFace>(cardFace);
-			card.Add<Suit, CardSuit>(cardSuit);
+			card.Add<Face, CardId>(new CardId(face, suit));
 			card.Add<Position, Vector3>(cardView.transform.position);
 			card.Add<Rotation, Quaternion>(cardView.transform.rotation);
-			card.Add<Points, int>(cardFace.GetPoints());
+			card.Add<Points, int>(face.GetPoints());
+			card.Add<Order, int>(counter);
 
 			return card;
 		}

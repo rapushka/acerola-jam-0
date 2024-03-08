@@ -13,13 +13,7 @@ namespace Code
 
 			yield return entity.ToString<DebugName, string>(defaultValue: "e");
 
-			if (entity.Has<Face>() && entity.Has<Suit>())
-			{
-				var face = entity.ToString<Face, CardFace>();
-				yield return face.Replace("Number", string.Empty);
-				yield return "of";
-				yield return entity.ToString<Suit, CardSuit>();
-			}
+			yield return entity.ToString<Face, CardId>();
 
 			yield return entity.ToString<Money, int>();
 			yield return entity.ToString<Waiting, float>(prefix: "timer: ", postfix: "s");

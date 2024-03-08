@@ -27,6 +27,7 @@ namespace Code
 		{
 			_contexts.Get<Game>().GetPrimaryIndex<Component.Side, Side>().Initialize();
 			_contexts.Get<Game>().GetIndex<Component.HeldBy, Side>().Initialize();
+			_contexts.Get<Game>().GetIndex<Component.Face, CardId>().Initialize();
 		}
 
 		private void InitializeFormatters()

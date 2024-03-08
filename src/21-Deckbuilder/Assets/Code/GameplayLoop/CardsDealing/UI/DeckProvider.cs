@@ -19,9 +19,12 @@ namespace Code
 			_deckCards = contexts.GetGroup(AllOf(Get<Card>()).NoneOf(Get<HeldBy>(), Get<ToBurn>(), Get<Burned>()));
 		}
 
+		private IOrderedEnumerable<Entity<Game>> Deck
+			=> _deckCards.GetEntities().OrderByDescending((c) => c.Get<Order>().Value);
+
 		public Entity<Game> TopCard => TakeCards(1).Single();
 
 		public IEnumerable<Entity<Game>> TakeCards(int count)
-			=> _deckCards.GetEntities().TakeLast(count);
+			=> Deck.TakeLast(count);
 	}
 }

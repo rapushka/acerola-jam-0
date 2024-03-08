@@ -34,8 +34,12 @@ namespace Code.System
 				var height = 0f;
 				var cardHeight = 0.002f;
 
+				var counter = 1;
 				foreach (var (cardFace, cardSuit) in shuffledDeck)
-					_cardsFactory.Create(cardFace, cardSuit, _holders.Deck, height += cardHeight);
+				{
+					height += cardHeight;
+					_cardsFactory.Create(cardFace, cardSuit, _holders.Deck, height, counter);
+				}
 			}
 		}
 
