@@ -30,18 +30,19 @@ namespace Code
 		{
 			foreach (var side in _sides)
 			{
-				if (side.Get<Money>().Value <= _balance.MinBetOnStart)
+				if (side.Get<Money>().Value >= _balance.MinBetOnStart)
+					continue;
+
+				var isDealerBankrupt = side.Get<Component.Side>().Value is Side.Dealer;
+				if (isDealerBankrupt)
 				{
-					if (side.Get<Component.Side>().Value is Side.Dealer)
-					{
-						side.Is<Destroyed>(true); // TODO: or how?
-						_hud.ShowWinScreen();
-					}
-					else
-					{
-						side.Is<Destroyed>(true); // TODO: or how?
-						_hud.ShowLooseScreen();
-					}
+					side.Is<Bankrupt>(true); // TODO: or how?
+					_hud.ShowWinScreen();
+				}
+				else
+				{
+					side.Is<Bankrupt>(true); // TODO: or how?
+					_hud.ShowLooseScreen();
 				}
 			}
 		}

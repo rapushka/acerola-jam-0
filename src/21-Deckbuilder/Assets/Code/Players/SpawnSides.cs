@@ -1,34 +1,20 @@
-using Code.Component;
-using Code.Scope;
 using Entitas;
-using Entitas.Generic;
 
 namespace Code.System
 {
 	public sealed class SpawnSides : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
-		private readonly BalanceConfig _balance;
+		private readonly SidesFactory _sidesFactory;
 
-		public SpawnSides(Contexts contexts, BalanceConfig balance)
+		public SpawnSides(SidesFactory sidesFactory)
 		{
-			_contexts = contexts;
-			_balance = balance;
+			_sidesFactory = sidesFactory;
 		}
 
 		public void Initialize()
 		{
-			Spawn(Side.Player).Add<DebugName, string>("Player");
-			Spawn(Side.Dealer).Add<DebugName, string>("Dealer").Is<Ai>(true);
-		}
-
-		private Entity<Game> Spawn(Side side)
-		{
-			var e = _contexts.Get<Game>().CreateEntity();
-			e.Add<Component.Side, Side>(side);
-			e.Add<Score, int>(0);
-			e.Add<Money, int>(_balance.SideMoneyOnStart);
-			return e;
+			_sidesFactory.CreatePlayer();
+			_sidesFactory.CreateDealer();
 		}
 	}
 }

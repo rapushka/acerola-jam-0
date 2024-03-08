@@ -23,6 +23,7 @@ namespace Code
 			Container.BindInstance(_opponentStandSign).AsSingle();
 
 			Container.Bind<CardsFactory>().AsSingle();
+			Container.Bind<SidesFactory>().AsSingle();
 
 			Container.Bind<DeckProvider>().AsSingle().NonLazy();
 		}

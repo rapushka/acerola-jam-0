@@ -20,6 +20,7 @@ namespace Code
 			Add<SpawnLens>();
 
 			// On Start Deal
+			Add<SpawnNextDealer>();
 			Add<SidesKeepPlaying>();
 			Add<ResetScore>();
 			Add<DestroyOldDeck>();
