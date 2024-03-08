@@ -31,28 +31,36 @@ namespace Code.System
 				var lastSide = e.Get<Component.Side>().Value;
 				var nextSide = _contexts.GetSide(lastSide.Flip());
 
+				e.Is<CardActionDone>(false);
+				nextSide.Is<CardActionDone>(false);
+
 				if (e.Is<Stand>() && nextSide.Is<Stand>())
 				{
 					EndDeal();
 					continue;
 				}
 
-				if (!nextSide.Is<Pass>() && !nextSide.Is<AllIn>())
-				{
-					nextSide.Is<CurrentTurn>(true);
-					nextSide.Is<CardActionDone>(false);
+				if (TryPassTurn(nextSide))
 					continue;
-				}
 
-				if (e.Is<Pass>() && !e.Is<AllIn>())
-				{
-					e.Is<CurrentTurn>(true);
-					e.Is<CardActionDone>(false);
+				if (TryPassTurn(e))
 					continue;
-				}
 
 				EndDeal();
 			}
+		}
+
+		private static bool TryPassTurn(Entity<Game> e)
+		{
+			if (!e.Is<Pass>() && !e.Is<AllIn>())
+			{
+				e.Is<CurrentTurn>(true);
+				e.Is<Stand>(false);
+
+				return true;
+			}
+
+			return false;
 		}
 
 		private void EndDeal() => _contexts.Get<Game>().CreateEntity().Is<Component.EndDeal>(true);

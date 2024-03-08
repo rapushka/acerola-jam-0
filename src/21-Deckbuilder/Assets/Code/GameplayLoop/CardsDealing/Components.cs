@@ -3,7 +3,7 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	/// <summary> Side draws a card </summary>
+	/// <summary> Side draws a card. add to side </summary>
 	public sealed class Hit : FlagComponent, IInScope<Game>, ICleanup<RemoveComponent> { }
 
 	/// <summary> Side skips this turn. But they still have got to place a bet </summary>
