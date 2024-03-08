@@ -50,7 +50,8 @@ namespace Code
 			// Cards burning
 			Add<BurnCard>();
 			// ## OnBurn Abilities
-			Add<LogBurnedSystem>();
+			// Add<LogBurnedSystem>();
+			Add<CastChangePoints>();
 
 			// Bets
 			Add<DoneCardActions>();

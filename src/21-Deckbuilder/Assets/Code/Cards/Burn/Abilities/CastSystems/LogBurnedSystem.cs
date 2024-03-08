@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code.System
 {
-	public sealed class LogBurnedSystem : OnBurnAbilityBase
+	public sealed class LogBurnedSystem : CastOnBurnAbilityBase
 	{
 		public LogBurnedSystem(Contexts contexts) : base(contexts) { }
 

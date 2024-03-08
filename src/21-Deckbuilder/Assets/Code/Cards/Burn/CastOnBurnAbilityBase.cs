@@ -6,9 +6,9 @@ using Entitas.Generic;
 
 namespace Code.System
 {
-	public abstract class OnBurnAbilityBase : ReactiveSystem<Entity<Game>>
+	public abstract class CastOnBurnAbilityBase : ReactiveSystem<Entity<Game>>
 	{
-		public OnBurnAbilityBase(Contexts contexts) : base(contexts.Get<Game>()) { }
+		public CastOnBurnAbilityBase(Contexts contexts) : base(contexts.Get<Game>()) { }
 
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
 			=> context.CreateCollector(ScopeMatcher<Game>.Get<Burned>().Added());
