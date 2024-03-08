@@ -1,4 +1,3 @@
-using System;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -31,28 +30,38 @@ namespace Code.System
 				var playerScore = player.Get<Score>().Value;
 				var dealerScore = dealer.Get<Score>().Value;
 
-				playerScore = playerScore > Constants.MaxPointThreshold ? -1 : playerScore;
-				dealerScore = dealerScore > Constants.MaxPointThreshold ? -1 : dealerScore;
+				var rules = _contexts.Get<Game>().Unique.GetEntity<Rules>();
+				var maxPoints = rules.Get<MaxPointsThreshold>().Value;
 
-				var result = playerScore.CompareTo(dealerScore) switch
-				{
-					-1 => "You Loose",
-					0  => "Draw",
-					1  => "You Win",
-					_  => throw new ArgumentOutOfRangeException(),
-				};
+				var isPlayerPass = player.Is<Pass>();
+				var isDealerPass = dealer.Is<Pass>();
 
-				var playerScoreView = playerScore == -1 ? "Busted!" : playerScore.ToString();
-				var dealerScoreView = dealerScore == -1 ? "Busted!" : dealerScore.ToString();
+				var isPlayerBusted = playerScore > maxPoints;
+				var isDealerBusted = dealerScore > maxPoints;
+
+				var isPlayerWin = playerScore >= dealerScore || isDealerPass || isDealerBusted;
+				var isDealerWin = dealerScore >= playerScore || isPlayerPass || isPlayerBusted;
+
+				player.Is<Winner>(isPlayerWin);
+				dealer.Is<Winner>(isDealerWin);
+
+				var result
+					= isPlayerWin && isDealerWin ? "Draw! You split the winnings in two"
+					: isPlayerWin                ? "You Win! And take the whole Bank"
+					: isDealerWin                ? "You Loose:( And the Dealer takes the whole Bank"
+					                               : "Nobody Win! The casino takes your winnings";
+
+				var playerScoreView
+					= isPlayerPass   ? "Pass"
+					: isPlayerBusted ? "Busted!"
+					                   : playerScore.ToString();
+				var dealerScoreView
+					= isDealerPass   ? "Pass"
+					: isDealerBusted ? "Busted!"
+					                   : dealerScore.ToString();
 
 				var message = $"{result}\nPlayer: {playerScoreView}\nDealer: {dealerScoreView}";
 				_hud.ShowDealEndScreen(message);
-
-				if (playerScore >= dealerScore && playerScore != -1)
-					player.Is<Winner>(true);
-
-				if (dealerScore >= playerScore && dealerScore != -1)
-					dealer.Is<Winner>(true);
 
 				e.Is<Destroyed>(true);
 			}

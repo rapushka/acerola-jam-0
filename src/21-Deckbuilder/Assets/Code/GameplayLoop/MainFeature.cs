@@ -24,6 +24,7 @@ namespace Code
 			Add<HideWinAndLooseScreens>();
 			Add<SidesKeepPlaying>();
 			Add<ResetScore>();
+			Add<SetupDefaultRules>();
 			Add<DestroyOldDeck>();
 			Add<SpawnDeck>();
 			Add<BindAbilities>();
