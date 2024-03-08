@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -6,22 +7,26 @@ using Entitas.Generic;
 
 namespace Code.System
 {
-	public sealed class BurnCard : IExecuteSystem
+	public sealed class BurnCard : ReactiveSystem<Entity<Game>>
 	{
 		private readonly Contexts _contexts;
 		private readonly ViewConfig _viewConfig;
-		private readonly IGroup<Entity<Game>> _entities;
 
 		public BurnCard(Contexts contexts, ViewConfig viewConfig)
+			: base(contexts.Get<Game>())
 		{
-			_entities = contexts.GetGroup(ScopeMatcher<Game>.Get<ToBurn>());
 			_contexts = contexts;
 			_viewConfig = viewConfig;
 		}
 
-		public void Execute()
+		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
+			=> context.CreateCollector(ScopeMatcher<Game>.Get<ToBurn>().Added());
+
+		protected override bool Filter(Entity<Game> entity) => entity.Is<ToBurn>();
+
+		protected override void Execute(List<Entity<Game>> entities)
 		{
-			foreach (var card in _entities.GetEntities())
+			foreach (var card in entities)
 			{
 				var e = _contexts.Get<Game>().CreateEntity();
 				e.Add<Waiting, float>(_viewConfig.BurningDuration);
