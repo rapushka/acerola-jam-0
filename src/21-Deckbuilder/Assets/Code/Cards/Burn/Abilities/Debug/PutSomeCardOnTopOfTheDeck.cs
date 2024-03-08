@@ -24,7 +24,7 @@ namespace Code.System
 		{
 			foreach (var _ in _entities)
 			{
-				PutFirst((CardFace.Ace, CardSuit.Hearts));
+				PutFirst((CardFace.Jack, CardSuit.Spades));
 			}
 		}
 

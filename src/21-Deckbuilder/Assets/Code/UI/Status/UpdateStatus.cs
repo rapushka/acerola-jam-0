@@ -22,6 +22,7 @@ namespace Code.System
 		private Entity<Game> Player => _contexts.GetPlayer();
 		private Entity<Game> Dealer => _contexts.GetDealer();
 		private Entity<Game> Bank   => _contexts.Get<Game>().Unique.GetEntity<Bank>();
+		private Entity<Game> Rules  => _contexts.Get<Game>().Unique.GetEntity<Rules>();
 
 		public void Execute()
 		{
@@ -33,6 +34,8 @@ namespace Code.System
 			_stringBuilder.AppendLine($"Player's money: {Player.Get<Money>().Value}");
 			_stringBuilder.AppendLine($"Dealer's money: {Dealer.Get<Money>().Value}");
 			_stringBuilder.AppendLine($"Bank: {Bank.Get<Money>().Value}");
+			_stringBuilder.AppendLine($"Max Points Threshold: {Rules.Get<MaxPointsThreshold>().Value}");
+			_stringBuilder.AppendLine($"Max Cards in Hand: {Rules.Get<MaxCardsInHand>().Value}");
 
 			_hud.StatusText = _stringBuilder.ToString();
 		}

@@ -14,6 +14,7 @@ namespace Code
 
 			BuildChangePoints(card, ref stringBuilder);
 			BuildDestroyAllSuit(card, ref stringBuilder);
+			BuildChangePointsThreshold(card, ref stringBuilder);
 
 			BuildEmptyDescription(ref stringBuilder);
 
@@ -37,11 +38,25 @@ namespace Code
 			var delta = card.Get<ChangePoints>().Value;
 			var targets = card.Get<AbilityTargets>().Value;
 
-			// "Adds 5 points to Player and Dealer"
-			stringBuilder.Append(delta > 0 ? "Adds " : "Subtracts ");
+			// "+5 points to Player and Dealer"
+			stringBuilder.Append(delta > 0 ? "+" : "-");
 			stringBuilder.Append(Mathf.Abs(delta));
 			stringBuilder.Append(" points to ");
 			stringBuilder.Append(string.Join(" and ", targets));
+			stringBuilder.Append("\n\n");
+		}
+
+		private void BuildChangePointsThreshold(Entity<Game> card, ref StringBuilder stringBuilder)
+		{
+			if (!card.Has<ChangePointsThreshold>())
+				return;
+
+			var delta = card.Get<ChangePointsThreshold>().Value;
+
+			// "Max points threshold +2"
+			stringBuilder.Append("Max points threshold ");
+			stringBuilder.Append(delta > 0 ? "+" : "-");
+			stringBuilder.Append(Mathf.Abs(delta));
 			stringBuilder.Append("\n\n");
 		}
 

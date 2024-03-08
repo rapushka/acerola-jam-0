@@ -8,4 +8,5 @@ namespace Code.Component
 	public sealed class ChangePoints : ValueComponent<int>, IInScope<Game> { }
 
 	public sealed class DestroyAllSuit : ValueComponent<CardSuit>, IInScope<Game> { }
+	public sealed class ChangePointsThreshold : ValueComponent<int>, IInScope<Game> { }
 }

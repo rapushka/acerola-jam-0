@@ -54,6 +54,7 @@ namespace Code
 			// Add<LogBurnedSystem>();
 			Add<CastChangePoints>();
 			Add<CastDestroyAllSuit>();
+			Add<CastChangePointThreshold>();
 
 			// Bets
 			Add<DoneCardActions>();

@@ -17,6 +17,8 @@ namespace Code
 			[(Ace, Clubs)] = (e) => e.Add<ChangePoints, int>(1).Target(Dealer),
 			[(Ace, Diamonds)] = (e) => e.Add<ChangePoints, int>(-2).Target(Player, Dealer),
 			[(Ace, Hearts)] = (e) => e.Add<DestroyAllSuit, CardSuit>(Diamonds),
+			[(Jack, Spades)] = (e) => e.Add<ChangePointsThreshold, int>(-2),
+			[(Number2, Diamonds)] = (e) => e.Add<ChangePointsThreshold, int>(2),
 		};
 
 		public void Bind(Entity<Game> target)
