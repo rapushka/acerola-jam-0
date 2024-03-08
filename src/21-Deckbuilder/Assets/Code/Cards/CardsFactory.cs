@@ -44,6 +44,7 @@ namespace Code
 			card.Add<Rotation, Quaternion>(cardView.transform.rotation);
 			card.Add<Points, int>(0);
 			card.Add<Order, int>(int.MaxValue);
+			card.Add<HeldBy, Side>(owner);
 
 			return card;
 		}
