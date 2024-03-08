@@ -37,7 +37,7 @@ namespace Code
 		{
 			var loupeView = Spawn(_loupePrefab, parent);
 			loupeView.Entity.Is<Lens>(true);
-			loupeView.transform.LookAt(loupeView.transform.position + Vector3.down);
+			// loupeView.transform.LookAt(loupeView.transform.position + Vector3.down);
 			return loupeView;
 		}
 
