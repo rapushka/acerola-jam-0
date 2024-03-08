@@ -3,6 +3,7 @@ using Code.Scope;
 using Entitas.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Code
@@ -13,7 +14,7 @@ namespace Code
 		[Inject] private readonly DescriptionBuilder _descriptionBuilder;
 		[Inject] private readonly CardAbilitiesBinder _cardAbilitiesBinder;
 
-		[SerializeField] private SpriteRenderer _spriteRenderer;
+		[SerializeField] private Image _spriteRenderer;
 		[SerializeField] private TMP_Text _descriptionTextMesh;
 
 		public void SetData(CardId cardID)

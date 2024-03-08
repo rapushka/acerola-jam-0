@@ -22,7 +22,7 @@ namespace Code
 		[SerializeField] private EntityBehaviour<Game> _cardPrefab;
 		[SerializeField] private EntityBehaviour<Game> _shadowCardPrefab;
 		[SerializeField] private EntityBehaviour<Game> _loupePrefab;
-		[SerializeField] private EntityBehaviour<Game> _bookCardPrefab;
+		[SerializeField] private BookCardView _bookCardPrefab;
 
 		public EntityBehaviour<Game> SpawnCardView(Transform parent, float height)
 		{

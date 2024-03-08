@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7155068954005070568}
   - component: {fileID: 7836975360160330075}
   - component: {fileID: 6621977469677905498}
+  - component: {fileID: 4957747303238233287}
   m_Layer: 5
-  m_Name: Card View
+  m_Name: Book Card View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,6 +79,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4957747303238233287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7597285492174105272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be721a0ea51549199517e3bc9ace1ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 4691750876255359703}
+  _descriptionTextMesh: {fileID: 3011262362380258347}
 --- !u!1 &9100727138410734374
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontSize
-      value: 18.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontColor.b
@@ -291,6 +306,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 12258062744305866, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
   m_PrefabInstance: {fileID: 1034769780878235275}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3011262362380258347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
+  m_PrefabInstance: {fileID: 1034769780878235275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1328726438580209456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontSize
-      value: 31.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontColor.b
