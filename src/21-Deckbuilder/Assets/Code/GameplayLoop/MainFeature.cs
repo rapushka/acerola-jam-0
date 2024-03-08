@@ -52,6 +52,7 @@ namespace Code
 			// ## OnBurn Abilities
 			// Add<LogBurnedSystem>();
 			Add<CastChangePoints>();
+			Add<CastDestroyAllSuit>();
 
 			// Bets
 			Add<DoneCardActions>();
