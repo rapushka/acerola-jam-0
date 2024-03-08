@@ -25,6 +25,7 @@ namespace Code
 			card.Add<Suit, CardSuit>(cardSuit);
 			card.Add<Position, Vector3>(cardView.transform.position);
 			card.Add<Rotation, Quaternion>(cardView.transform.rotation);
+			card.Add<Points, int>(cardFace.GetPoints());
 
 			return card;
 		}
