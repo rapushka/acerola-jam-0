@@ -28,6 +28,9 @@ namespace Code
 			Add<SpawnDeck>();
 			Add<ResetMinBetInBank>();
 			Add<StartWithPlayerTurn>();
+#if DEBUG
+			Add<PutSomeCardOnTopOfTheDeck>();
+#endif
 
 			// Generic things
 			Add<WaitingSystem>();

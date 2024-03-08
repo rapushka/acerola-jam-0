@@ -1,6 +1,6 @@
 namespace Code
 {
-	public class CardId
+	public struct CardId
 	{
 		public CardFace Face;
 		public CardSuit Suit;
