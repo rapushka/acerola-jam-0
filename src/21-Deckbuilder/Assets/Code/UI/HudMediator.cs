@@ -18,6 +18,8 @@ namespace Code
 		[SerializeField] private GameObject _looseScreenRoot;
 		[SerializeField] private GameObject _winScreenRoot;
 
+		[field: SerializeField] public CardDescription CardDescription { get; private set; }
+
 		public int PlayerScore { set => _playerScoreTextMesh.text = value.ToString(); }
 
 		public bool PickCardOptionsVisibility { set => _pickCardRoot.gameObject.SetActive(value); }

@@ -3,7 +3,6 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
 namespace Code.System
@@ -11,10 +10,16 @@ namespace Code.System
 	public sealed class ShowCardDescription : ReactiveSystem<Entity<Game>>
 	{
 		private readonly Contexts _contexts;
+		private readonly HudMediator _hud;
+		private readonly DescriptionBuilder _descriptionBuilder;
 
-		public ShowCardDescription(Contexts contexts)
+		public ShowCardDescription(Contexts contexts, HudMediator hud, DescriptionBuilder descriptionBuilder)
 			: base(contexts.Get<Game>())
-			=> _contexts = contexts;
+		{
+			_contexts = contexts;
+			_hud = hud;
+			_descriptionBuilder = descriptionBuilder;
+		}
 
 		private UniqueComponentsContainer<Game> Unique => _contexts.Get<Game>().Unique;
 
@@ -32,8 +37,8 @@ namespace Code.System
 			foreach (var _ in entities)
 			{
 				var candidate = Unique.GetEntity<Candidate>();
-
-				Debug.Log($"abilities of: {candidate}");
+				var description = _descriptionBuilder.Build(candidate);
+				_hud.CardDescription.Show(description);
 			}
 		}
 	}
