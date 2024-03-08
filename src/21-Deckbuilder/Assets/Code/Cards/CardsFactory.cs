@@ -16,7 +16,7 @@ namespace Code
 			_resources = resources;
 		}
 
-		public Entity<Game> Create(CardFace face, CardSuit suit, Transform parent, float height, int counter)
+		public Entity<Game> Create(CardFace face, CardSuit suit, Transform parent, float height, int order)
 		{
 			var cardView = _resources.SpawnCardView(parent, height);
 			var card = cardView.Entity;
@@ -25,7 +25,7 @@ namespace Code
 			card.Add<Position, Vector3>(cardView.transform.position);
 			card.Add<Rotation, Quaternion>(cardView.transform.rotation);
 			card.Add<Points, int>(face.GetPoints());
-			card.Add<Order, int>(counter);
+			card.Add<Order, int>(order);
 
 			return card;
 		}

@@ -25,6 +25,6 @@ namespace Code
 		public Entity<Game> TopCard => TakeCards(1).Single();
 
 		public IEnumerable<Entity<Game>> TakeCards(int count)
-			=> Deck.TakeLast(count);
+			=> Deck.Take(count);
 	}
 }
