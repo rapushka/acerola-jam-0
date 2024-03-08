@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -27,7 +24,7 @@ namespace Code.System
 		{
 			foreach (var _ in _startDeal)
 			{
-				var shuffledDeck = ShuffleDeck();
+				var shuffledDeck = CardUtils.ShuffledDeck();
 
 				var height = 0f;
 				var cardHeight = 0.002f;
@@ -40,18 +37,6 @@ namespace Code.System
 					counter++;
 				}
 			}
-		}
-
-		public IEnumerable<(CardFace, CardSuit)> ShuffleDeck()
-		{
-			var cardFaces = Enum.GetValues(typeof(CardFace)).Cast<CardFace>();
-			var cardSuits = Enum.GetValues(typeof(CardSuit)).Cast<CardSuit>();
-
-			var subset = from face in cardFaces
-			             from suit in cardSuits
-			             select (face, suit);
-
-			return subset.Shuffle();
 		}
 	}
 }

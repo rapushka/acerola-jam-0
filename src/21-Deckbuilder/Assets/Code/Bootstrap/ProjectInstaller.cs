@@ -26,6 +26,8 @@ namespace Code
 			Container.BindInstance(_balance).AsSingle();
 
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
+			Container.Bind<CardAbilitiesBinder>().AsSingle();
+			Container.Bind<DescriptionBuilder>().AsSingle();
 
 			Container.Inject(_resourceConfig);
 		}
