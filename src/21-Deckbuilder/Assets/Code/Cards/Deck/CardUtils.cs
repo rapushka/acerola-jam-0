@@ -10,7 +10,7 @@ namespace Code
 
 		public static IEnumerable<CardId> Deck()
 		{
-			var cardFaces = Enum.GetValues(typeof(CardFace)).Cast<CardFace>();
+			var cardFaces = Faces();
 			var cardSuits = Suits();
 
 			var subset = from face in cardFaces
@@ -26,6 +26,7 @@ namespace Code
 			return cardFaces.Select((face) => new CardId(face, suit));
 		}
 
-		public static IEnumerable<CardSuit> Suits() => Enum.GetValues(typeof(CardSuit)).Cast<CardSuit>();
+		public static IEnumerable<CardFace> Faces() => Enum.GetValues(typeof(CardFace)).Cast<CardFace>();
+		public static  IEnumerable<CardSuit> Suits() => Enum.GetValues(typeof(CardSuit)).Cast<CardSuit>();
 	}
 }

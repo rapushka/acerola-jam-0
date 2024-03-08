@@ -40,7 +40,7 @@ namespace Code
 			stringBuilder.Append(delta > 0 ? "Adds " : "Subtracts ");
 			stringBuilder.Append(delta);
 			stringBuilder.Append(" points to ");
-			stringBuilder.Append(string.Join("and", targets));
+			stringBuilder.Append(string.Join(" and ", targets));
 			stringBuilder.Append("\n\n");
 		}
 

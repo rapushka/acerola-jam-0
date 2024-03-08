@@ -29,8 +29,8 @@ namespace Code
 			{
 				var parent = _pages[suit].transform;
 
-				foreach (var cardId in CardUtils.Deck())
-					_resources.SpawnBookCardView(parent, cardId);
+				foreach (var face in CardUtils.Faces())
+					_resources.SpawnBookCardView(parent, new CardId(face, suit));
 			}
 		}
 	}
