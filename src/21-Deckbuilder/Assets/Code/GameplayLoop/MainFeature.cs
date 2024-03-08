@@ -16,44 +16,66 @@ namespace Code
 
 			Add<StartGame>();
 			Add<SpawnSides>();
+			Add<SpawnBank>();
 			Add<SpawnLens>();
 
 			// On Start Deal
+			Add<RespawnDealer>();
+			Add<HideWinAndLooseScreens>();
 			Add<SidesKeepPlaying>();
 			Add<ResetScore>();
 			Add<DestroyOldDeck>();
 			Add<SpawnDeck>();
+			Add<ResetMinBetInBank>();
 			Add<StartWithPlayerTurn>();
 
-			Add<UpdateHud>();
+			// Generic things
 			Add<WaitingSystem>();
 			Add<CalculateScore>();
 
+			// Enemy's AI (not ML!!!!!)
 			Add<AiTurnAction>();
 			Add<AiCardPickingAction>();
+			Add<AiBet>();
 
+			// Card Actions
 			Add<SideHit>();
 			Add<SideStand>();
-			Add<MoveCandidate>();
-			Add<MoveLensToCandidate>();
-			Add<ShowPickingCardOptions>();
 			Add<PickCandidate>(); // Both burn and take
-			Add<MoveCardAndLensForBurning>();
-			
+
 			// Cards burning
 			Add<BurnCard>();
 			Add<LogBurnedSystem>();
 
-			Add<EndTurn>();
+			// Bets
+			Add<DoneCardActions>();
+			Add<DoBet>();
+			Add<DoPass>();
+
+			// End Turn
 			Add<PassTurnToNext>();
 
+			// End Deal
 			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
+			Add<WinnersGetBank>();
+			Add<CheckBankruptcy>();
 
+			// ---
 			// # View
 			// ## UI
 			Add<UpdatePlayerScoreView>();
+			Add<UpdateHud>();
+			Add<UpdateStatus>();
+			Add<UpdateStandView>();
+			// ### Bets
+			Add<UpdateBets>();
+			Add<ShowPlaceBetWindow>();
+			Add<HidePlaceBetWindow>();
 			// ## Movement
+			Add<MoveCandidate>();
+			Add<MoveLensToCandidate>();
+			Add<MoveCardAndLensForBurning>();
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCardsInHands>();
 			Add<MoveToTarget>();

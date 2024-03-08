@@ -25,8 +25,11 @@ namespace Code.System
 		{
 			foreach (var e in _entities.GetEntities())
 			{
-				var playerScore = _contexts.GetPlayer().Get<Score>().Value;
-				var dealerScore = _contexts.GetDealer().Get<Score>().Value;
+				var player = _contexts.GetPlayer();
+				var dealer = _contexts.GetDealer();
+
+				var playerScore = player.Get<Score>().Value;
+				var dealerScore = dealer.Get<Score>().Value;
 
 				playerScore = playerScore > 21 ? -1 : playerScore;
 				dealerScore = dealerScore > 21 ? -1 : dealerScore;
@@ -45,8 +48,11 @@ namespace Code.System
 				var message = $"{result}\nPlayer: {playerScoreView}\nDealer: {dealerScoreView}";
 				_hud.ShowDealEndScreen(message);
 
-				// foreach (var side in _sides)
-				// 	side.Is<KeepPlaying>(false);
+				if (playerScore >= dealerScore && playerScore != -1)
+					player.Is<Winner>(true);
+
+				if (dealerScore >= playerScore && dealerScore != -1)
+					dealer.Is<Winner>(true);
 
 				e.Is<Destroyed>(true);
 			}

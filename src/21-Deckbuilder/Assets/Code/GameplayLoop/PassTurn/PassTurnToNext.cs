@@ -16,7 +16,7 @@ namespace Code.System
 		public PassTurnToNext(Contexts contexts)
 		{
 			_contexts = contexts;
-			_entities = contexts.GetGroup(AnyOf(Get<Component.EndTurn>()));
+			_entities = contexts.GetGroup(AnyOf(Get<TurnEnded>()));
 		}
 
 		public void Execute()
@@ -27,24 +27,33 @@ namespace Code.System
 					continue;
 
 				e.Is<CurrentTurn>(false);
+				e.Is<CardActionDone>(false);
 
 				var lastSide = e.Get<Component.Side>().Value;
 				var nextSide = _contexts.GetSide(lastSide.Flip());
 
-				if (nextSide.Is<KeepPlaying>())
+				if (e.Is<Stand>() && nextSide.Is<Stand>())
+				{
+					EndDeal();
+					continue;
+				}
+
+				if (!nextSide.Is<Pass>() && !nextSide.Is<AllIn>())
 				{
 					nextSide.Is<CurrentTurn>(true);
 					continue;
 				}
 
-				if (e.Is<KeepPlaying>())
+				if (e.Is<Pass>() && !e.Is<AllIn>())
 				{
 					e.Is<CurrentTurn>(true);
 					continue;
 				}
 
-				_contexts.Get<Game>().CreateEntity().Is<Component.EndDeal>(true);
+				EndDeal();
 			}
 		}
+
+		private void EndDeal() => _contexts.Get<Game>().CreateEntity().Is<Component.EndDeal>(true);
 	}
 }

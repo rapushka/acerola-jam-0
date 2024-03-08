@@ -7,13 +7,13 @@ using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
 namespace Code.System
 {
-	public sealed class EndTurn : IExecuteSystem
+	public sealed class DoneCardActions : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly ViewConfig _viewConfig;
 		private readonly IGroup<Entity<Game>> _entities;
 
-		public EndTurn(Contexts contexts, ViewConfig viewConfig)
+		public DoneCardActions(Contexts contexts, ViewConfig viewConfig)
 		{
 			_contexts = contexts;
 			_viewConfig = viewConfig;
@@ -37,7 +37,7 @@ namespace Code.System
 
 				continue;
 
-				void DoEndTurn() => side.Is<Component.EndTurn>(true);
+				void DoEndTurn() => side.Is<CardActionDone>(true);
 			}
 		}
 	}

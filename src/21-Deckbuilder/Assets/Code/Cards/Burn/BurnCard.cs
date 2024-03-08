@@ -23,8 +23,6 @@ namespace Code.System
 		{
 			foreach (var card in _entities.GetEntities())
 			{
-				card.Is<ToBurn>(false);
-
 				var e = _contexts.Get<Game>().CreateEntity();
 				e.Add<Waiting, float>(_viewConfig.BurningDuration);
 				e.Add<Callback, Action>(Burn);
@@ -33,7 +31,9 @@ namespace Code.System
 
 				void Burn()
 				{
+					card.Is<ToBurn>(false);
 					card.Is<Burned>(true);
+
 					e.Is<Destroyed>(true);
 				}
 			}

@@ -26,9 +26,9 @@ namespace Code
 			foreach (var e in entities)
 			{
 				var isOurCandidate = e.TryGet<Candidate, Side>(out var side) && side is Side.Player;
-				
+
 				_hud.PickCardOptionsVisibility = isOurCandidate;
-				_hud.TurnActionsVisibility = !isOurCandidate;
+				_hud.TurnActionsVisibility = false;
 			}
 		}
 	}

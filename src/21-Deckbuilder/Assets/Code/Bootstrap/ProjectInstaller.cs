@@ -10,6 +10,7 @@ namespace Code
 		[SerializeField] private ResourceConfig _resourceConfig;
 		[SerializeField] private ViewConfig _viewConfig;
 		[SerializeField] private AiConfig _aiConfig;
+		[SerializeField] private BalanceConfig _balance;
 
 		public override void InstallBindings()
 		{
@@ -22,6 +23,7 @@ namespace Code
 			Container.Bind<IResourcesProvider>().FromInstance(_resourceConfig).AsSingle();
 			Container.BindInstance(_viewConfig).AsSingle();
 			Container.BindInstance(_aiConfig).AsSingle();
+			Container.BindInstance(_balance).AsSingle();
 
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
 

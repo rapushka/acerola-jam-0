@@ -15,10 +15,16 @@ namespace Code
 
 			if (entity.Has<Face>() && entity.Has<Suit>())
 			{
-				yield return entity.ToString<Face, CardFace>();
+				var face = entity.ToString<Face, CardFace>();
+				yield return face.Replace("Number", string.Empty);
 				yield return "of";
 				yield return entity.ToString<Suit, CardSuit>();
 			}
+
+			yield return entity.ToString<Money, int>();
+			yield return entity.ToString<Waiting, float>(prefix: "timer: ", postfix: "s");
+
+			yield return entity.Is<CurrentTurn>() ? "<- current" : string.Empty;
 		}
 	}
 }
