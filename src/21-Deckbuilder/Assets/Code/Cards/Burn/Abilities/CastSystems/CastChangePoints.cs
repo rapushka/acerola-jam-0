@@ -2,18 +2,21 @@ using System.Collections.Generic;
 using Code.Component;
 using Code.Scope;
 using Entitas.Generic;
-using UnityEngine;
+using Zenject;
 
 namespace Code.System
 {
 	public class CastChangePoints : CastOnBurnAbilityBase
 	{
 		private readonly Contexts _contexts;
+		private readonly ShadowCardsProvider _shadowCardsProvider;
 
-		public CastChangePoints(Contexts contexts)
+		[Inject]
+		public CastChangePoints(Contexts contexts, ShadowCardsProvider shadowCardsProvider)
 			: base(contexts)
 		{
 			_contexts = contexts;
+			_shadowCardsProvider = shadowCardsProvider;
 		}
 
 		protected override void Cast(IEnumerable<Entity<Game>> burnedCards)
@@ -30,7 +33,7 @@ namespace Code.System
 				{
 					var target = GetEntity(targetSide);
 
-					Debug.Log($"add {delta} points for {target}");
+					_shadowCardsProvider.ChangePoints(target, delta);
 				}
 			}
 		}

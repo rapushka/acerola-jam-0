@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Resources
   m_EditorClassIdentifier: 
   _cardPrefab: {fileID: 2843247393358228216, guid: 6364ca39dedd60b79b0d1ae5907550f1, type: 3}
+  _shadowCardPrefab: {fileID: 2843247393358228216, guid: 892dc49c2c712b9aca5962e2b96c5e5a, type: 3}
   _loupePrefab: {fileID: 2621354337464142508, guid: 83f5f1eef25cf5b3e803e6ddc61dca43, type: 3}

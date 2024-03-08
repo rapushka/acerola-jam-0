@@ -11,7 +11,7 @@ namespace Code.Component
 
 	public sealed class Face : IndexComponent<CardId>, IInScope<Game>, IEvent<Self> { }
 
-	public sealed class Points : ValueComponent<int>, IInScope<Game> { }
+	public sealed class Points : ValueComponent<int>, IInScope<Game>, IEvent<Self> { }
 
 	public sealed class Order : ValueComponent<int>, IInScope<Game> { }
 }

@@ -13,14 +13,12 @@ namespace Code.System
 	public class SpawnDeck : IExecuteSystem
 	{
 		private readonly CardsFactory _cardsFactory;
-		private readonly HoldersProvider _holders;
 		private readonly IGroup<Entity<Game>> _startDeal;
 
 		[Inject]
-		public SpawnDeck(Contexts contexts, CardsFactory cardsFactory, HoldersProvider holders)
+		public SpawnDeck(Contexts contexts, CardsFactory cardsFactory)
 		{
 			_cardsFactory = cardsFactory;
-			_holders = holders;
 
 			_startDeal = contexts.GetGroup(Get<StartDeal>());
 		}
@@ -38,7 +36,7 @@ namespace Code.System
 				foreach (var (cardFace, cardSuit) in shuffledDeck)
 				{
 					height += cardHeight;
-					_cardsFactory.Create(cardFace, cardSuit, _holders.Deck, height, counter);
+					_cardsFactory.Create(cardFace, cardSuit, height, counter);
 					counter++;
 				}
 			}

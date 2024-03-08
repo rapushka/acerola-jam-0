@@ -155,6 +155,7 @@ Transform:
   - {fileID: 1035854900}
   - {fileID: 205131341}
   - {fileID: 371932267}
+  - {fileID: 622836359}
   m_Father: {fileID: 1031362040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &48002341
@@ -959,6 +960,7 @@ Transform:
   - {fileID: 1670700267}
   - {fileID: 512672789}
   - {fileID: 948474735}
+  - {fileID: 591388765}
   m_Father: {fileID: 1031362040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &479093419
@@ -1501,6 +1503,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 580894520}
+--- !u!1 &591388764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 591388765}
+  m_Layer: 0
+  m_Name: Shadow Card
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &591388765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591388764}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.42, y: -0.54, z: 5.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 477494722}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615316132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1566,37 @@ Transform:
   - {fileID: 1209971091}
   - {fileID: 70921834}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &622836358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 622836359}
+  m_Layer: 0
+  m_Name: Shadow Card
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &622836359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622836358}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.542, y: 0.253, z: -2.947}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 16079752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &644364377
 PrefabInstance:
@@ -2482,10 +2546,12 @@ MonoBehaviour:
     <Hand>k__BackingField: {fileID: 1035854900}
     <CandidateCard>k__BackingField: {fileID: 205131341}
     <CandidateLense>k__BackingField: {fileID: 371932267}
+    <ShadowCardSpawn>k__BackingField: {fileID: 622836359}
   - <Side>k__BackingField: 1
     <Hand>k__BackingField: {fileID: 1670700267}
     <CandidateCard>k__BackingField: {fileID: 948474735}
     <CandidateLense>k__BackingField: {fileID: 512672789}
+    <ShadowCardSpawn>k__BackingField: {fileID: 591388765}
 --- !u!1 &1035854899
 GameObject:
   m_ObjectHideFlags: 0
