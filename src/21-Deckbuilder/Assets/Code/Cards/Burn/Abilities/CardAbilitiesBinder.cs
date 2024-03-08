@@ -14,6 +14,8 @@ namespace Code
 		private readonly Dictionary<CardId, Action<Entity<Game>>> _abilities = new()
 		{
 			[(Ace, Spades)] = (e) => e.Add<ChangePoints, int>(2).Target(Player),
+			[(Ace, Clubs)] = (e) => e.Add<ChangePoints, int>(1).Target(Dealer),
+			[(Ace, Diamonds)] = (e) => e.Add<ChangePoints, int>(-2).Target(Player, Dealer),
 		};
 
 		public void Bind(Entity<Game> target)

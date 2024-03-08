@@ -11,6 +11,8 @@ namespace Code.System
 		private readonly DeckProvider _deckProvider;
 		private readonly IGroup<Entity<Game>> _entities;
 
+		private int _counter = 1;
+
 		public PutSomeCardOnTopOfTheDeck(Contexts contexts, DeckProvider deckProvider)
 		{
 			_contexts = contexts;
@@ -18,20 +20,22 @@ namespace Code.System
 			_entities = contexts.GetGroup(ScopeMatcher<Game>.Get<StartDeal>());
 		}
 
-		private static CardId TargetCard => new(CardFace.Ace, CardSuit.Spades);
-
 		public void Execute()
 		{
 			foreach (var _ in _entities)
-				Put();
+			{
+				PutFirst((CardFace.Ace, CardSuit.Diamonds));
+				PutFirst((CardFace.Ace, CardSuit.Clubs));
+				PutFirst((CardFace.Ace, CardSuit.Spades));
+			}
 		}
 
-		private void Put()
+		private void PutFirst(CardId targetCard)
 		{
-			var targetCards = _contexts.Get<Game>().GetIndex<Face, CardId>().GetEntities(TargetCard);
+			var targetCards = _contexts.Get<Game>().GetIndex<Face, CardId>().GetEntities(targetCard);
 
 			foreach (var card in targetCards)
-				card.Replace<Order, int>(_deckProvider.Count + 1);
+				card.Replace<Order, int>(_deckProvider.Count + _counter++);
 		}
 	}
 }
