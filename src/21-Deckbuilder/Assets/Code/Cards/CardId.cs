@@ -11,6 +11,9 @@ namespace Code
 			Suit = suit;
 		}
 
+		public static implicit operator CardId((CardFace, CardSuit ) tuple)
+			=> new(tuple.Item1, tuple.Item2);
+
 		public override string ToString()
 		{
 			var face = Face.ToString().Replace("Number", string.Empty);

@@ -3,7 +3,9 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	public sealed class AddPoints : ValueComponent<int>, IInScope<Game> { }
+	public sealed class ChangeOurPoints : ValueComponent<int>, IInScope<Game> { }
 
-	public sealed class SubtractPoints : ValueComponent<int>, IInScope<Game> { }
+	public sealed class ChangeOpponentPoints : ValueComponent<int>, IInScope<Game> { }
+
+	public sealed class ChangeAllPoints : ValueComponent<int>, IInScope<Game> { }
 }

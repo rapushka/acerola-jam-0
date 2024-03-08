@@ -26,6 +26,7 @@ namespace Code
 			Add<ResetScore>();
 			Add<DestroyOldDeck>();
 			Add<SpawnDeck>();
+			Add<BindAbilities>();
 			Add<ResetMinBetInBank>();
 			Add<StartWithPlayerTurn>();
 #if DEBUG
