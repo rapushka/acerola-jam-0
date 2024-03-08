@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TurnActionThinkingDuration>k__BackingField: 1
   <CardPickingActionThinkingDuration>k__BackingField: 2
-  <PassProbability>k__BackingField: 0.05
-  <HitVsStandProbability>k__BackingField: 1
+  <PassProbability>k__BackingField: 0.01
+  <HitVsStandProbability>k__BackingField: 0.25
   <TakeVsBurnCandidateProbability>k__BackingField: 0.75
   <BetChance>k__BackingField: 0.8
   <RaiseBetChance>k__BackingField: 0.05
