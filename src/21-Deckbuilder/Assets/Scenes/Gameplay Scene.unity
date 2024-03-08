@@ -361,7 +361,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _disabledColor: {r: 0.10931383, g: 0.16037738, b: 0.05825027, a: 1}
-  _enabledColor: {r: 0.12086142, g: 0.7924528, b: 0.09344961, a: 1}
+  _standColor: {r: 0.11399722, g: 1, b: 0, a: 1}
+  _allInColor: {r: 1, g: 0.4783347, b: 0, a: 1}
+  _passColor: {r: 0.5188679, g: 0.070977226, b: 0.41683996, a: 1}
   _textMesh: {fileID: 1567570469}
 --- !u!1 &72636309
 GameObject:
@@ -4671,7 +4673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1121220605576215486, guid: fe774e9e918afc301b065cac4e03f3f8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 481.1918
+      value: 443.7
       objectReference: {fileID: 0}
     - target: {fileID: 1121220605576215486, guid: fe774e9e918afc301b065cac4e03f3f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4707,7 +4709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1121220605576215486, guid: fe774e9e918afc301b065cac4e03f3f8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 78
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1121220605576215486, guid: fe774e9e918afc301b065cac4e03f3f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

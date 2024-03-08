@@ -1,4 +1,3 @@
-using Code.Component;
 using Code.Scope;
 using Code.System;
 using Entitas;
@@ -25,7 +24,7 @@ namespace Code
 		public void Execute()
 		{
 			if (Dealer is not null)
-				_standSign.TurnedOn = Dealer.Is<Stand>();
+				_standSign.UpdateState(Dealer);
 		}
 	}
 }
