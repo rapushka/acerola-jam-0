@@ -45,6 +45,7 @@ namespace Code
 
 			// Cards burning
 			Add<BurnCard>();
+			// ## OnBurn Abilities
 			Add<LogBurnedSystem>();
 
 			// Bets
