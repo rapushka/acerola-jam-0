@@ -27,7 +27,6 @@ namespace Code.System
 					continue;
 
 				e.Is<CurrentTurn>(false);
-				e.Is<CardActionDone>(false);
 
 				var lastSide = e.Get<Component.Side>().Value;
 				var nextSide = _contexts.GetSide(lastSide.Flip());
@@ -41,12 +40,14 @@ namespace Code.System
 				if (!nextSide.Is<Pass>() && !nextSide.Is<AllIn>())
 				{
 					nextSide.Is<CurrentTurn>(true);
+					nextSide.Is<CardActionDone>(false);
 					continue;
 				}
 
 				if (e.Is<Pass>() && !e.Is<AllIn>())
 				{
 					e.Is<CurrentTurn>(true);
+					e.Is<CardActionDone>(false);
 					continue;
 				}
 

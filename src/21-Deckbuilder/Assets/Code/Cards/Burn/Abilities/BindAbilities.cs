@@ -2,6 +2,7 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
+using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
 namespace Code.System
 {
@@ -14,8 +15,8 @@ namespace Code.System
 		public BindAbilities(Contexts contexts, CardAbilitiesBinder cardAbilities)
 		{
 			_cardAbilities = cardAbilities;
-			_startDeal = contexts.GetGroup(ScopeMatcher<Game>.Get<StartDeal>());
-			_cards = contexts.GetGroup(ScopeMatcher<Game>.Get<Face>());
+			_startDeal = contexts.GetGroup(Get<StartDeal>());
+			_cards = contexts.GetGroup(AllOf(Get<Face>()).NoneOf(Get<Destroyed>()));
 		}
 
 		public void Execute()
