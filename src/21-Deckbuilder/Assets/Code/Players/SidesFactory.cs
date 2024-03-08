@@ -31,7 +31,7 @@ namespace Code
 		private Entity<Game> Create(Side side)
 			=> _contexts.Get<Game>().CreateEntity()
 			            .Add<Component.Side, Side>(side)
-			            .Add<Score, int>(0)
+			            .Add<Score, int>(_counter++)
 			            .Add<Money, int>(_balance.SideMoneyOnStart);
 	}
 }

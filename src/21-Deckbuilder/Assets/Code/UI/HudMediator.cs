@@ -60,6 +60,12 @@ namespace Code
 			_winScreenRoot.SetActive(true);
 		}
 
+		public void HideWinAndLooseScreens()
+		{
+			_winScreenRoot.SetActive(false);
+			_looseScreenRoot.SetActive(false);
+		}
+
 		private void HideAll()
 		{
 			PickCardOptionsVisibility = false;

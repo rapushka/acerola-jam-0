@@ -6,6 +6,11 @@ namespace Code
 {
 	public class CreateNewDealerButton : ButtonBase
 	{
-		protected override void OnClick() => Contexts.Instance.Get<Game>().CreateEntity().Is<CreateNewDealer>(true);
+		protected override void OnClick()
+		{
+			var context = Contexts.Instance.Get<Game>();
+			context.CreateEntity().Is<CreateNewDealer>(true);
+			context.CreateEntity().Is<StartDeal>(true);
+		}
 	}
 }

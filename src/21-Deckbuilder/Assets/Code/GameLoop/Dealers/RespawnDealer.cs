@@ -7,12 +7,12 @@ using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
 namespace Code.System
 {
-	public sealed class SpawnNextDealer : ReactiveSystem<Entity<Game>>
+	public sealed class RespawnDealer : ReactiveSystem<Entity<Game>>
 	{
 		private readonly Contexts _contexts;
 		private readonly SidesFactory _sidesFactory;
 
-		public SpawnNextDealer(Contexts contexts, SidesFactory sidesFactory)
+		public RespawnDealer(Contexts contexts, SidesFactory sidesFactory)
 			: base(contexts.Get<Game>())
 		{
 			_contexts = contexts;
