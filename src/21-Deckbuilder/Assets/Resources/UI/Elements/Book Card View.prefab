@@ -277,6 +277,10 @@ PrefabInstance:
       value: 0.14901961
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4279833382
       objectReference: {fileID: 0}
@@ -285,8 +289,12 @@ PrefabInstance:
       value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
-      propertyPath: m_wordWrappingRatios
+      propertyPath: m_enableWordWrapping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
+      propertyPath: m_wordWrappingRatios
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_HorizontalAlignment

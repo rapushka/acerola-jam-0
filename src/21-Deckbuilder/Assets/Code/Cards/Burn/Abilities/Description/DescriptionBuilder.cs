@@ -2,6 +2,7 @@ using System.Text;
 using Code.Component;
 using Code.Scope;
 using Entitas.Generic;
+using UnityEngine;
 
 namespace Code
 {
@@ -38,7 +39,7 @@ namespace Code
 
 			// "Adds 5 points to Player and Dealer"
 			stringBuilder.Append(delta > 0 ? "Adds " : "Subtracts ");
-			stringBuilder.Append(delta);
+			stringBuilder.Append(Mathf.Abs(delta));
 			stringBuilder.Append(" points to ");
 			stringBuilder.Append(string.Join(" and ", targets));
 			stringBuilder.Append("\n\n");
