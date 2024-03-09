@@ -56,6 +56,7 @@ namespace Code
 			Add<CastChangePoints>();
 			Add<CastDestroyAllSuit>();
 			Add<CastChangePointThreshold>();
+			Add<CastChangeMaxCardsInHand>();
 
 			// Bets
 			Add<DoneCardActions>();

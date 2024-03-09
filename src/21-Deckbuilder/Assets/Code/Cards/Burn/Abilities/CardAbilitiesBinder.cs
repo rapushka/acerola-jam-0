@@ -19,6 +19,7 @@ namespace Code
 			[(Ace, Hearts)] = (e) => e.Add<DestroyAllSuit, CardSuit>(Diamonds),
 			[(Jack, Spades)] = (e) => e.Add<ChangePointsThreshold, int>(-2),
 			[(Number2, Diamonds)] = (e) => e.Add<ChangePointsThreshold, int>(2),
+			[(Number10, Hearts)] = (e) => e.Add<ChangeMaxCardsInHand, int>(-2),
 		};
 
 		public void Bind(Entity<Game> target)

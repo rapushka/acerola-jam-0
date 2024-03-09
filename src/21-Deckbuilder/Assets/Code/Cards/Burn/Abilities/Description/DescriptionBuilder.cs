@@ -15,6 +15,7 @@ namespace Code
 			BuildChangePoints(card, ref stringBuilder);
 			BuildDestroyAllSuit(card, ref stringBuilder);
 			BuildChangePointsThreshold(card, ref stringBuilder);
+			BuildChangeMaxCardsInHand(card, ref stringBuilder);
 
 			BuildEmptyDescription(ref stringBuilder);
 
@@ -70,6 +71,20 @@ namespace Code
 			// "Destroys all cards of Spades"
 			stringBuilder.Append("Destroys all cards of ");
 			stringBuilder.Append(suit);
+			stringBuilder.Append("\n\n");
+		}
+
+		private void BuildChangeMaxCardsInHand(Entity<Game> card, ref StringBuilder stringBuilder)
+		{
+			if (!card.Has<ChangeMaxCardsInHand>())
+				return;
+
+			var delta = card.Get<ChangeMaxCardsInHand>().Value;
+
+			// "Max Cards In Hand Count -2"
+			stringBuilder.Append("Max Cards In Hand Count ");
+			stringBuilder.Append(delta > 0 ? "+" : "-");
+			stringBuilder.Append(Mathf.Abs(delta));
 			stringBuilder.Append("\n\n");
 		}
 	}
