@@ -3,7 +3,6 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 
 namespace Code.System
 {

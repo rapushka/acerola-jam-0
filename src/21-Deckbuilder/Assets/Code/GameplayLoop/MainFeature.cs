@@ -30,6 +30,7 @@ namespace Code
 			Add<BindAbilities>();
 			Add<ResetMinBetInBank>();
 			Add<StartWithPlayerTurn>();
+			Add<MoveCameraToPlayerSitting>();
 #if DEBUG
 			Add<PutSomeCardOnTopOfTheDeck>();
 #endif
@@ -69,9 +70,10 @@ namespace Code
 			Add<PassTurnToNext>();
 
 			// End Deal
+			Add<MoveCameraToCardsScoring>();
 			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
-			Add<FlipDealerCardsOnDealEnd>();
+			// Add<FlipDealerCardsOnDealEnd>();
 			Add<WinnersGetBank>();
 			Add<CheckBankruptcy>();
 
