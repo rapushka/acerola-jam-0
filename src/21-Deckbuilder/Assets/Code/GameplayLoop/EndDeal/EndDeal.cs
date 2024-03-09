@@ -1,3 +1,4 @@
+using System;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -20,6 +21,8 @@ namespace Code.System
 			contexts.GetGroup(ScopeMatcher<Game>.Get<Component.Side>());
 		}
 
+		private Entity<Game> Rules => _contexts.Get<Game>().Unique.GetEntity<Rules>();
+
 		public void Execute()
 		{
 			foreach (var e in _entities.GetEntities())
@@ -30,8 +33,8 @@ namespace Code.System
 				var playerScore = player.Get<Score>().Value;
 				var dealerScore = dealer.Get<Score>().Value;
 
-				var rules = _contexts.Get<Game>().Unique.GetEntity<Rules>();
-				var maxPoints = rules.Get<MaxPointsThreshold>().Value;
+				var maxPoints = Rules.Get<MaxPointsThreshold>().Value;
+				var flipWinCondition = Rules.Is<FlipWinCondition>();
 
 				var isPlayerPass = player.Is<Pass>();
 				var isDealerPass = dealer.Is<Pass>();
@@ -39,8 +42,13 @@ namespace Code.System
 				var isPlayerBusted = playerScore > maxPoints;
 				var isDealerBusted = dealerScore > maxPoints;
 
-				var isPlayerWin = playerScore >= dealerScore || isDealerPass || isDealerBusted;
-				var isDealerWin = dealerScore >= playerScore || isPlayerPass || isPlayerBusted;
+				Func<int, int, bool> condition = flipWinCondition ? WinsFewerPoints : WinsMorePoints;
+
+				var playerWinPoints = condition.Invoke(playerScore, dealerScore);
+				var dealerWinPoints = condition.Invoke(dealerScore, playerScore);
+
+				var isPlayerWin = playerWinPoints || isDealerPass || isDealerBusted;
+				var isDealerWin = dealerWinPoints || isPlayerPass || isPlayerBusted;
 
 				if (isPlayerBusted || isPlayerPass)
 					isPlayerWin = false;
@@ -72,5 +80,9 @@ namespace Code.System
 				e.Is<Destroyed>(true);
 			}
 		}
+
+		private bool WinsMorePoints(int ourPoints, int opponentScore) => ourPoints >= opponentScore;
+
+		private bool WinsFewerPoints(int ourScore, int opponentScore) => ourScore <= opponentScore;
 	}
 }

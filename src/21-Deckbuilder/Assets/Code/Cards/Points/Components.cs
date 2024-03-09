@@ -8,4 +8,5 @@ namespace Code.Component
 	public sealed class MaxPointsThreshold : ValueComponent<int>, IInScope<Game> { }
 
 	public sealed class MaxCardsInHand : ValueComponent<int>, IInScope<Game> { }
+	public sealed class FlipWinCondition : FlagComponent, IInScope<Game> { }
 }
