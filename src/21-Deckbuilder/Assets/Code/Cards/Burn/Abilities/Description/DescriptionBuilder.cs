@@ -16,6 +16,7 @@ namespace Code
 			BuildDestroyAllSuit(card, ref stringBuilder);
 			BuildChangePointsThreshold(card, ref stringBuilder);
 			BuildChangeMaxCardsInHand(card, ref stringBuilder);
+			BuildInvokeFlipWinCondition(card, ref stringBuilder);
 
 			BuildEmptyDescription(ref stringBuilder);
 
@@ -85,6 +86,16 @@ namespace Code
 			stringBuilder.Append("Max Cards In Hand Count ");
 			stringBuilder.Append(delta > 0 ? "+" : "-");
 			stringBuilder.Append(Mathf.Abs(delta));
+			stringBuilder.Append("\n\n");
+		}
+
+		private void BuildInvokeFlipWinCondition(Entity<Game> card, ref StringBuilder stringBuilder)
+		{
+			if (!card.Has<InvokeFlipWinCondition>())
+				return;
+
+			// "Flip Win Condition (The one with the fewest points wins)"
+			stringBuilder.Append("Flip Win Condition\n(One with Fewest points Wins)");
 			stringBuilder.Append("\n\n");
 		}
 	}

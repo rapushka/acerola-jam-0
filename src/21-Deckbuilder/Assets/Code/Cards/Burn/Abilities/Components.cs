@@ -12,4 +12,5 @@ namespace Code.Component
 	public sealed class ChangePointsThreshold : ValueComponent<int>, IInScope<Game> { }
 
 	public sealed class ChangeMaxCardsInHand : ValueComponent<int>, IInScope<Game> { }
+	public sealed class InvokeFlipWinCondition : FlagComponent, IInScope<Game> { }
 }

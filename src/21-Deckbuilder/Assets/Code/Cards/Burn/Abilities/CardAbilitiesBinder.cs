@@ -20,6 +20,7 @@ namespace Code
 			[(Jack, Spades)] = (e) => e.Add<ChangePointsThreshold, int>(-2),
 			[(Number2, Diamonds)] = (e) => e.Add<ChangePointsThreshold, int>(2),
 			[(Number10, Hearts)] = (e) => e.Add<ChangeMaxCardsInHand, int>(-2),
+			[(Number7, Clubs)] = (e) => e.Is<InvokeFlipWinCondition>(true),
 		};
 
 		public void Bind(Entity<Game> target)
