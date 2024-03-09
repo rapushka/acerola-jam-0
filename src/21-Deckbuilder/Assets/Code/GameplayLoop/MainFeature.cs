@@ -71,6 +71,7 @@ namespace Code
 			// End Deal
 			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
+			Add<FlipDealerCardsOnDealEnd>();
 			Add<WinnersGetBank>();
 			Add<CheckBankruptcy>();
 
@@ -95,7 +96,6 @@ namespace Code
 			Add<CenterAlignCardsInHands>();
 			Add<MoveToTarget>();
 			// ## Rotation
-			Add<RotatePlayerCards>();
 			Add<FlipRotation>();
 			Add<RotateToTarget>();
 
