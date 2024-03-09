@@ -23,5 +23,8 @@ namespace Code
 		public static Entity<Game> GetHolder(this Entity<Game> card)
 			=> Context.GetPrimaryIndex<Component.Side, Side>()
 			          .GetEntity(card.Get<Component.Side>().Value);
+
+		public static bool IsPlayer(this Entity<Game> side) => side.Get<Component.Side>().Value is Side.Player;
+		public static bool IsDealer(this Entity<Game> side) => side.Get<Component.Side>().Value is Side.Dealer;
 	}
 }

@@ -30,7 +30,9 @@ namespace Code
 				if (cardsInHand.Count() >= Rules.Get<MaxCardsInHand>().Value)
 				{
 					side.Is<Hit>(false);
-					_hud.Message.ShowError("You already have max count of cards in your hand!");
+
+					if (side.IsPlayer())
+						_hud.Message.ShowError("You already have max count of cards in your hand!");
 				}
 			}
 		}
