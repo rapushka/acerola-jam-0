@@ -71,6 +71,7 @@ namespace Code
 
 			// End Deal
 			Add<MoveCameraToCardsScoring>();
+			Add<MoveCardsForScoring>();
 			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
 			// Add<FlipDealerCardsOnDealEnd>();

@@ -26,6 +26,7 @@ namespace Code
 			[field: SerializeField] public Transform CandidateCard   { get; private set; }
 			[field: SerializeField] public Transform CandidateLense  { get; private set; }
 			[field: SerializeField] public Transform ShadowCardSpawn { get; private set; }
+			[field: SerializeField] public Transform CardScoring     { get; private set; }
 		}
 
 		[Serializable]

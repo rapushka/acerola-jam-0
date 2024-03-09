@@ -2930,11 +2930,13 @@ MonoBehaviour:
     <CandidateCard>k__BackingField: {fileID: 205131341}
     <CandidateLense>k__BackingField: {fileID: 371932267}
     <ShadowCardSpawn>k__BackingField: {fileID: 622836359}
+    <CardScoring>k__BackingField: {fileID: 132741110}
   - <Side>k__BackingField: 1
     <Hand>k__BackingField: {fileID: 1670700267}
     <CandidateCard>k__BackingField: {fileID: 948474735}
     <CandidateLense>k__BackingField: {fileID: 512672789}
     <ShadowCardSpawn>k__BackingField: {fileID: 591388765}
+    <CardScoring>k__BackingField: {fileID: 1828643210}
   <Camera>k__BackingField:
     <PlayerSitting>k__BackingField: {fileID: 1791422959}
     <CardsScoring>k__BackingField: {fileID: 382358940}
