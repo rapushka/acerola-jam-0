@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -22,7 +23,8 @@ namespace Code.System
 			_config = config;
 		}
 
-		private bool HasCandidate => _contexts.Get<Game>().Unique.Has<Candidate>();
+		private bool         HasCandidate => _contexts.Get<Game>().Unique.Has<Candidate>();
+		private Entity<Game> Rules        => _contexts.Get<Game>().Unique.GetEntity<Rules>();
 
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
 			=> context.CreateCollector(Get<CurrentTurn>().Added());
@@ -49,7 +51,8 @@ namespace Code.System
 						return;
 					}
 
-					if (Random.value >= _config.HitVsStandProbability)
+					if (Random.value >= _config.HitVsStandProbability
+					    && dealer.GetCards().Count() < Rules.Get<MaxCardsInHand>().Value)
 					{
 						dealer.Is<Hit>(true);
 					}
