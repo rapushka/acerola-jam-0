@@ -31,6 +31,7 @@ namespace Code
 			Add<ResetMinBetInBank>();
 			Add<StartWithPlayerTurn>();
 			Add<MoveCameraToPlayerSitting>();
+			Add<StopScoring>();
 #if DEBUG
 			Add<PutSomeCardOnTopOfTheDeck>();
 #endif
@@ -70,6 +71,7 @@ namespace Code
 			Add<PassTurnToNext>();
 
 			// End Deal
+			Add<StartScoring>();
 			Add<MoveCameraToCardsScoring>();
 			Add<MoveCardsForScoring>();
 			Add<EndDeal>();

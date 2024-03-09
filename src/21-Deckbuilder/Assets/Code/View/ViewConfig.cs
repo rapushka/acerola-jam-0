@@ -12,6 +12,7 @@ namespace Code
 
 		[field: Header("Cards")]
 		[field: SerializeField] public float DistanceBetweenCards { get; private set; }
+		[field: SerializeField] public float OnScoringDistance { get; private set; }
 
 		[field: Header("Magnifying glass")]
 		[field: SerializeField] public float LensMoveToCandidateDelay { get; private set; }

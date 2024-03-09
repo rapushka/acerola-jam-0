@@ -15,6 +15,7 @@ MonoBehaviour:
   <CommonMovementSpeed>k__BackingField: 10
   <CommonRotationSpeed>k__BackingField: 10
   <DistanceBetweenCards>k__BackingField: 0.12
+  <OnScoringDistance>k__BackingField: 0.4
   <LensMoveToCandidateDelay>k__BackingField: 0.1
   <MagnifyingGlassSpecificSpeed>k__BackingField: 7.5
   <BurningDuration>k__BackingField: 1
