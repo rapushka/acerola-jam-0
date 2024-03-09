@@ -18,6 +18,7 @@ namespace Code.System
 
 			Add<RemoveComponentsSystem<Game, Hit>>();
 			Add<RemoveComponentsSystem<Game, TurnEnded>>();
+			Add<RemoveComponentsSystem<Game, FlipRotationAxis>>();
 
 			Add<DestroyEntitySystem<Game, StartDeal>>();
 			Add<DestroyEntitySystem<Game, Component.EndDeal>>();

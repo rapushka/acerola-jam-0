@@ -96,6 +96,7 @@ namespace Code
 			Add<MoveToTarget>();
 			// ## Rotation
 			Add<RotatePlayerCards>();
+			Add<FlipRotation>();
 			Add<RotateToTarget>();
 
 			Add<BoilerplateFeature>();
