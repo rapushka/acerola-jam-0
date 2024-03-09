@@ -17,6 +17,7 @@ namespace Code
 			BuildChangePointsThreshold(card, ref stringBuilder);
 			BuildChangeMaxCardsInHand(card, ref stringBuilder);
 			BuildInvokeFlipWinCondition(card, ref stringBuilder);
+			BuildCanNotBeBurn(card, ref stringBuilder);
 
 			BuildEmptyDescription(ref stringBuilder);
 
@@ -94,8 +95,16 @@ namespace Code
 			if (!card.Has<InvokeFlipWinCondition>())
 				return;
 
-			// "Flip Win Condition (The one with the fewest points wins)"
 			stringBuilder.Append("Flip Win Condition\n(One with Fewest points Wins)");
+			stringBuilder.Append("\n\n");
+		}
+
+		private void BuildCanNotBeBurn(Entity<Game> card, ref StringBuilder stringBuilder)
+		{
+			if (!card.Has<CanNotBeBurn>())
+				return;
+
+			stringBuilder.Append("Can't be burn");
 			stringBuilder.Append("\n\n");
 		}
 	}

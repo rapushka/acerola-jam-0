@@ -6,13 +6,13 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class StopHitOnMaxCardsInHand : IExecuteSystem
+	public sealed class CancelHitOnMaxCardsInHand : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly HudMediator _hud;
 		private readonly IGroup<Entity<Game>> _entities;
 
-		public StopHitOnMaxCardsInHand(Contexts contexts, HudMediator hud)
+		public CancelHitOnMaxCardsInHand(Contexts contexts, HudMediator hud)
 		{
 			_contexts = contexts;
 			_hud = hud;
