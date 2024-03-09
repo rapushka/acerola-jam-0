@@ -21,6 +21,8 @@ namespace Code.System
 			_config = config;
 		}
 
+		private Entity<Game> Candidate => _contexts.Get<Game>().Unique.GetEntity<Candidate>();
+
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
 			=> context.CreateCollector(Get<Hit>().Added());
 
@@ -36,9 +38,8 @@ namespace Code.System
 
 				void Decide()
 				{
-					var candidate = _contexts.Get<Game>().Unique.GetEntity<Candidate>();
 					if (Random.value >= _config.TakeVsBurnCandidateProbability
-					    && !candidate.Has<CanNotBeBurn>())
+					    || Candidate.Has<CanNotBeBurn>())
 					{
 						_contexts.Get<Game>().CreateEntity().Is<TakeCandidate>(true);
 					}
