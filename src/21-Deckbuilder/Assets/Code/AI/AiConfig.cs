@@ -6,7 +6,7 @@ namespace Code.System
 	[CreateAssetMenu(fileName = "Dealer Ai Config", menuName = "+375/AiConfig", order = 0)]
 	public class AiConfig : ScriptableObject
 	{
-		private const string RandomTooltip = "on 1 - always right value\non 0 - always left value";
+		private const string RandomTooltip = "on 0 - always left value\non 1 - always right value";
 
 		[field: SerializeField] public float TurnActionThinkingDuration        { get; private set; }
 		[field: SerializeField] public float CardPickingActionThinkingDuration { get; private set; }

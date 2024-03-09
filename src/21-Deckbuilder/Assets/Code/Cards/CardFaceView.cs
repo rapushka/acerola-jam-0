@@ -6,30 +6,17 @@ using Zenject;
 
 namespace Code
 {
-	public class CardFaceView : BaseListener<Game>, IRegistrableListener<Game, Face>, IRegistrableListener<Game, Suit>
+	public class CardFaceView : BaseListener<Game, Face>
 	{
 		[Inject] private readonly DeckViewConfig _deck;
 
 		[SerializeField] private SpriteRenderer _spriteRenderer;
 
-		public Entity<Game> Entity { get; private set; }
-
-		public override void Register(Entity<Game> entity)
+		public override void OnValueChanged(Entity<Game> entity, Face component)
 		{
-			Entity = entity;
-
-			entity.AddListener<Face>(this);
-			entity.AddListener<Suit>(this);
-
-			if (entity.Has<Face>() && entity.Has<Suit>())
-				OnValueChanged(entity, entity.Get<Face>());
+			_spriteRenderer.sprite = _deck[Card.Face, Card.Suit];
 		}
 
-		public void OnValueChanged(Entity<Game> entity, Face component) => OnValueChanged();
-
-		public void OnValueChanged(Entity<Game> entity, Suit component) => OnValueChanged();
-
-		private void OnValueChanged()
-			=> _spriteRenderer.sprite = _deck[Entity.Get<Face>().Value, Entity.Get<Suit>().Value];
+		private CardId Card => Entity.Get<Face>().Value;
 	}
 }

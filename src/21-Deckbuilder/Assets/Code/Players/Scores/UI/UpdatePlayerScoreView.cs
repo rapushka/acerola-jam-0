@@ -19,7 +19,7 @@ namespace Code.System
 			=> context.CreateCollector(Get<Score>());
 
 		protected override bool Filter(Entity<Game> entity)
-			=> entity.Get<Component.Side>().Value is Side.Player;
+			=> entity.IsPlayer();
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{

@@ -21,6 +21,8 @@ namespace Code.System
 			contexts.GetGroup(ScopeMatcher<Game>.Get<Component.Side>());
 		}
 
+		private Entity<Game> Rules => _contexts.Get<Game>().Unique.GetEntity<Rules>();
+
 		public void Execute()
 		{
 			foreach (var e in _entities.GetEntities())
@@ -31,31 +33,56 @@ namespace Code.System
 				var playerScore = player.Get<Score>().Value;
 				var dealerScore = dealer.Get<Score>().Value;
 
-				playerScore = playerScore > 21 ? -1 : playerScore;
-				dealerScore = dealerScore > 21 ? -1 : dealerScore;
+				var maxPoints = Rules.Get<MaxPointsThreshold>().Value;
+				var flipWinCondition = Rules.Is<FlipWinCondition>();
 
-				var result = playerScore.CompareTo(dealerScore) switch
-				{
-					-1 => "You Loose",
-					0  => "Draw",
-					1  => "You Win",
-					_  => throw new ArgumentOutOfRangeException(),
-				};
+				var isPlayerPass = player.Is<Pass>();
+				var isDealerPass = dealer.Is<Pass>();
 
-				var playerScoreView = playerScore == -1 ? "Busted!" : playerScore.ToString();
-				var dealerScoreView = dealerScore == -1 ? "Busted!" : dealerScore.ToString();
+				var isPlayerBusted = playerScore > maxPoints;
+				var isDealerBusted = dealerScore > maxPoints;
+
+				Func<int, int, bool> condition = flipWinCondition ? WinsFewerPoints : WinsMorePoints;
+
+				var playerWinPoints = condition.Invoke(playerScore, dealerScore);
+				var dealerWinPoints = condition.Invoke(dealerScore, playerScore);
+
+				var isPlayerWin = playerWinPoints || isDealerPass || isDealerBusted;
+				var isDealerWin = dealerWinPoints || isPlayerPass || isPlayerBusted;
+
+				if (isPlayerBusted || isPlayerPass)
+					isPlayerWin = false;
+
+				if (isDealerBusted || isDealerPass)
+					isDealerWin = false;
+
+				player.Is<Winner>(isPlayerWin);
+				dealer.Is<Winner>(isDealerWin);
+
+				var result
+					= isPlayerWin && isDealerWin ? "Draw! You split the winnings in two"
+					: isPlayerWin                ? "You Win! And take the whole Bank"
+					: isDealerWin                ? "You Loose:( And the Dealer takes the whole Bank"
+					                               : "Nobody Won! The casino takes your winnings";
+
+				var playerScoreView
+					= isPlayerPass   ? "Pass"
+					: isPlayerBusted ? "Busted!"
+					                   : playerScore.ToString();
+				var dealerScoreView
+					= isDealerPass   ? "Pass"
+					: isDealerBusted ? "Busted!"
+					                   : dealerScore.ToString();
 
 				var message = $"{result}\nPlayer: {playerScoreView}\nDealer: {dealerScoreView}";
 				_hud.ShowDealEndScreen(message);
 
-				if (playerScore >= dealerScore && playerScore != -1)
-					player.Is<Winner>(true);
-
-				if (dealerScore >= playerScore && dealerScore != -1)
-					dealer.Is<Winner>(true);
-
 				e.Is<Destroyed>(true);
 			}
 		}
+
+		private bool WinsMorePoints(int ourPoints, int opponentScore) => ourPoints >= opponentScore;
+
+		private bool WinsFewerPoints(int ourScore, int opponentScore) => ourScore <= opponentScore;
 	}
 }

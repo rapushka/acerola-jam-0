@@ -26,6 +26,7 @@ namespace Code
 			Container.Bind<SidesFactory>().AsSingle();
 
 			Container.Bind<DeckProvider>().AsSingle().NonLazy();
+			Container.Bind<ShadowCardsProvider>().AsSingle();
 		}
 	}
 }

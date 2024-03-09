@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4454246025200681810}
   - component: {fileID: 1460892063828798412}
   - component: {fileID: 3645893583778816111}
-  - component: {fileID: 7247610452992712548}
   - component: {fileID: 8734548158449862986}
+  - component: {fileID: 2698086743963728}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -57,8 +57,8 @@ MonoBehaviour:
   _listeners:
   - {fileID: 4454246025200681810}
   - {fileID: 3645893583778816111}
-  - {fileID: 7247610452992712548}
   - {fileID: 8734548158449862986}
+  - {fileID: 2698086743963728}
   _subEntities: []
   _ensureComponentsCountOnAwake: 1
   _forceSubEntitiesAutoCollect: 1
@@ -99,18 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb14a8979a804f85bf17f6ae92421362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7247610452992712548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2852522703150970798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dddd061de18d4376a8416cd62b5a62ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8734548158449862986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +112,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 2852522703150970798}
+--- !u!114 &2698086743963728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852522703150970798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dddd061de18d4376a8416cd62b5a62ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5416417791475438596
 GameObject:
   m_ObjectHideFlags: 0

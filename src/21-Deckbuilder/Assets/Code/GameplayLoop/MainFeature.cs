@@ -24,10 +24,15 @@ namespace Code
 			Add<HideWinAndLooseScreens>();
 			Add<SidesKeepPlaying>();
 			Add<ResetScore>();
+			Add<SetupDefaultRules>();
 			Add<DestroyOldDeck>();
 			Add<SpawnDeck>();
+			Add<BindAbilities>();
 			Add<ResetMinBetInBank>();
 			Add<StartWithPlayerTurn>();
+#if DEBUG
+			Add<PutSomeCardOnTopOfTheDeck>();
+#endif
 
 			// Generic things
 			Add<WaitingSystem>();
@@ -39,13 +44,21 @@ namespace Code
 			Add<AiBet>();
 
 			// Card Actions
+			Add<CancelHitOnMaxCardsInHand>();
 			Add<SideHit>();
 			Add<SideStand>();
+			Add<CancelBurnOfUnBurnableCard>();
 			Add<PickCandidate>(); // Both burn and take
 
 			// Cards burning
 			Add<BurnCard>();
-			Add<LogBurnedSystem>();
+			// ## OnBurn Abilities
+			// Add<LogBurnedSystem>();
+			Add<CastChangePoints>();
+			Add<CastDestroyAllSuit>();
+			Add<CastChangePointThreshold>();
+			Add<CastChangeMaxCardsInHand>();
+			Add<CastFlipWinCondition>();
 
 			// Bets
 			Add<DoneCardActions>();
@@ -58,6 +71,7 @@ namespace Code
 			// End Deal
 			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
+			Add<FlipDealerCardsOnDealEnd>();
 			Add<WinnersGetBank>();
 			Add<CheckBankruptcy>();
 
@@ -68,6 +82,8 @@ namespace Code
 			Add<UpdateHud>();
 			Add<UpdateStatus>();
 			Add<UpdateStandView>();
+			Add<ShowCardDescription>();
+			Add<HideCardDescription>();
 			// ### Bets
 			Add<UpdateBets>();
 			Add<ShowPlaceBetWindow>();
@@ -80,7 +96,7 @@ namespace Code
 			Add<CenterAlignCardsInHands>();
 			Add<MoveToTarget>();
 			// ## Rotation
-			Add<RotatePlayerCards>();
+			Add<FlipRotation>();
 			Add<RotateToTarget>();
 
 			Add<BoilerplateFeature>();
