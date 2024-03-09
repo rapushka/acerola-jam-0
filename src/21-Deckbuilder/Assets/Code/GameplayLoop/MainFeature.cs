@@ -44,6 +44,7 @@ namespace Code
 			Add<AiBet>();
 
 			// Card Actions
+			Add<StopHitOnMaxCardsInHand>();
 			Add<SideHit>();
 			Add<SideStand>();
 			Add<PickCandidate>(); // Both burn and take

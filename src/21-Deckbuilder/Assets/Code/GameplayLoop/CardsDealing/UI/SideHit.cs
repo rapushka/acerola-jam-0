@@ -4,7 +4,7 @@ using Entitas;
 using Entitas.Generic;
 using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
-namespace Code
+namespace Code.System
 {
 	public sealed class SideHit : IExecuteSystem
 	{

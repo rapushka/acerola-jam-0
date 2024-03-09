@@ -19,6 +19,7 @@ namespace Code
 		[SerializeField] private GameObject _winScreenRoot;
 
 		[field: SerializeField] public CardDescription CardDescription { get; private set; }
+		[field: SerializeField] public MessageView     Message         { get; private set; }
 
 		public int PlayerScore { set => _playerScoreTextMesh.text = value.ToString(); }
 
