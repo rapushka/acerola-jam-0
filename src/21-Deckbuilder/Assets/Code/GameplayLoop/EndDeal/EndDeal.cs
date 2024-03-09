@@ -55,7 +55,7 @@ namespace Code.System
 					= isPlayerWin && isDealerWin ? "Draw! You split the winnings in two"
 					: isPlayerWin                ? "You Win! And take the whole Bank"
 					: isDealerWin                ? "You Loose:( And the Dealer takes the whole Bank"
-					                               : "Nobody Win! The casino takes your winnings";
+					                               : "Nobody Won! The casino takes your winnings";
 
 				var playerScoreView
 					= isPlayerPass   ? "Pass"
