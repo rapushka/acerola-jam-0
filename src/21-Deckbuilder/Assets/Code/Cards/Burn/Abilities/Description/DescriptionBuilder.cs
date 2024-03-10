@@ -95,7 +95,7 @@ namespace Code
 			if (!card.Has<InvokeFlipWinCondition>())
 				return;
 
-			stringBuilder.Append("Flip Win Condition\n(One with Fewest points Wins)");
+			stringBuilder.Append("Flip Win Condition\n(Fewest points Wins)");
 			stringBuilder.Append("\n\n");
 		}
 
