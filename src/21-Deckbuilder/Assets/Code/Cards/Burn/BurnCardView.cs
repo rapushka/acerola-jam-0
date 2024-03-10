@@ -9,6 +9,7 @@ namespace Code
 	public class BurnCardView : BaseListener<Game, ToBurn>
 	{
 		[SerializeField] private Renderer[] _renderers;
+		[SerializeField] private GameObject[] _objectsToDisable;
 		[SerializeField] private Material _burnMaterial;
 		[SerializeField] private float _waitBeforeBurn;
 		[SerializeField] private float _burnDuration;
@@ -29,6 +30,9 @@ namespace Code
 			// ReSharper disable once LocalVariableHidesMember – it hides obsolete property
 			foreach (var renderer in _renderers)
 				renderer.sharedMaterial = _burnMaterial;
+
+			foreach (var target in _objectsToDisable)
+				target.SetActive(false);
 
 			const float startValue = 1f;
 			const float endValue = 0f;
