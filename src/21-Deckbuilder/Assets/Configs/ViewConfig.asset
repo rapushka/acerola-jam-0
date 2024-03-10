@@ -21,7 +21,4 @@ MonoBehaviour:
   <BurnedCardFlipMovementSpeed>k__BackingField: 2
   <ScoringDuration>k__BackingField: 1.25
   <OnScoringDistance>k__BackingField: 0.4
-  <Lamp>k__BackingField:
-    <DefaultRotation>k__BackingField: 90
-    <PlayerRotation>k__BackingField: 120
-    <OpponentRotation>k__BackingField: 60
+  <LampRotationSpeed>k__BackingField: 5
