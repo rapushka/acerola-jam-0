@@ -18,9 +18,9 @@ namespace Code.System
 		}
 
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
-			=> context.CreateCollector(Get<Candidate>().Removed());
+			=> context.CreateCollector(AnyOf(Get<Candidate>(), Get<ToBurn>()).Removed());
 
-		protected override bool Filter(Entity<Game> entity) => !entity.Has<Candidate>();
+		protected override bool Filter(Entity<Game> entity) => !entity.Has<Candidate>() && !entity.Has<ToBurn>();
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{
