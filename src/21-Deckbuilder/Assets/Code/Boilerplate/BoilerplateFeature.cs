@@ -15,6 +15,7 @@ namespace Code.System
 			Add<SelfEventSystem<Game, Visible>>();
 			Add<SelfEventSystem<Game, Destroyed>>();
 			Add<SelfEventSystem<Game, Points>>();
+			Add<SelfEventSystem<Game, ToBurn>>();
 
 			Add<RemoveComponentsSystem<Game, Hit>>();
 			Add<RemoveComponentsSystem<Game, TurnEnded>>();

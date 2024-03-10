@@ -49,9 +49,6 @@ namespace Code.System
 
 		private bool IsTooMany(int score) => score > MaxPoints || Rules.Is<FlipWinCondition>();
 
-		private bool IsAce(Entity<Game> c)
-		{
-			return c.Get<Face>().Value.Face is CardFace.Ace;
-		}
+		private bool IsAce(Entity<Game> c) => c.GetOrDefault<Face>()?.Value.Face is CardFace.Ace;
 	}
 }
