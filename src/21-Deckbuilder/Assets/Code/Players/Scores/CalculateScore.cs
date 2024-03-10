@@ -10,13 +10,11 @@ namespace Code.System
 	public sealed class CalculateScore : ReactiveSystem<Entity<Game>>
 	{
 		private readonly IGroup<Entity<Game>> _sides;
-		private readonly EntityIndex<Game, HeldBy, Side> _cardsIndex;
 
 		public CalculateScore(Contexts contexts)
 			: base(contexts.Get<Game>())
 		{
 			_sides = contexts.GetGroup(ScopeMatcher<Game>.Get<Component.Side>());
-			_cardsIndex = contexts.Get<Game>().GetIndex<HeldBy, Side>();
 		}
 
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
