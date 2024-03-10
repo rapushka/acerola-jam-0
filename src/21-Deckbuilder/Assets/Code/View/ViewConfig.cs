@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Code
@@ -27,5 +28,15 @@ namespace Code
 		[field: SerializeField] public float ScoringDuration { get; private set; }
 
 		[field: SerializeField] public float OnScoringDistance { get; private set; }
+
+		[field: SerializeField] public LampView Lamp { get; private set; }
+
+		[Serializable]
+		public class LampView
+		{
+			[field: SerializeField] public float DefaultRotation  { get; private set; }
+			[field: SerializeField] public float PlayerRotation   { get; private set; }
+			[field: SerializeField] public float OpponentRotation { get; private set; }
+		}
 	}
 }
