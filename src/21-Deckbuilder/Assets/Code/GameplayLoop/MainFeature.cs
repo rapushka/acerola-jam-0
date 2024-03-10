@@ -53,6 +53,7 @@ namespace Code
 			Add<PickCandidate>(); // Both burn and take
 
 			// Cards burning
+			Add<MoveCameraToBurning>();
 			Add<BurnCard>();
 			// ## OnBurn Abilities
 			// Add<LogBurnedSystem>();
