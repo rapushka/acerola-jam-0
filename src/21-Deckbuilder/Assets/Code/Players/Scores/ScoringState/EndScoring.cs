@@ -4,7 +4,6 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 
 namespace Code.Players
 {
@@ -34,7 +33,6 @@ namespace Code.Players
 
 			void End()
 			{
-				Debug.Log("end deal");
 				_contexts.Get<Game>().CreateEntity().Is<EndDeal>(true);
 				_contexts.StopScoring();
 				e.Is<Destroyed>(true);
