@@ -107,6 +107,7 @@ namespace Code
 			Add<MoveToTarget>();
 			// ## Rotation
 			Add<FlipRotation>();
+			Add<RotateLamp>();
 			Add<RotateToTarget>();
 
 			Add<BoilerplateFeature>();

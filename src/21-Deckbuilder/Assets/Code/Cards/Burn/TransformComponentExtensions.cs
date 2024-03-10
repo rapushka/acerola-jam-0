@@ -9,8 +9,11 @@ namespace Code
 	{
 		public static Entity<Game> SetTargetTransform(this Entity<Game> @this, Transform value)
 		{
-			@this.Replace<TargetPosition, Vector3>(value.position);
-			@this.Replace<TargetRotation, Quaternion>(value.rotation);
+			if (@this.Has<Position>())
+				@this.Replace<TargetPosition, Vector3>(value.position);
+
+			if (@this.Has<Rotation>())
+				@this.Replace<TargetRotation, Quaternion>(value.rotation);
 
 			return @this;
 		}

@@ -16,6 +16,8 @@ namespace Code
 
 		[field: SerializeField] public CameraHolders Camera { get; private set; }
 
+		[field: SerializeField] public LampHolders Lamp { get; private set; }
+
 		public SideHolders this[Side side] => _sides.Single((sh) => sh.Side == side);
 
 		[Serializable]
@@ -35,6 +37,14 @@ namespace Code
 			[field: SerializeField] public Transform PlayerSitting { get; private set; }
 			[field: SerializeField] public Transform CardsScoring  { get; private set; }
 			[field: SerializeField] public Transform Burning       { get; private set; }
+		}
+
+		[Serializable]
+		public class LampHolders
+		{
+			[field: SerializeField] public Transform Default    { get; private set; }
+			[field: SerializeField] public Transform AtPlayer   { get; private set; }
+			[field: SerializeField] public Transform AtOpponent { get; private set; }
 		}
 	}
 }

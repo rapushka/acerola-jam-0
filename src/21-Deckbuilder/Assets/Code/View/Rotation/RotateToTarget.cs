@@ -28,9 +28,10 @@ namespace Code.System
 			{
 				var current = e.Get<Rotation>().Value;
 				var destination = e.Get<TargetRotation>().Value;
-				var speed = _viewConfig.CommonRotationSpeed * _timeService.DeltaTime;
+				var speed = e.GetOrDefault<RotationSpeed>()?.Value ?? _viewConfig.CommonRotationSpeed;
+				var scaledSpeed = speed * _timeService.DeltaTime;
 
-				if (current.AngleTo(destination) <= speed)
+				if (current.AngleTo(destination) <= scaledSpeed)
 				{
 					e.Replace<Rotation, Quaternion>(destination);
 					e.Remove<TargetRotation>();
@@ -38,7 +39,7 @@ namespace Code.System
 					continue;
 				}
 
-				var nextRotation = Quaternion.Lerp(current, destination, speed);
+				var nextRotation = Quaternion.Lerp(current, destination, scaledSpeed);
 				e.Replace<Rotation, Quaternion>(nextRotation);
 			}
 		}

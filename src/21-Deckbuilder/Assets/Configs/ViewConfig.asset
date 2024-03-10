@@ -21,3 +21,6 @@ MonoBehaviour:
   <BurnedCardFlipMovementSpeed>k__BackingField: 2
   <ScoringDuration>k__BackingField: 1.25
   <OnScoringDistance>k__BackingField: 0.4
+  <LampRotationSpeed>k__BackingField: 2.5
+  <CameraRotationSpeed>k__BackingField: 7.5
+  <CameraMovementSpeed>k__BackingField: 5
