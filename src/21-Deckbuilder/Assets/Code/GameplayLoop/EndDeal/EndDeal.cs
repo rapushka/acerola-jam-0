@@ -44,8 +44,20 @@ namespace Code.System
 
 				Func<int, int, bool> condition = flipWinCondition ? WinsFewerPoints : WinsMorePoints;
 
+				var playerHasBlackJack = playerScore == Constants.BlackJack && player.GetCards().Count == 2;
+				var dealerHasBlackJack = dealerScore == Constants.BlackJack && dealer.GetCards().Count == 2;
+
 				var playerWinPoints = condition.Invoke(playerScore, dealerScore);
 				var dealerWinPoints = condition.Invoke(dealerScore, playerScore);
+
+				if (playerScore == dealerScore)
+				{
+					if (dealerHasBlackJack)
+						playerWinPoints = false;
+
+					if (playerHasBlackJack)
+						dealerWinPoints = false;
+				}
 
 				var isPlayerWin = playerWinPoints || isDealerPass || isDealerBusted;
 				var isDealerWin = dealerWinPoints || isPlayerPass || isPlayerBusted;
@@ -60,19 +72,21 @@ namespace Code.System
 				dealer.Is<Winner>(isDealerWin);
 
 				var result
-					= isPlayerWin && isDealerWin ? "Draw! You split the winnings in two"
-					: isPlayerWin                ? "You Win! And take the whole Bank"
-					: isDealerWin                ? "You Loose:( And the Dealer takes the whole Bank"
-					                               : "Nobody Won! The casino takes your winnings";
+					= isPlayerWin && isDealerWin ? "Draw\nYou split the winnings in two"
+					: isPlayerWin                ? "You Win!\nYou take the whole Bank"
+					: isDealerWin                ? "You Loose:(\nThe Dealer takes the whole Bank"
+					                               : "Nobody Won\nThe casino takes your winnings";
 
 				var playerScoreView
-					= isPlayerPass   ? "Pass"
-					: isPlayerBusted ? "Busted!"
-					                   : playerScore.ToString();
+					= isPlayerPass       ? "Pass"
+					: isPlayerBusted     ? "Busted!"
+					: playerHasBlackJack ? "Black Jack"
+					                       : playerScore.ToString();
 				var dealerScoreView
-					= isDealerPass   ? "Pass"
-					: isDealerBusted ? "Busted!"
-					                   : dealerScore.ToString();
+					= isDealerPass       ? "Pass"
+					: isDealerBusted     ? "Busted!"
+					: dealerHasBlackJack ? "Black Jack"
+					                       : dealerScore.ToString();
 
 				var message = $"{result}\nPlayer: {playerScoreView}\nDealer: {dealerScoreView}";
 				_hud.ShowDealEndScreen(message);
