@@ -34,6 +34,7 @@ namespace Code
 		{
 			[field: SerializeField] public Transform PlayerSitting { get; private set; }
 			[field: SerializeField] public Transform CardsScoring  { get; private set; }
+			[field: SerializeField] public Transform Burning       { get; private set; }
 		}
 	}
 }
