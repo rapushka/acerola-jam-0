@@ -63,6 +63,6 @@ namespace Code.System
 			return false;
 		}
 
-		private void EndDeal() => _contexts.Get<Game>().CreateEntity().Is<Component.EndDeal>(true);
+		private void EndDeal() => _contexts.StartScoring();
 	}
 }

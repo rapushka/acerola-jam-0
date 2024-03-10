@@ -13,6 +13,7 @@ namespace Code
 		public override void Add(ref Entity<Game> entity)
 		{
 			entity.Add<Camera, UnityEngine.Camera>(_camera);
+			entity.Add<DebugName, string>("Camera");
 			entity.Add<Position, Vector3>(transform.position);
 			entity.Add<Rotation, Quaternion>(transform.rotation);
 		}

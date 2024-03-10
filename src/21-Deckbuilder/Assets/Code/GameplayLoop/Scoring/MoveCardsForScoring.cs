@@ -16,7 +16,7 @@ namespace Code.System
 		public MoveCardsForScoring(Contexts contexts, HoldersProvider holders)
 		{
 			_holders = holders;
-			_entities = contexts.GetGroup(Get<Component.EndDeal>());
+			_entities = contexts.GetGroup(Get<Component.Scoring>());
 			_cards = contexts.GetGroup(Get<Component.HeldBy>());
 		}
 

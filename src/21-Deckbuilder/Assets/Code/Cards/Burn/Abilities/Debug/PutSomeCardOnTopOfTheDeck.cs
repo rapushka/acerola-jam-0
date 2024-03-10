@@ -24,10 +24,11 @@ namespace Code.System
 		{
 			foreach (var _ in _entities)
 			{
-				PutFirst((CardFace.Ace, CardSuit.Hearts));
+				// PutFirst((CardFace.Ace, CardSuit.Hearts));
 			}
 		}
 
+		// ReSharper disable once UnusedMember.Local
 		private void PutFirst(CardId targetCard)
 		{
 			var targetCards = _contexts.Get<Game>().GetIndex<Face, CardId>().GetEntities(targetCard);

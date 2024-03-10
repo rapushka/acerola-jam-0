@@ -18,7 +18,7 @@ namespace Code
 
 		public void Execute()
 		{
-			foreach (var e in _entities)
+			foreach (var _ in _entities)
 				_contexts.StartScoring();
 		}
 	}

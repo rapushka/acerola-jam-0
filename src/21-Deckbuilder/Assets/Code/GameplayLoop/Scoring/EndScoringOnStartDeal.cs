@@ -5,12 +5,12 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class StopScoring : IExecuteSystem
+	public sealed class EndScoringOnStartDeal : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly IGroup<Entity<Game>> _entities;
 
-		public StopScoring(Contexts contexts)
+		public EndScoringOnStartDeal(Contexts contexts)
 		{
 			_contexts = contexts;
 			_entities = contexts.GetGroup(ScopeMatcher<Game>.Get<StartDeal>());
@@ -18,7 +18,7 @@ namespace Code
 
 		public void Execute()
 		{
-			foreach (var e in _entities)
+			foreach (var _ in _entities)
 				_contexts.StopScoring();
 		}
 	}

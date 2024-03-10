@@ -17,7 +17,7 @@ namespace Code
 		{
 			_contexts = contexts;
 			_holders = holders;
-			_entities = contexts.GetGroup(ScopeMatcher<Game>.Get<EndDeal>());
+			_entities = contexts.GetGroup(ScopeMatcher<Game>.Get<Scoring>());
 		}
 
 		private Entity<Game> Camera => _contexts.Get<Game>().Unique.GetEntity<Camera>();

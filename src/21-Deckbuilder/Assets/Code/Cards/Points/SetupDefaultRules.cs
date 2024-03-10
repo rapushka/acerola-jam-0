@@ -28,6 +28,7 @@ namespace Code.System
 
 				var e = _contexts.Get<Game>().CreateEntity();
 				e.Is<Rules>(true);
+				e.Add<DebugName, string>("rules");
 				e.Add<MaxPointsThreshold, int>(_balance.DefaultMaxPointThreshold);
 				e.Add<MaxCardsInHand, int>(_balance.DefaultMaxCardsInHand);
 			}

@@ -32,7 +32,7 @@ namespace Code.System
 				var cards = _contexts.Get<Game>().GetIndex<HeldBy, Side>().GetEntities(side);
 				var hand = _holders[side].Hand;
 
-				var spacing = _contexts.IsScoring()
+				var spacing = !_contexts.Get<Game>().Unique.Has<CurrentTurn>()
 					? _viewConfig.OnScoringDistance
 					: _viewConfig.DistanceBetweenCards;
 
