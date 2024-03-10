@@ -101,7 +101,7 @@ namespace Code
 			Add<MoveLensToCandidate>();
 			Add<MoveCardAndLensForBurning>();
 			Add<MoveHeldCardToSideHands>();
-			Add<CenterAlignCardsInHands>();
+			Add<CenterAlignCards>();
 			Add<MoveToTarget>();
 			// ## Rotation
 			Add<FlipRotation>();
