@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3645893583778816111}
   - component: {fileID: 8734548158449862986}
   - component: {fileID: 2698086743963728}
+  - component: {fileID: 4885502533299964627}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -59,6 +60,7 @@ MonoBehaviour:
   - {fileID: 3645893583778816111}
   - {fileID: 8734548158449862986}
   - {fileID: 2698086743963728}
+  - {fileID: 4885502533299964627}
   _subEntities: []
   _ensureComponentsCountOnAwake: 1
   _forceSubEntitiesAutoCollect: 1
@@ -124,6 +126,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dddd061de18d4376a8416cd62b5a62ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4885502533299964627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852522703150970798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544b1a0f1eed4bb7a0edea0aaa505d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 8267664906261762250}
+  - {fileID: 5574337943532740332}
+  _burnMaterial: {fileID: 2100000, guid: 5a0e9086bd6bbf245bd506367fc008db, type: 2}
+  _waitBeforeBurn: 0.95
+  _burnDuration: 1
 --- !u!1 &5416417791475438596
 GameObject:
   m_ObjectHideFlags: 0
