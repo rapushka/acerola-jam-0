@@ -17,7 +17,7 @@ namespace Code
 
 		public static Side Flip(this Side @this) => @this is Side.Player ? Side.Dealer : Side.Player;
 
-		public static IEnumerable<Entity<Game>> GetCards(this Entity<Game> side)
+		public static HashSet<Entity<Game>> GetCards(this Entity<Game> side)
 			=> Context.GetIndex<HeldBy, Side>().GetEntities(side.Get<Component.Side>().Value);
 
 		public static Entity<Game> GetHolder(this Entity<Game> card)

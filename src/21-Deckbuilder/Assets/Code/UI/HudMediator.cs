@@ -5,7 +5,6 @@ namespace Code
 {
 	public class HudMediator : MonoBehaviour
 	{
-		[SerializeField] private TMP_Text _playerScoreTextMesh;
 		[SerializeField] private GameObject _dealEndScreenRoot;
 		[SerializeField] private TMP_Text _dealEndTextMesh;
 		[SerializeField] private GameObject _pickCardRoot;
@@ -18,10 +17,9 @@ namespace Code
 		[SerializeField] private GameObject _looseScreenRoot;
 		[SerializeField] private GameObject _winScreenRoot;
 
-		[field: SerializeField] public CardDescription CardDescription { get; private set; }
-		[field: SerializeField] public MessageView     Message         { get; private set; }
-
-		public int PlayerScore { set => _playerScoreTextMesh.text = value.ToString(); }
+		[field: SerializeField] public CardDescription CardDescription     { get; private set; }
+		[field: SerializeField] public MessageView     Message             { get; private set; }
+		[field: SerializeField] public ScoreView       PlayerScore { get; private set; }
 
 		public bool PickCardOptionsVisibility { set => _pickCardRoot.gameObject.SetActive(value); }
 

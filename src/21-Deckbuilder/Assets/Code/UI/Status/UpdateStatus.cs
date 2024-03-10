@@ -37,6 +37,9 @@ namespace Code.System
 			_stringBuilder.AppendLine($"Max Points Threshold: {Rules.Get<MaxPointsThreshold>().Value}");
 			_stringBuilder.AppendLine($"Max Cards in Hand: {Rules.Get<MaxCardsInHand>().Value}");
 
+			if (Rules.Is<FlipWinCondition>())
+				_stringBuilder.AppendLine("Win Condition is Flipped");
+
 			_hud.StatusText = _stringBuilder.ToString();
 		}
 	}

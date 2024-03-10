@@ -30,6 +30,8 @@ namespace Code
 			Add<BindAbilities>();
 			Add<ResetMinBetInBank>();
 			Add<StartWithPlayerTurn>();
+			Add<MoveCameraToPlayerSitting>();
+			// Add<EndScoringOnStartDeal>();
 #if DEBUG
 			Add<PutSomeCardOnTopOfTheDeck>();
 #endif
@@ -68,10 +70,16 @@ namespace Code
 			// End Turn
 			Add<PassTurnToNext>();
 
+			// Scoring
+			// Add<StartScoring>();
+			Add<MoveCameraToCardsScoring>();
+			Add<MoveCardsForScoring>();
+			Add<EndScoring>();
+
 			// End Deal
 			Add<EndDeal>();
 			Add<ShowOnDealEnd>();
-			Add<FlipDealerCardsOnDealEnd>();
+			// Add<FlipDealerCardsOnDealEnd>();
 			Add<WinnersGetBank>();
 			Add<CheckBankruptcy>();
 
@@ -93,7 +101,7 @@ namespace Code
 			Add<MoveLensToCandidate>();
 			Add<MoveCardAndLensForBurning>();
 			Add<MoveHeldCardToSideHands>();
-			Add<CenterAlignCardsInHands>();
+			Add<CenterAlignCards>();
 			Add<MoveToTarget>();
 			// ## Rotation
 			Add<FlipRotation>();

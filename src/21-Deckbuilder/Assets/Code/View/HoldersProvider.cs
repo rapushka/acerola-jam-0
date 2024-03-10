@@ -14,6 +14,8 @@ namespace Code
 
 		[SerializeField] private SideHolders[] _sides;
 
+		[field: SerializeField] public CameraHolders Camera { get; private set; }
+
 		public SideHolders this[Side side] => _sides.Single((sh) => sh.Side == side);
 
 		[Serializable]
@@ -24,6 +26,14 @@ namespace Code
 			[field: SerializeField] public Transform CandidateCard   { get; private set; }
 			[field: SerializeField] public Transform CandidateLense  { get; private set; }
 			[field: SerializeField] public Transform ShadowCardSpawn { get; private set; }
+			[field: SerializeField] public Transform CardScoring     { get; private set; }
+		}
+
+		[Serializable]
+		public class CameraHolders
+		{
+			[field: SerializeField] public Transform PlayerSitting { get; private set; }
+			[field: SerializeField] public Transform CardsScoring  { get; private set; }
 		}
 	}
 }
