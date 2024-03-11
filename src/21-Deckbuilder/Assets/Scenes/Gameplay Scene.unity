@@ -1211,15 +1211,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_text
-      value: 'Player''s money: {0}
+      value: 'Max Points Threshold: 21
 
-        Dealer''s money: {0}
+        Max Cards in Hand: 5
 
-        Bank: {0}'
+        Win
+        Condition is Flipped!'
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontSize
-      value: 50.05
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontColor.b
@@ -1235,7 +1236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontSizeBase
-      value: 32
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontColor32.rgba

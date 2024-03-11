@@ -31,14 +31,11 @@ namespace Code.System
 
 			_stringBuilder.Clear();
 
-			_stringBuilder.AppendLine($"Player's money: {Player.GetMoney()}");
-			_stringBuilder.AppendLine($"Dealer's money: {Dealer.GetMoney()}");
-			_stringBuilder.AppendLine($"Bank: {Bank.Get<Money>().Value}");
 			_stringBuilder.AppendLine($"Max Points Threshold: {Rules.Get<MaxPointsThreshold>().Value}");
 			_stringBuilder.AppendLine($"Max Cards in Hand: {Rules.Get<MaxCardsInHand>().Value}");
 
 			if (Rules.Is<FlipWinCondition>())
-				_stringBuilder.AppendLine("Win Condition is Flipped");
+				_stringBuilder.AppendLine("Win Condition is Flipped!");
 
 			_hud.StatusText = _stringBuilder.ToString();
 		}
