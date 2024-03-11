@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1259981596215193641}
+  - component: {fileID: 7551960763391587151}
+  - component: {fileID: -1555699539868411928}
+  - component: {fileID: 2791176067152998562}
   m_Layer: 0
   m_Name: Bet View
   m_TagString: Untagged
@@ -57,6 +60,50 @@ Transform:
   - {fileID: 966824110835826240}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7551960763391587151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6514537306661214758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f90e9a127ca4e51963a444c8b207835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentBehaviours: []
+  _listeners:
+  - {fileID: -1555699539868411928}
+  - {fileID: 2791176067152998562}
+  _subEntities: []
+  _ensureComponentsCountOnAwake: 1
+  _forceSubEntitiesAutoCollect: 1
+--- !u!114 &-1555699539868411928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6514537306661214758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb14a8979a804f85bf17f6ae92421362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2791176067152998562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6514537306661214758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ef4746292d440fba8cd256de2ca2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 6514537306661214758}
 --- !u!1001 &33883332809070718
 PrefabInstance:
   m_ObjectHideFlags: 0

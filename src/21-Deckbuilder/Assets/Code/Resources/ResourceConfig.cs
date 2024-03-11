@@ -12,6 +12,9 @@ namespace Code
 		EntityBehaviour<Game> SpawnShadowCardView(Transform parent);
 		EntityBehaviour<Game> SpawnLoupe(Transform parent);
 		BookCardView          SpawnBookCardView(Transform parent, CardId id);
+
+		EntityBehaviour<Game> SpawnMoneyHeapView(Transform parent);
+		EntityBehaviour<Game> SpawnBetView(Transform parent);
 	}
 
 	[CreateAssetMenu(fileName = "Resources", menuName = "+375/Resources", order = -99)]
@@ -23,6 +26,8 @@ namespace Code
 		[SerializeField] private EntityBehaviour<Game> _shadowCardPrefab;
 		[SerializeField] private EntityBehaviour<Game> _loupePrefab;
 		[SerializeField] private BookCardView _bookCardPrefab;
+		[SerializeField] private EntityBehaviour<Game> _betPrefab;
+		[SerializeField] private EntityBehaviour<Game> _moneyHeapPrefab;
 
 		public EntityBehaviour<Game> SpawnCardView(Transform parent, float height)
 		{
@@ -39,7 +44,6 @@ namespace Code
 		{
 			var loupeView = SpawnBehaviour(_loupePrefab, parent);
 			loupeView.Entity.Is<Lens>(true);
-			// loupeView.transform.LookAt(loupeView.transform.position + Vector3.down);
 			return loupeView;
 		}
 
@@ -51,6 +55,12 @@ namespace Code
 
 			return view;
 		}
+
+		public EntityBehaviour<Game> SpawnMoneyHeapView(Transform parent)
+			=> SpawnBehaviour(_moneyHeapPrefab, parent);
+
+		public EntityBehaviour<Game> SpawnBetView(Transform parent)
+			=> SpawnBehaviour(_betPrefab, parent);
 
 		private EntityBehaviour<Game> SpawnBehaviour(EntityBehaviour<Game> prefab, Transform parent)
 		{
