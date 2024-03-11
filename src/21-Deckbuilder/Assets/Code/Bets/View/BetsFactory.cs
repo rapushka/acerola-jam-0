@@ -53,5 +53,15 @@ namespace Code
 			heap.Add<MoneyOf, Side>(side);
 			heap.Add<Money, int>(_balance.SideMoneyOnStart);
 		}
+
+		public void CreateBank()
+		{
+			var bank = _resource.SpawnMoneyHeapView(_holders.Bank).Entity;
+			bank.Add<DebugName, string>("bank");
+			bank.Is<Bank>(true);
+			bank.Add<MinBet, int>(_balance.MinBetOnStart);
+			bank.Add<CurrentBet, int>(_balance.MinBetOnStart);
+			bank.Add<Money, int>(0);
+		}
 	}
 }
