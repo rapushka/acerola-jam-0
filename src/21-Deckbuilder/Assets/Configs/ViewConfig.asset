@@ -24,3 +24,4 @@ MonoBehaviour:
   <LampRotationSpeed>k__BackingField: 2.5
   <CameraRotationSpeed>k__BackingField: 7.5
   <CameraMovementSpeed>k__BackingField: 5
+  <BetMovementSpeed>k__BackingField: 5

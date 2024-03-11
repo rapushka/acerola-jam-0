@@ -11,13 +11,21 @@ namespace Code
 		private readonly IResourcesProvider _resource;
 		private readonly HoldersProvider _holders;
 		private readonly BalanceConfig _balance;
+		private readonly ViewConfig _viewConfig;
 
 		[Inject]
-		public BetsFactory(IResourcesProvider resource, HoldersProvider holders, BalanceConfig balance)
+		public BetsFactory
+		(
+			IResourcesProvider resource,
+			HoldersProvider holders,
+			BalanceConfig balance,
+			ViewConfig viewConfig
+		)
 		{
 			_resource = resource;
 			_holders = holders;
 			_balance = balance;
+			_viewConfig = viewConfig;
 		}
 
 		public void SendBet(Entity<Game> from, Entity<Game> to)
@@ -29,6 +37,7 @@ namespace Code
 			var entity = view.Entity;
 			entity.Add<DebugName, string>("transaction");
 			entity.Add<Position, Vector3>(view.transform.position);
+			entity.Add<MovementSpeed, float>(_viewConfig.BetMovementSpeed);
 			entity.Is<Transaction>(true);
 			entity.SetTargetTransform(endPoint);
 		}

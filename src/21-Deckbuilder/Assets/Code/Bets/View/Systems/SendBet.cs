@@ -29,6 +29,9 @@ namespace Code
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{
+			if (Bank.Get<Money>().Value == 0)
+				return;
+
 			foreach (var e in entities)
 				_factory.SendBet(from: e, to: Bank);
 		}
