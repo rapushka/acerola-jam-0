@@ -25,7 +25,7 @@ namespace Code
 			=> context.CreateCollector(Get<Money>());
 
 		protected override bool Filter(Entity<Game> entity)
-			=> entity.Has<Money>() && entity.Has<Component.Side>();
+			=> entity.Has<Money>() && entity.Has<MoneyOf>();
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{

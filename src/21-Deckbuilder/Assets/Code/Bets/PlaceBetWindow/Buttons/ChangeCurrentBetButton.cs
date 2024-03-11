@@ -17,7 +17,7 @@ namespace Code
 
 			var newBet = bank.Get<CurrentBet>().Value + _delta;
 			var minBet = bank.Get<MinBet>().Value;
-			var allIn = side.Get<Money>().Value;
+			var allIn = side.GetMoney();
 			newBet = Mathf.Clamp(newBet, minBet, allIn);
 
 			bank.Replace<CurrentBet, int>(newBet);

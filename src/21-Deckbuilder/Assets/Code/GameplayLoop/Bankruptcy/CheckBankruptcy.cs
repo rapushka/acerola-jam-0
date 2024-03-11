@@ -30,7 +30,7 @@ namespace Code
 		{
 			foreach (var side in _sides)
 			{
-				if (side.Get<Money>().Value >= _balance.MinBetOnStart)
+				if (side.GetMoney() >= _balance.MinBetOnStart)
 					continue;
 
 				var isDealerBankrupt = side.Get<Component.Side>().Value is Side.Dealer;

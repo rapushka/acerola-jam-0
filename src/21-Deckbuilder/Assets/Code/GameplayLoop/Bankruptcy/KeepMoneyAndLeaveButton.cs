@@ -1,4 +1,3 @@
-using Code.Component;
 using Entitas.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -32,7 +31,7 @@ namespace Code
 			if (player is null)
 				return;
 
-			var winnings = player.Get<Money>().Value - Constants.StartMoney;
+			var winnings = player.GetMoney() - Constants.StartMoney;
 
 			if (MaxSavedWinnings < winnings)
 				MaxSavedWinnings = winnings;

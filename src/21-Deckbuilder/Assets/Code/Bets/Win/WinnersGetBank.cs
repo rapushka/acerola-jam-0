@@ -33,7 +33,7 @@ namespace Code
 					var sidePrize = bankMoney / winnersCount;
 
 					foreach (var winner in _winners)
-						winner.AddValue<Money>(sidePrize);
+						winner.AddMoneyValue(sidePrize);
 				}
 
 				Bank.Replace<Money, int>(0);

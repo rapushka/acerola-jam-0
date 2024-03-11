@@ -31,8 +31,8 @@ namespace Code.System
 
 			_stringBuilder.Clear();
 
-			_stringBuilder.AppendLine($"Player's money: {Player.Get<Money>().Value}");
-			_stringBuilder.AppendLine($"Dealer's money: {Dealer.Get<Money>().Value}");
+			_stringBuilder.AppendLine($"Player's money: {Player.GetMoney()}");
+			_stringBuilder.AppendLine($"Dealer's money: {Dealer.GetMoney()}");
 			_stringBuilder.AppendLine($"Bank: {Bank.Get<Money>().Value}");
 			_stringBuilder.AppendLine($"Max Points Threshold: {Rules.Get<MaxPointsThreshold>().Value}");
 			_stringBuilder.AppendLine($"Max Cards in Hand: {Rules.Get<MaxCardsInHand>().Value}");
