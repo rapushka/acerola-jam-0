@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 7867198981073823951}
   - component: {fileID: 7576582053987732469}
   - component: {fileID: 1085426822065279751}
+  - component: {fileID: 7922731837521597573}
   m_Layer: 0
   m_Name: Money Heap View
   m_TagString: Untagged
@@ -286,6 +287,7 @@ MonoBehaviour:
   - {fileID: 7867198981073823951}
   - {fileID: 7576582053987732469}
   - {fileID: 1085426822065279751}
+  - {fileID: 7922731837521597573}
   _subEntities: []
   _ensureComponentsCountOnAwake: 1
   _forceSubEntitiesAutoCollect: 1
@@ -327,6 +329,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 5322818408123144462}
+--- !u!114 &7922731837521597573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7622995591557098317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49654267fd64d18aef2acb29a42f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 7622995591557098317}
+  _duration: 0.3
+  _strength: {x: 0.1, y: 0.25, z: 0.1}
+  _vibrato: 5
+  _randomness: 90
+  _fadeOut: 1
 --- !u!1 &7680437939651067968
 GameObject:
   m_ObjectHideFlags: 0
