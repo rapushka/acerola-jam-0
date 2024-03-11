@@ -18,6 +18,8 @@ namespace Code
 
 		[field: SerializeField] public LampHolders Lamp { get; private set; }
 
+		[field: SerializeField] public Transform Bank { get; private set; }
+
 		public SideHolders this[Side side] => _sides.Single((sh) => sh.Side == side);
 
 		[Serializable]
@@ -29,6 +31,7 @@ namespace Code
 			[field: SerializeField] public Transform CandidateLense  { get; private set; }
 			[field: SerializeField] public Transform ShadowCardSpawn { get; private set; }
 			[field: SerializeField] public Transform CardScoring     { get; private set; }
+			[field: SerializeField] public Transform Money           { get; private set; }
 		}
 
 		[Serializable]
