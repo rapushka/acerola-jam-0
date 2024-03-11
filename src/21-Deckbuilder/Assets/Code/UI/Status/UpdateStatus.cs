@@ -21,7 +21,6 @@ namespace Code.System
 
 		private Entity<Game> Player => _contexts.GetPlayer();
 		private Entity<Game> Dealer => _contexts.GetDealer();
-		private Entity<Game> Bank   => _contexts.Get<Game>().Unique.GetEntity<Bank>();
 		private Entity<Game> Rules  => _contexts.Get<Game>().Unique.GetEntity<Rules>();
 
 		public void Execute()
