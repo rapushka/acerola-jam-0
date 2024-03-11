@@ -25,10 +25,12 @@ namespace Code
 			var startPoint = GetHolder(from);
 			var endPoint = GetHolder(to);
 
-			var bet = _resource.SpawnBetView(startPoint).Entity;
-			bet.Add<DebugName, string>("transaction");
-			bet.Is<Transaction>(true);
-			bet.SetTargetTransform(endPoint);
+			var view = _resource.SpawnBetView(startPoint);
+			var entity = view.Entity;
+			entity.Add<DebugName, string>("transaction");
+			entity.Add<Position, Vector3>(view.transform.position);
+			entity.Is<Transaction>(true);
+			entity.SetTargetTransform(endPoint);
 		}
 
 		private Transform GetHolder(Entity<Game> e)
