@@ -3,7 +3,7 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	public sealed class Money : ValueComponent<int>, IInScope<Game> { }
+	public sealed class Money : ValueComponent<int>, IInScope<Game>, IEvent<Self> { }
 
 	public sealed class Bank : FlagComponent, IInScope<Game>, IUnique { }
 

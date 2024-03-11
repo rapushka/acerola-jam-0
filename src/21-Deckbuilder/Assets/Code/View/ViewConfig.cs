@@ -33,6 +33,10 @@ namespace Code
 
 		[field: Header("Camera")]
 		[field: SerializeField] public float CameraRotationSpeed { get; private set; }
+
 		[field: SerializeField] public float CameraMovementSpeed { get; private set; }
+
+		[field: Header("Bets")]
+		[field: SerializeField] public float BetMovementSpeed { get; private set; }
 	}
 }

@@ -12,7 +12,7 @@ namespace Code
 			var bank = unique.GetEntity<Bank>();
 			var side = unique.GetEntity<CurrentTurn>();
 
-			var allIn = side.Get<Money>().Value;
+			var allIn = side.GetMoney();
 
 			bank.Replace<CurrentBet, int>(allIn);
 		}

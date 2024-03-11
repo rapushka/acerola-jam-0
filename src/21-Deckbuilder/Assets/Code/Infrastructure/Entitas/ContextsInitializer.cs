@@ -1,3 +1,4 @@
+using Code.Component;
 using Code.Scope;
 using Entitas.Generic;
 using Zenject;
@@ -26,9 +27,10 @@ namespace Code
 		private void InitializeIndexes()
 		{
 			_contexts.Get<Game>().GetPrimaryIndex<Component.Side, Side>().Initialize();
-			_contexts.Get<Game>().GetIndex<Component.HeldBy, Side>().Initialize();
-			_contexts.Get<Game>().GetIndex<Component.Face, CardId>().Initialize();
-			_contexts.Get<Game>().GetPrimaryIndex<Component.ShadowCard, Side>().Initialize();
+			_contexts.Get<Game>().GetIndex<HeldBy, Side>().Initialize();
+			_contexts.Get<Game>().GetIndex<Face, CardId>().Initialize();
+			_contexts.Get<Game>().GetPrimaryIndex<ShadowCard, Side>().Initialize();
+			_contexts.Get<Game>().GetPrimaryIndex<MoneyOf, Side>().Initialize();
 		}
 
 		private void InitializeFormatters()

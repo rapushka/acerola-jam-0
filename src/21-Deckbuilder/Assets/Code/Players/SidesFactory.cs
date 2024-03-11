@@ -8,14 +8,14 @@ namespace Code
 	public class SidesFactory
 	{
 		private readonly Contexts _contexts;
-		private readonly BalanceConfig _balance;
+		private readonly BetsFactory _betsFactory;
 		private int _counter;
 
 		[Inject]
-		public SidesFactory(Contexts contexts, BalanceConfig balance)
+		public SidesFactory(Contexts contexts, BetsFactory betsFactory)
 		{
 			_contexts = contexts;
-			_balance = balance;
+			_betsFactory = betsFactory;
 		}
 
 		public Entity<Game> CreatePlayer()
@@ -29,9 +29,13 @@ namespace Code
 			   .Is<Ai>(true);
 
 		private Entity<Game> Create(Side side)
-			=> _contexts.Get<Game>().CreateEntity()
-			            .Add<Component.Side, Side>(side)
-			            .Add<Score, int>(0)
-			            .Add<Money, int>(_balance.SideMoneyOnStart);
+		{
+			var e = _contexts.Get<Game>().CreateEntity()
+			                 .Add<Component.Side, Side>(side)
+			                 .Add<Score, int>(0);
+
+			_betsFactory.CreateMoneyOf(e);
+			return e;
+		}
 	}
 }

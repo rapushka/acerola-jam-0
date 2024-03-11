@@ -29,16 +29,16 @@ namespace Code
 				var bet = Bank.Get<CurrentBet>().Value;
 				Bank.Replace<MinBet, int>(bet);
 
-				var sideMoney = side.Get<Money>().Value;
+				var sideMoney = side.GetMoney();
 				if (bet >= sideMoney)
 				{
 					side.Is<AllIn>(true);
-					side.Replace<Money, int>(0);
+					side.ReplaceMoney(0);
 					Bank.AddValue<Money>(sideMoney);
 				}
 				else
 				{
-					side.SubtractValue<Money>(bet);
+					side.SubtractMoneyValue(bet);
 					Bank.AddValue<Money>(bet);
 				}
 

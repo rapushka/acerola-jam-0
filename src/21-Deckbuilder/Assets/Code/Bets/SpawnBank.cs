@@ -1,29 +1,15 @@
-using Code.Component;
-using Code.Scope;
 using Entitas;
-using Entitas.Generic;
+using Zenject;
 
 namespace Code.System
 {
 	public sealed class SpawnBank : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
-		private readonly BalanceConfig _balance;
+		private readonly BetsFactory _factory;
 
-		public SpawnBank(Contexts contexts, BalanceConfig balance)
-		{
-			_contexts = contexts;
-			_balance = balance;
-		}
+		[Inject]
+		public SpawnBank(BetsFactory factory) => _factory = factory;
 
-		public void Initialize()
-		{
-			var bank = _contexts.Get<Game>().CreateEntity();
-			bank.Add<DebugName, string>("bank");
-			bank.Is<Bank>(true);
-			bank.Add<MinBet, int>(_balance.MinBetOnStart);
-			bank.Add<CurrentBet, int>(_balance.MinBetOnStart);
-			bank.Add<Money, int>(0);
-		}
+		public void Initialize() => _factory.CreateBank();
 	}
 }

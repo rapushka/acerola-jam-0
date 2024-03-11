@@ -27,6 +27,7 @@ namespace Code
 
 			Container.Bind<DeckProvider>().AsSingle().NonLazy();
 			Container.Bind<ShadowCardsProvider>().AsSingle();
+			Container.Bind<BetsFactory>().AsSingle();
 		}
 	}
 }

@@ -28,7 +28,11 @@ namespace Code.System
 		{
 			foreach (var e in entities)
 			{
-				_contexts.GetDealer().Destroy();
+				var dealer = _contexts.GetDealer();
+				var heap = dealer.GetMoneyHeap();
+				dealer.Destroy();
+				heap.Remove<MoneyOf>();
+				heap.Is<Destroyed>(true);
 				_sidesFactory.CreateDealer();
 
 				e.Is<Destroyed>(true);

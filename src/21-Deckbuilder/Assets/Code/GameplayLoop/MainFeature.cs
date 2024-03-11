@@ -68,6 +68,7 @@ namespace Code
 			Add<DoneCardActions>();
 			Add<DoBet>();
 			Add<DoPass>();
+			Add<SendBet>();
 
 			// End Turn
 			Add<PassTurnToNext>();
@@ -105,6 +106,7 @@ namespace Code
 			Add<MoveHeldCardToSideHands>();
 			Add<CenterAlignCards>();
 			Add<MoveToTarget>();
+			Add<DestroyArrivedBet>();
 			// ## Rotation
 			Add<FlipRotation>();
 			Add<RotateLamp>();
