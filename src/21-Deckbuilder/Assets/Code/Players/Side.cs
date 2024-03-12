@@ -3,7 +3,7 @@ namespace Code
 	public enum Side
 	{
 		Player,
-		Dealer,
+		Owneress,
 	}
 
 	public enum RelativeSide
