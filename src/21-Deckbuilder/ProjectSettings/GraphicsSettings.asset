@@ -32,13 +32,14 @@ GraphicsSettings:
   - {fileID: 15105, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 15106, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 4800000, guid: 364a79f75940cde409d6c07092dacd71, type: 3}
   - {fileID: 4800000, guid: 03ebd34214b41ef459d7ee6753b062be, type: 3}
-  - {fileID: 4800000, guid: f2da0e2a14a532548b5db043244b3df1, type: 3}
   - {fileID: 4800000, guid: 2ebed186567d3c244a87538744a62920, type: 3}
   - {fileID: 4800000, guid: 56d52fd5b7c6911468179e5a7359ce0e, type: 3}
-  - {fileID: 4800000, guid: 35a500d816bc28c409f8ca20c3d0c93d, type: 3}
-  - {fileID: 4800000, guid: d798d1968e2101f4993d8f166bdbc9bb, type: 3}
+  - {fileID: 4800000, guid: f2da0e2a14a532548b5db043244b3df1, type: 3}
+  - {fileID: 4800000, guid: 7df62e33d3d17584ab47e30a7e668103, type: 3}
+  - {fileID: 4800000, guid: bf2928017213de74c80eee2649082e99, type: 3}
   - {fileID: 4800000, guid: d319929ef5803bc468b69461ea76e71d, type: 3}
   m_PreloadedShaders: []
   m_PreloadShadersBatchTimeLimit: -1
