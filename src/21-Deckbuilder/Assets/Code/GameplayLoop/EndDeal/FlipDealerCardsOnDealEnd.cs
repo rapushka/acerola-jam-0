@@ -22,7 +22,7 @@ namespace Code.System
 			foreach (var _ in _entities)
 			foreach (var card in _cards)
 			{
-				if (card.Get<HeldBy>().Value is Side.Dealer)
+				if (card.Get<HeldBy>().Value is Side.Owneress)
 					card.FlipCard();
 			}
 		}

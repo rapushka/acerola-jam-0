@@ -33,7 +33,7 @@ namespace Code
 				if (side.GetMoney() >= _balance.MinBetOnStart)
 					continue;
 
-				var isDealerBankrupt = side.Get<Component.Side>().Value is Side.Dealer;
+				var isDealerBankrupt = side.Get<Component.Side>().Value is Side.Owneress;
 				if (isDealerBankrupt)
 				{
 					side.Is<Bankrupt>(true); // TODO: or how?

@@ -72,10 +72,10 @@ namespace Code.System
 				dealer.Is<Winner>(isDealerWin);
 
 				var result
-					= isPlayerWin && isDealerWin ? "Draw\nYou split the winnings in two"
-					: isPlayerWin                ? "You Win!\nYou take the whole Bank"
-					: isDealerWin                ? "You Loose:(\nThe Dealer takes the whole Bank"
-					                               : "Nobody Won\nThe casino takes your winnings";
+					= isPlayerWin && isDealerWin ? "Draw\n\nYou split the winnings in two"
+					: isPlayerWin                ? "You Win!\n\nYou take the whole Bank"
+					: isDealerWin                ? "You Loose:(\n\nThe Owneress takes the whole Bank"
+					                               : "Nobody Won\n\nThe casino takes your winnings";
 
 				var playerScoreView
 					= isPlayerPass       ? "Pass"
@@ -88,7 +88,7 @@ namespace Code.System
 					: dealerHasBlackJack ? "Black Jack"
 					                       : dealerScore.ToString();
 
-				var message = $"{result}\nPlayer: {playerScoreView}\nDealer: {dealerScoreView}";
+				var message = $"{result}\nPlayer\t{playerScoreView}\nOwneress\t{dealerScoreView}";
 				_hud.ShowDealEndScreen(message);
 
 				e.Is<Destroyed>(true);

@@ -23,7 +23,7 @@ namespace Code
 				.Add<DebugName, string>("Player");
 
 		public Entity<Game> CreateDealer()
-			=> Create(Side.Dealer)
+			=> Create(Side.Owneress)
 			   .Add<DebugName, string>("Dealer")
 			   .Add<DealerNumber, int>(_counter++)
 			   .Is<Ai>(true);
