@@ -168,8 +168,8 @@ MonoBehaviour:
     y: 0
     width: 308
     height: 527
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
@@ -217,18 +217,18 @@ MonoBehaviour:
       m_ExpandedIDs: 226efdff6400feff42f3feff50f6feff0c7dffff147effffc49cffffc89cffffe69cfffffc9cfffff0f5ffffa0f7ffff2cfbffff5c74000086740000aa7400003a75000056790000f8790000467a0000907a0000da810000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Text (World)
+        m_OriginalName: Text (World)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -153720
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
