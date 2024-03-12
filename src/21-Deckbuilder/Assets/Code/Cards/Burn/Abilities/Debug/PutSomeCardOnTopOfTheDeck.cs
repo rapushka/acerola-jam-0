@@ -2,8 +2,6 @@ using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
-using static Code.CardFace;
-using static Code.CardSuit;
 
 namespace Code.System
 {
@@ -26,7 +24,7 @@ namespace Code.System
 		{
 			foreach (var _ in _entities)
 			{
-				PutFirst((Number3, Hearts));
+				// PutFirst((Number2, Clubs));
 			}
 		}
 

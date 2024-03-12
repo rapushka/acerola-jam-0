@@ -55,12 +55,12 @@ namespace Code
 			Add<BurnCard>();
 			// ## OnBurn Abilities
 			// Add<LogBurnedSystem>();
-			Add<CastChangePoints>();
 			Add<CastDestroyAllSuit>();
+			Add<CastDestroyAllCardsInHand>();
+			Add<CastChangePoints>();
 			Add<CastChangePointThreshold>();
 			Add<CastChangeMaxCardsInHand>();
 			Add<CastFlipWinCondition>();
-			Add<CastDestroyAllCardsInHand>();
 			Add<CastDraftCards>();
 			Add<DestroyBurnedCard>();
 

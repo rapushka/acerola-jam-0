@@ -1,4 +1,3 @@
-using System.Linq;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -27,7 +26,7 @@ namespace Code
 			{
 				var cardsInHand = side.GetCards();
 
-				if (cardsInHand.Count() >= Rules.Get<MaxCardsInHand>().Value)
+				if (cardsInHand.Count >= Rules.Get<MaxCardsInHand>().Value)
 				{
 					side.Is<Hit>(false);
 
