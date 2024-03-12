@@ -22,6 +22,7 @@ namespace Code
 			[(Number10, Hearts)] = (e) => e.Add<ChangeMaxCardsInHand, int>(-2),
 			[(Number7, Clubs)] = (e) => e.Is<InvokeFlipWinCondition>(true),
 			[(Ace, Hearts)] = (e) => e.Is<CanNotBeBurn>(true),
+			[(Number2, Clubs)] = (e) => e.Is<DestroyAllCardsInHand>(true).Target(You),
 		};
 
 		public void Bind(Entity<Game> target)

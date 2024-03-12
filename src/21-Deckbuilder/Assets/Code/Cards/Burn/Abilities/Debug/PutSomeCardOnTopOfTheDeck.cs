@@ -26,6 +26,8 @@ namespace Code.System
 		{
 			foreach (var _ in _entities)
 			{
+				PutFirst((Number2, Clubs));
+				PutFirst((Ace, Diamonds));
 				PutFirst((Ace, Spades));
 				PutFirst((Queen, Clubs));
 				PutFirst((Number5, Diamonds));
