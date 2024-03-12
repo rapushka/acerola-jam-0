@@ -20,6 +20,7 @@ namespace Code
 			BuildChangeMaxCardsInHand(card, ref stringBuilder);
 			BuildInvokeFlipWinCondition(card, ref stringBuilder);
 			BuildCanNotBeBurn(card, ref stringBuilder);
+			BuildDestroyAllCardsInHand(card, ref stringBuilder, relatives);
 
 			BuildEmptyDescription(ref stringBuilder);
 
@@ -47,14 +48,9 @@ namespace Code
 			stringBuilder.Append(delta > 0 ? "+" : "-");
 			stringBuilder.Append(Mathf.Abs(delta));
 			stringBuilder.Append(" points to ");
-			stringBuilder.Append(string.Join("\nand ", Relatives(targets)));
+			stringBuilder.Append(string.Join("\nand ", Relatives(targets, relatives)));
 			stringBuilder.Append("\n\n");
 			return;
-
-			IEnumerable<string> Relatives(IEnumerable<RelativeSide> relativeTargets)
-				=> relatives
-					? relativeTargets.Select((t) => $"{t} ({t.AbsoluteSide()})")
-					: relativeTargets.Select((t) => t.ToString());
 		}
 
 		private void BuildChangePointsThreshold(Entity<Game> card, ref StringBuilder stringBuilder)
@@ -115,5 +111,23 @@ namespace Code
 			stringBuilder.Append("Can't be burn");
 			stringBuilder.Append("\n\n");
 		}
+
+		private void BuildDestroyAllCardsInHand(Entity<Game> card, ref StringBuilder stringBuilder, bool relatives)
+		{
+			if (!card.Has<DestroyAllCardsInHand>())
+				return;
+
+			var targets = card.Get<AbilityTargets>().Value;
+
+			// "Destroys all cards of you (Player) and opponent (Dealer)"
+			stringBuilder.Append("Destroys all cards of ");
+			stringBuilder.Append(string.Join("\nand ", Relatives(targets, relatives)));
+			stringBuilder.Append("\n\n");
+		}
+
+		private IEnumerable<string> Relatives(IEnumerable<RelativeSide> relativeTargets, bool relatives)
+			=> relatives
+				? relativeTargets.Select((t) => $"{t} ({t.AbsoluteSide()})")
+				: relativeTargets.Select((t) => t.ToString());
 	}
 }
