@@ -14,14 +14,14 @@ namespace Code
 		{
 			var stringBuilder = new StringBuilder();
 
-			BuildChangePoints(card, ref stringBuilder, relatives);
 			BuildDestroyAllSuit(card, ref stringBuilder);
+			BuildDestroyAllCardsInHand(card, ref stringBuilder, relatives);
+			BuildChangePoints(card, ref stringBuilder, relatives);
 			BuildChangePointsThreshold(card, ref stringBuilder);
 			BuildChangeMaxCardsInHand(card, ref stringBuilder);
 			BuildInvokeFlipWinCondition(card, ref stringBuilder);
-			BuildCanNotBeBurn(card, ref stringBuilder);
-			BuildDestroyAllCardsInHand(card, ref stringBuilder, relatives);
 			BuildDraftCards(card, ref stringBuilder, relatives);
+			BuildCanNotBeBurn(card, ref stringBuilder);
 
 			BuildEmptyDescription(ref stringBuilder);
 
