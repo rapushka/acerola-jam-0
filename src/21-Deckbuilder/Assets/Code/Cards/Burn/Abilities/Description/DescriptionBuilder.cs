@@ -144,8 +144,8 @@ namespace Code
 
 		private string Ownership(RelativeSide[] targets, bool relatives)
 			=> FormatTargets(targets, relatives)
-			   .Replace("you", "your")
-			   .Replace("opponent", "opponent's");
+			   .Replace("You", "Your")
+			   .Replace("Opponent", "Opponent's");
 
 		private string FormatTargets(RelativeSide[] targets, bool relatives)
 			=> string.Join("\nand ", Relatives(targets, relatives));
