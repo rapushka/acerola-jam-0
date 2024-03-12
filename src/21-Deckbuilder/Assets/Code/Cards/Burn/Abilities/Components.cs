@@ -18,4 +18,6 @@ namespace Code.Component
 	public sealed class InvokeFlipWinCondition : FlagComponent, IInScope<Game> { }
 
 	public sealed class CanNotBeBurn : FlagComponent, IInScope<Game> { }
+
+	public sealed class DraftCards : ValueComponent<int>, IInScope<Game> { }
 }

@@ -21,6 +21,7 @@ namespace Code
 			BuildInvokeFlipWinCondition(card, ref stringBuilder);
 			BuildCanNotBeBurn(card, ref stringBuilder);
 			BuildDestroyAllCardsInHand(card, ref stringBuilder, relatives);
+			BuildDraftCards(card, ref stringBuilder, relatives);
 
 			BuildEmptyDescription(ref stringBuilder);
 
@@ -48,9 +49,8 @@ namespace Code
 			stringBuilder.Append(delta > 0 ? "+" : "-");
 			stringBuilder.Append(Mathf.Abs(delta));
 			stringBuilder.Append(" points to ");
-			stringBuilder.Append(string.Join("\nand ", Relatives(targets, relatives)));
+			stringBuilder.Append(FormatTargets(targets, relatives));
 			stringBuilder.Append("\n\n");
-			return;
 		}
 
 		private void BuildChangePointsThreshold(Entity<Game> card, ref StringBuilder stringBuilder)
@@ -119,11 +119,36 @@ namespace Code
 
 			var targets = card.Get<AbilityTargets>().Value;
 
-			// "Destroys all cards of you (Player) and opponent (Dealer)"
-			stringBuilder.Append("Destroys all cards of ");
-			stringBuilder.Append(string.Join("\nand ", Relatives(targets, relatives)));
+			// "Destroys all your (Player) and opponent's (Dealer) cards"
+			stringBuilder.Append("Destroys all ");
+			stringBuilder.Append(Ownership(targets, relatives));
+			stringBuilder.Append(" cards");
 			stringBuilder.Append("\n\n");
 		}
+
+		private void BuildDraftCards(Entity<Game> card, ref StringBuilder stringBuilder, bool relatives)
+		{
+			if (!card.Has<DraftCards>())
+				return;
+
+			var targets = card.Get<AbilityTargets>().Value;
+			var count = card.Get<DraftCards>().Value;
+
+			// "Draws you (Player) and opponent (Dealer) 1 card"
+			stringBuilder.Append("Draws ");
+			stringBuilder.Append(FormatTargets(targets, relatives));
+			stringBuilder.Append($" {count} ");
+			stringBuilder.Append(count == 1 ? "card" : "cards");
+			stringBuilder.Append("\n\n");
+		}
+
+		private string Ownership(RelativeSide[] targets, bool relatives)
+			=> FormatTargets(targets, relatives)
+			   .Replace("you", "your")
+			   .Replace("opponent", "opponent's");
+
+		private string FormatTargets(RelativeSide[] targets, bool relatives)
+			=> string.Join("\nand ", Relatives(targets, relatives));
 
 		private IEnumerable<string> Relatives(IEnumerable<RelativeSide> relativeTargets, bool relatives)
 			=> relatives

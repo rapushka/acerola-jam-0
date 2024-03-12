@@ -23,6 +23,8 @@ namespace Code
 			[(Number7, Clubs)] = (e) => e.Is<InvokeFlipWinCondition>(true),
 			[(Ace, Hearts)] = (e) => e.Is<CanNotBeBurn>(true),
 			[(Number2, Clubs)] = (e) => e.Is<DestroyAllCardsInHand>(true).Target(You),
+			[(Jack, Clubs)] = (e) => e.Add<DraftCards, int>(1).Target(You),
+			[(Number3, Hearts)] = (e) => e.Add<DraftCards, int>(2).Target(You, Opponent),
 		};
 
 		public void Bind(Entity<Game> target)

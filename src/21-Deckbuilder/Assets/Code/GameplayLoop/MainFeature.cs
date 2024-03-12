@@ -61,6 +61,7 @@ namespace Code
 			Add<CastChangeMaxCardsInHand>();
 			Add<CastFlipWinCondition>();
 			Add<CastDestroyAllCardsInHand>();
+			Add<CastDraftCards>();
 			Add<DestroyBurnedCard>();
 
 			// Bets
