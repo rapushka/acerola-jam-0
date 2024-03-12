@@ -2981,13 +2981,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977683884}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2066313648}
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!1 &984602812
 GameObject:
   m_ObjectHideFlags: 0
@@ -6612,6 +6612,22 @@ PrefabInstance:
     - target: {fileID: 1041373196140249570, guid: 19f0f1b02d3a41511bf28a98a3fa84ca, type: 3}
       propertyPath: m_Name
       value: Directional Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149683446785161050, guid: 19f0f1b02d3a41511bf28a98a3fa84ca, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149683446785161050, guid: 19f0f1b02d3a41511bf28a98a3fa84ca, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8897779
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149683446785161050, guid: 19f0f1b02d3a41511bf28a98a3fa84ca, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6650944
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149683446785161050, guid: 19f0f1b02d3a41511bf28a98a3fa84ca, type: 3}
+      propertyPath: m_Intensity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7402850950453253546, guid: 19f0f1b02d3a41511bf28a98a3fa84ca, type: 3}
       propertyPath: m_LocalPosition.x
