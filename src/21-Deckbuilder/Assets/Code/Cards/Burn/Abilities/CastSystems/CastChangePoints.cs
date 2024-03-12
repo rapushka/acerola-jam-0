@@ -31,14 +31,10 @@ namespace Code.System
 
 				foreach (var targetSide in targetSides)
 				{
-					var target = GetEntity(targetSide);
-
+					var target = _contexts.GetEntity(targetSide);
 					_shadowCardsProvider.ChangePoints(target, delta);
 				}
 			}
 		}
-
-		private Entity<Game> GetEntity(Side targetSide)
-			=> _contexts.Get<Game>().GetPrimaryIndex<Component.Side, Side>().GetEntity(targetSide);
 	}
 }

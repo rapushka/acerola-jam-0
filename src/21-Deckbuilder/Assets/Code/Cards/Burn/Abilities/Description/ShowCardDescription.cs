@@ -43,7 +43,7 @@ namespace Code.System
 				var candidate = Unique.GetEntityOrDefault<Candidate>();
 				candidate ??= _cardsToBurn.GetSingleEntity();
 
-				var description = _descriptionBuilder.Build(candidate);
+				var description = _descriptionBuilder.Build(candidate, relatives: true);
 				_hud.CardDescription.Show(description);
 			}
 		}

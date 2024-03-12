@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Code.Component;
 using Code.Scope;
@@ -8,16 +10,18 @@ namespace Code
 {
 	public class DescriptionBuilder
 	{
-		public string Build(Entity<Game> card)
+		public string Build(Entity<Game> card, bool relatives = false)
 		{
 			var stringBuilder = new StringBuilder();
 
-			BuildChangePoints(card, ref stringBuilder);
+			BuildChangePoints(card, ref stringBuilder, relatives);
 			BuildDestroyAllSuit(card, ref stringBuilder);
 			BuildChangePointsThreshold(card, ref stringBuilder);
 			BuildChangeMaxCardsInHand(card, ref stringBuilder);
 			BuildInvokeFlipWinCondition(card, ref stringBuilder);
 			BuildCanNotBeBurn(card, ref stringBuilder);
+			BuildDestroyAllCardsInHand(card, ref stringBuilder, relatives);
+			BuildDraftCards(card, ref stringBuilder, relatives);
 
 			BuildEmptyDescription(ref stringBuilder);
 
@@ -33,7 +37,7 @@ namespace Code
 			stringBuilder.Append("\n\n");
 		}
 
-		private void BuildChangePoints(Entity<Game> card, ref StringBuilder stringBuilder)
+		private void BuildChangePoints(Entity<Game> card, ref StringBuilder stringBuilder, bool relatives)
 		{
 			if (!card.Has<ChangePoints>())
 				return;
@@ -41,11 +45,11 @@ namespace Code
 			var delta = card.Get<ChangePoints>().Value;
 			var targets = card.Get<AbilityTargets>().Value;
 
-			// "+5 points to Player and Dealer"
+			// "+5 points to You (Player) and Opponent (Dealer)"
 			stringBuilder.Append(delta > 0 ? "+" : "-");
 			stringBuilder.Append(Mathf.Abs(delta));
 			stringBuilder.Append(" points to ");
-			stringBuilder.Append(string.Join(" and ", targets));
+			stringBuilder.Append(FormatTargets(targets, relatives));
 			stringBuilder.Append("\n\n");
 		}
 
@@ -72,7 +76,7 @@ namespace Code
 
 			// "Destroys all cards of Spades"
 			stringBuilder.Append("Destroys all cards of ");
-			stringBuilder.Append(suit);
+			stringBuilder.Append(suit.Sign());
 			stringBuilder.Append("\n\n");
 		}
 
@@ -107,5 +111,48 @@ namespace Code
 			stringBuilder.Append("Can't be burn");
 			stringBuilder.Append("\n\n");
 		}
+
+		private void BuildDestroyAllCardsInHand(Entity<Game> card, ref StringBuilder stringBuilder, bool relatives)
+		{
+			if (!card.Has<DestroyAllCardsInHand>())
+				return;
+
+			var targets = card.Get<AbilityTargets>().Value;
+
+			// "Destroys all your (Player) and opponent's (Dealer) cards"
+			stringBuilder.Append("Destroys all ");
+			stringBuilder.Append(Ownership(targets, relatives));
+			stringBuilder.Append(" cards");
+			stringBuilder.Append("\n\n");
+		}
+
+		private void BuildDraftCards(Entity<Game> card, ref StringBuilder stringBuilder, bool relatives)
+		{
+			if (!card.Has<DraftCards>())
+				return;
+
+			var targets = card.Get<AbilityTargets>().Value;
+			var count = card.Get<DraftCards>().Value;
+
+			// "Draws you (Player) and opponent (Dealer) 1 card"
+			stringBuilder.Append("Draws ");
+			stringBuilder.Append(FormatTargets(targets, relatives));
+			stringBuilder.Append($" {count} ");
+			stringBuilder.Append(count == 1 ? "card" : "cards");
+			stringBuilder.Append("\n\n");
+		}
+
+		private string Ownership(RelativeSide[] targets, bool relatives)
+			=> FormatTargets(targets, relatives)
+			   .Replace("You", "Your")
+			   .Replace("Opponent", "Opponent's");
+
+		private string FormatTargets(RelativeSide[] targets, bool relatives)
+			=> string.Join("\nand ", Relatives(targets, relatives));
+
+		private IEnumerable<string> Relatives(IEnumerable<RelativeSide> relativeTargets, bool relatives)
+			=> relatives
+				? relativeTargets.Select((t) => $"{t} ({t.AbsoluteSide()})")
+				: relativeTargets.Select((t) => t.ToString());
 	}
 }

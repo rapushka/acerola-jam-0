@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Code.Component;
 using Code.Scope;
@@ -7,27 +6,22 @@ using Entitas.Generic;
 
 namespace Code.System
 {
-	public sealed class CalculateScore : ReactiveSystem<Entity<Game>>
+	public sealed class CalculateScore : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly IGroup<Entity<Game>> _sides;
 
 		public CalculateScore(Contexts contexts)
-			: base(contexts.Get<Game>())
 		{
 			_contexts = contexts;
 			_sides = contexts.GetGroup(ScopeMatcher<Game>.Get<Component.Side>());
 		}
 
-		private int          MaxPoints => Rules.Get<MaxPointsThreshold>().Value;
-		private Entity<Game> Rules     => _contexts.Get<Game>().Unique.GetEntity<Rules>();
+		private int MaxPoints => Rules.Get<MaxPointsThreshold>().Value;
 
-		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
-			=> context.CreateCollector(ScopeMatcher<Game>.Get<HeldBy>());
+		private Entity<Game> Rules => _contexts.Get<Game>().Unique.GetEntity<Rules>();
 
-		protected override bool Filter(Entity<Game> entity) => true;
-
-		protected override void Execute(List<Entity<Game>> entities)
+		public void Execute()
 		{
 			foreach (var side in _sides)
 			{

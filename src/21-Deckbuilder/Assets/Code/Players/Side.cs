@@ -5,4 +5,10 @@ namespace Code
 		Player,
 		Dealer,
 	}
+
+	public enum RelativeSide
+	{
+		You,
+		Opponent,
+	}
 }

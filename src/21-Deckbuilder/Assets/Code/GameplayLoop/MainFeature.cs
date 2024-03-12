@@ -36,9 +36,7 @@ namespace Code
 			Add<PutSomeCardOnTopOfTheDeck>();
 #endif
 
-			// Generic things
 			Add<WaitingSystem>();
-			Add<CalculateScore>();
 
 			// Enemy's AI (not ML!!!!!)
 			Add<AiTurnAction>();
@@ -57,11 +55,13 @@ namespace Code
 			Add<BurnCard>();
 			// ## OnBurn Abilities
 			// Add<LogBurnedSystem>();
-			Add<CastChangePoints>();
 			Add<CastDestroyAllSuit>();
+			Add<CastDestroyAllCardsInHand>();
+			Add<CastChangePoints>();
 			Add<CastChangePointThreshold>();
 			Add<CastChangeMaxCardsInHand>();
 			Add<CastFlipWinCondition>();
+			Add<CastDraftCards>();
 			Add<DestroyBurnedCard>();
 
 			// Bets
@@ -85,6 +85,8 @@ namespace Code
 			// Add<FlipDealerCardsOnDealEnd>();
 			Add<WinnersGetBank>();
 			Add<CheckBankruptcy>();
+
+			Add<CalculateScore>();
 
 			// ---
 			// # View
