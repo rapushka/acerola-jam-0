@@ -177,7 +177,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7160c4aa6d0212c4a907a8d6a923ef99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,7 +199,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a91659071d58f5bc5b5fb6e91a632833, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5803922}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -228,7 +228,7 @@ PrefabInstance:
     - target: {fileID: 1140486385000366181, guid: 2afb9436981b119d1ade3a4854429488, type: 3}
       propertyPath: m_renderer
       value: 
-      objectReference: {fileID: 188323790695992722}
+      objectReference: {fileID: 4460881655436422755}
     - target: {fileID: 1140486385000366181, guid: 2afb9436981b119d1ade3a4854429488, type: 3}
       propertyPath: m_fontSizeMax
       value: 6
@@ -337,6 +337,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &4460881655436422755 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2551077219786941934, guid: 2afb9436981b119d1ade3a4854429488, type: 3}
+  m_PrefabInstance: {fileID: 2201982093127699341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5601561828788013001 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5995344170400205892, guid: 2afb9436981b119d1ade3a4854429488, type: 3}
@@ -455,11 +460,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2afb9436981b119d1ade3a4854429488, type: 3}
---- !u!23 &188323790695992722 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2551077219786941934, guid: 2afb9436981b119d1ade3a4854429488, type: 3}
-  m_PrefabInstance: {fileID: 2448322443707508860}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3326438398567163929 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1140486385000366181, guid: 2afb9436981b119d1ade3a4854429488, type: 3}
