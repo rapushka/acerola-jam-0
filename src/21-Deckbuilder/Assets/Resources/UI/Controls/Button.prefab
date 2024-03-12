@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e69ad0ca2960cbfbdb1ecf97d5cee651, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.74
 --- !u!114 &1116147291608217102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 12258062744305866, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -10
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 12258062744305866, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -195,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 12258062744305866, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 12258062744305866, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontSize
-      value: 17.9
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontStyle
@@ -230,8 +230,16 @@ PrefabInstance:
       value: 0.10980392
       objectReference: {fileID: 0}
     - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4358677012195433952, guid: 8df1d1a3aa364ddcbbce3d08178a9bfd, type: 2}
+    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278848028
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852496585783483040, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8338503975155893962, guid: a1ef10e969610f5d38a7f6305c66de28, type: 3}
       propertyPath: m_Name
