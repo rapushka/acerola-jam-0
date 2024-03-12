@@ -148,7 +148,7 @@ namespace Code
 			   .Replace("Opponent", "Opponent's");
 
 		private string FormatTargets(RelativeSide[] targets, bool relatives)
-			=> string.Join("\nand ", Relatives(targets, relatives));
+			=> string.Join(" and ", Relatives(targets, relatives));
 
 		private IEnumerable<string> Relatives(IEnumerable<RelativeSide> relativeTargets, bool relatives)
 			=> relatives

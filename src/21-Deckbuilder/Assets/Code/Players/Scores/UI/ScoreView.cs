@@ -16,6 +16,8 @@ namespace Code
 		{
 			_textMesh.text = score.ToString();
 			_textMesh.color = isBusted ? _bustedColor : _defaultColor;
+
+			_textMesh.gameObject.SetActive(score != 0);
 		}
 	}
 }
