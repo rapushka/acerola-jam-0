@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Code.Component;
 using Code.Scope;
@@ -8,11 +10,11 @@ namespace Code
 {
 	public class DescriptionBuilder
 	{
-		public string Build(Entity<Game> card)
+		public string Build(Entity<Game> card, bool relatives = false)
 		{
 			var stringBuilder = new StringBuilder();
 
-			BuildChangePoints(card, ref stringBuilder);
+			BuildChangePoints(card, ref stringBuilder, relatives);
 			BuildDestroyAllSuit(card, ref stringBuilder);
 			BuildChangePointsThreshold(card, ref stringBuilder);
 			BuildChangeMaxCardsInHand(card, ref stringBuilder);
@@ -33,7 +35,7 @@ namespace Code
 			stringBuilder.Append("\n\n");
 		}
 
-		private void BuildChangePoints(Entity<Game> card, ref StringBuilder stringBuilder)
+		private void BuildChangePoints(Entity<Game> card, ref StringBuilder stringBuilder, bool relatives)
 		{
 			if (!card.Has<ChangePoints>())
 				return;
@@ -41,12 +43,18 @@ namespace Code
 			var delta = card.Get<ChangePoints>().Value;
 			var targets = card.Get<AbilityTargets>().Value;
 
-			// "+5 points to Player and Dealer"
+			// "+5 points to You (Player) and Opponent (Dealer)"
 			stringBuilder.Append(delta > 0 ? "+" : "-");
 			stringBuilder.Append(Mathf.Abs(delta));
 			stringBuilder.Append(" points to ");
-			stringBuilder.Append(string.Join(" and ", targets));
+			stringBuilder.Append(string.Join("\nand ", Relatives(targets)));
 			stringBuilder.Append("\n\n");
+			return;
+
+			IEnumerable<string> Relatives(IEnumerable<RelativeSide> relativeTargets)
+				=> relatives
+					? relativeTargets.Select((t) => $"{t} ({t.AbsoluteSide()})")
+					: relativeTargets.Select((t) => t.ToString());
 		}
 
 		private void BuildChangePointsThreshold(Entity<Game> card, ref StringBuilder stringBuilder)
@@ -72,7 +80,7 @@ namespace Code
 
 			// "Destroys all cards of Spades"
 			stringBuilder.Append("Destroys all cards of ");
-			stringBuilder.Append(suit);
+			stringBuilder.Append(suit.Sign());
 			stringBuilder.Append("\n\n");
 		}
 
