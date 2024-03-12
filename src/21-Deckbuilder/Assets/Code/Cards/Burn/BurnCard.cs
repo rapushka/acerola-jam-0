@@ -29,7 +29,7 @@ namespace Code.System
 			foreach (var card in entities)
 			{
 				var e = _contexts.Get<Game>().CreateEntity();
-				e.Add<Waiting, float>(_viewConfig.BurningDuration);
+				e.Add<Waiting, float>(_viewConfig.BurningDuration - 0.1f);
 				e.Add<Callback, Action>(Burn);
 
 				continue;
