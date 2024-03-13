@@ -31,7 +31,8 @@ namespace Code.System
 				{
 					foreach (var targetSide in targetSides)
 					{
-						_deck.TopCard.Replace<HeldBy, Side>(targetSide.AbsoluteSide());
+						foreach (var cardFromDeck in _deck.TakeCards(1))
+							cardFromDeck.Replace<HeldBy, Side>(targetSide.AbsoluteSide());
 					}
 				}
 			}

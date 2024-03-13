@@ -24,7 +24,7 @@ namespace Code
 		private IOrderedEnumerable<Entity<Game>> Deck
 			=> _deckCards.GetEntities().OrderByDescending((c) => c.Get<Order>().Value);
 
-		public Entity<Game> TopCard => TakeCards(1).Single();
+		public bool HasCards => Count > 0;
 
 		public IEnumerable<Entity<Game>> TakeCards(int count)
 			=> Deck.Take(count);
