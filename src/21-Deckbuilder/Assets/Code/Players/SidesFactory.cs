@@ -23,10 +23,15 @@ namespace Code
 				.Add<DebugName, string>("Player");
 
 		public Entity<Game> CreateDealer()
-			=> Create(Side.Owneress)
-			   .Add<DebugName, string>("Dealer")
-			   .Add<DealerNumber, int>(_counter++)
-			   .Is<Ai>(true);
+		{
+			var e = Create(Side.Owneress)
+			        .Add<DebugName, string>("Dealer")
+			        .Add<DealerNumber, int>(_counter++)
+			        .Is<Ai>(true);
+
+			e.ReplaceMoney(_contexts.GetPlayer().GetMoney() * 2);
+			return e;
+		}
 
 		private Entity<Game> Create(Side side)
 		{
