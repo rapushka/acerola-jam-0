@@ -103,7 +103,7 @@ namespace Code.System
 				if (!_deck.HasCards)
 					_decisionMaker.Exclude("Hit");
 
-				_decisionMaker.LogBenefits();
+				// _decisionMaker.LogBenefits();
 				_decisionMaker.DoAction();
 			}
 		}
