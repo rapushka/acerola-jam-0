@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Code
 {
@@ -26,9 +27,9 @@ namespace Code
 			}
 
 			var benefits = string.Join(", ", list.Select((s) => s.Benefit));
-			Debug.LogError($"No item found with matching rarity. benefits: {benefits}");
+			Debug.LogWarning($"No item found with matching rarity. benefits: {benefits}");
 
-			return list.Last();
+			return list.First();
 		}
 	}
 }
