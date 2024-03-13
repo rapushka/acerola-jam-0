@@ -36,15 +36,28 @@ namespace Code.System
 		[field: SerializeField] public TurnActionInfluence InfluenceOnSafeDrawRelative { get; private set; }
 
 		[field: Space]
-		[field: SerializeField] public float               CloseEnoughToMaxToStand { get; private set; }
-		[field: SerializeField] public TurnActionInfluence InfluenceOnNiceScore    { get; private set; }
+		[field: SerializeField] public float CloseEnoughToMaxToStand { get; private set; }
+
+		[field: SerializeField] public TurnActionInfluence InfluenceOnNiceScore { get; private set; }
 
 		[field: Space]
 		[field: Range(0f, 1f)]
 		[field: SerializeField] public float BigBetProportionThreshold { get; private set; }
 
 		[field: SerializeField] public TurnActionInfluence InfluenceOnBigBet { get; private set; }
+
+		[field: Range(0f, 1f)]
+		[field: SerializeField] public float MajorityBetProportionThreshold { get; private set; }
+
+		[field: SerializeField] public TurnActionInfluence InfluenceOnMajorityBet { get; private set; }
+
 		[field: Space]
-		[field: SerializeField] public TurnActionInfluence InfluenceOnAllIn  { get; private set; }
+		[field: SerializeField] public TurnActionInfluence InfluenceOnAllIn { get; private set; }
+
+		[field: Space]
+		[field: Range(0f, 1f)]
+		[field: SerializeField] public float SmallBetPercent { get; private set; }
+
+		[field: SerializeField] public TurnActionInfluence InfluenceTryComeback { get; private set; }
 	}
 }

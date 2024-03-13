@@ -34,12 +34,22 @@ MonoBehaviour:
     <Hit>k__BackingField: -2
     <Stand>k__BackingField: 10
     <Pass>k__BackingField: 0
-  <BigBetProportionThreshold>k__BackingField: 0.55
+  <BigBetProportionThreshold>k__BackingField: 0.35
   <InfluenceOnBigBet>k__BackingField:
     <Hit>k__BackingField: -1
     <Stand>k__BackingField: 0
-    <Pass>k__BackingField: 1
-  <InfluenceOnAllIn>k__BackingField:
-    <Hit>k__BackingField: -5
+    <Pass>k__BackingField: 2.5
+  <MajorityBetProportionThreshold>k__BackingField: 0.7
+  <InfluenceOnMajorityBet>k__BackingField:
+    <Hit>k__BackingField: -7
     <Stand>k__BackingField: 0
-    <Pass>k__BackingField: 5
+    <Pass>k__BackingField: 8
+  <InfluenceOnAllIn>k__BackingField:
+    <Hit>k__BackingField: -11.99
+    <Stand>k__BackingField: 0
+    <Pass>k__BackingField: 15
+  <SmallBetPercent>k__BackingField: 0.05
+  <InfluenceTryComeback>k__BackingField:
+    <Hit>k__BackingField: 10
+    <Stand>k__BackingField: -10
+    <Pass>k__BackingField: 0.01

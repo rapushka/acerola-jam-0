@@ -82,14 +82,22 @@ namespace Code.System
 				var currentBet = Bank.Get<CurrentBet>().Value;
 				var ourMoney = dealer.GetMoney();
 				var changeOnBet = ourMoney - currentBet;
-				if (changeOnBet < 0)
+				var percentsOfBet = (float)currentBet / ourMoney;
+
+				if (changeOnBet <= 0)
 					_decisionMaker.Influence(_config.InfluenceOnAllIn);
-				else if ((float)currentBet / ourMoney >= _config.BigBetProportionThreshold)
+				else if (percentsOfBet >= _config.MajorityBetProportionThreshold)
+					_decisionMaker.Influence(_config.InfluenceOnMajorityBet);
+				else if (percentsOfBet >= _config.BigBetProportionThreshold)
 					_decisionMaker.Influence(_config.InfluenceOnBigBet);
+
+				if (score > maxScore && !tooManyCards && percentsOfBet < _config.SmallBetPercent)
+					_decisionMaker.Influence(_config.InfluenceTryComeback);
 
 				if (tooManyCards)
 					_decisionMaker.Exclude("Hit");
 
+				_decisionMaker.LogBenefits();
 				_decisionMaker.DoAction();
 			}
 		}

@@ -31,6 +31,9 @@ namespace Code.System
 		{
 			foreach (var e in entities)
 			{
+				if (e.Is<Pass>())
+					continue;
+				
 				if (Random.value <= _config.RaiseBetChance)
 				{
 					Bank.AddValue<CurrentBet>(_config.RaiseBetStep);

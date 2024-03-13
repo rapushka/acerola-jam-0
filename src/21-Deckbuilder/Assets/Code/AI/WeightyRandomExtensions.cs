@@ -26,7 +26,9 @@ namespace Code
 			}
 
 			var benefits = string.Join(", ", list.Select((s) => s.Benefit));
-			throw new InvalidOperationException($"No item found with matching rarity. benefits: {benefits}");
+			Debug.LogError($"No item found with matching rarity. benefits: {benefits}");
+
+			return list.Last();
 		}
 	}
 }
