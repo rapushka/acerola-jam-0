@@ -45,6 +45,7 @@ namespace Code
 
 			// Card Actions
 			Add<CancelHitOnMaxCardsInHand>();
+			Add<CancelHitOnNoCards>();
 			Add<SideHit>();
 			Add<SideStand>();
 			Add<CancelBurnOfUnBurnableCard>();

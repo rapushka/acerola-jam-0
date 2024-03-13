@@ -13,12 +13,6 @@ namespace Code.System
 
 		[field: Header("Probabilities")]
 		[field: Tooltip(RandomTooltip)]
-		[field: SerializeField] public float PassProbability { get; private set; }
-
-		[field: Tooltip(RandomTooltip)]
-		[field: SerializeField] public float HitVsStandProbability { get; private set; }
-
-		[field: Tooltip(RandomTooltip)]
 		[field: SerializeField] public float TakeVsBurnCandidateProbability { get; private set; }
 
 		[field: Tooltip(RandomTooltip)] [field: SerializeField] public float BetChance      { get; private set; }

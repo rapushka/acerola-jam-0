@@ -15,6 +15,7 @@ namespace Code.System
 		private readonly AiConfig _config;
 		private readonly CalculateScoreCommand _calculateScore;
 		private readonly TurnActionDecisionMaker _decisionMaker;
+		private readonly DeckProvider _deck;
 		private readonly IGroup<Entity<Game>> _entities;
 
 		[Inject]
@@ -23,7 +24,8 @@ namespace Code.System
 			Contexts contexts,
 			AiConfig config,
 			CalculateScoreCommand calculateScore,
-			TurnActionDecisionMaker decisionMaker
+			TurnActionDecisionMaker decisionMaker,
+			DeckProvider deck
 		)
 			: base(contexts.Get<Game>())
 		{
@@ -31,6 +33,7 @@ namespace Code.System
 			_config = config;
 			_calculateScore = calculateScore;
 			_decisionMaker = decisionMaker;
+			_deck = deck;
 		}
 
 		private bool         HasCandidate => _contexts.Get<Game>().Unique.Has<Candidate>();
@@ -95,6 +98,9 @@ namespace Code.System
 					_decisionMaker.Influence(_config.InfluenceTryComeback);
 
 				if (tooManyCards)
+					_decisionMaker.Exclude("Hit");
+
+				if (!_deck.HasCards)
 					_decisionMaker.Exclude("Hit");
 
 				_decisionMaker.LogBenefits();
