@@ -36,7 +36,15 @@ namespace Code.System
 					maxSoringOrder = sortedCards.Max((c) => c.Get<SortingOrder>().Value);
 
 				foreach (var card in cards.Except(sortedCards))
+				{
+					if (card.Has<ShadowCard>())
+					{
+						card.Add<SortingOrder, int>(-1);
+						continue;
+					}
+
 					card.Add<SortingOrder, int>(++maxSoringOrder);
+				}
 			}
 		}
 	}
