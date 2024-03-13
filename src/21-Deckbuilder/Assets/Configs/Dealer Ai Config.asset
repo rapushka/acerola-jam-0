@@ -14,9 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TurnActionThinkingDuration>k__BackingField: 1
   <CardPickingActionThinkingDuration>k__BackingField: 2
-  <PassProbability>k__BackingField: 0.01
-  <HitVsStandProbability>k__BackingField: 0.25
-  <TakeVsBurnCandidateProbability>k__BackingField: 0.35
-  <BetChance>k__BackingField: 0.95
+  <TakeVsBurnCandidateProbability>k__BackingField: 0.7
+  <RelustanceToOverdraw>k__BackingField: 0.6
+  <BetChance>k__BackingField: 1
   <RaiseBetChance>k__BackingField: 0.05
   <RaiseBetStep>k__BackingField: 50
+  <BaseTurnActionInfluence>k__BackingField:
+    <Hit>k__BackingField: 2
+    <Stand>k__BackingField: 1
+    <Pass>k__BackingField: 0
+  <ThresholdDeltaToTryHit>k__BackingField: 11
+  <InfluenceOnSafeDrawRelative>k__BackingField:
+    <Hit>k__BackingField: 10
+    <Stand>k__BackingField: -1
+    <Pass>k__BackingField: 0
+  <CloseEnoughToMaxToStand>k__BackingField: 4
+  <InfluenceOnNiceScore>k__BackingField:
+    <Hit>k__BackingField: -2
+    <Stand>k__BackingField: 10
+    <Pass>k__BackingField: 0
+  <BigBetProportionThreshold>k__BackingField: 0.35
+  <InfluenceOnBigBet>k__BackingField:
+    <Hit>k__BackingField: -1
+    <Stand>k__BackingField: 0
+    <Pass>k__BackingField: 2.5
+  <MajorityBetProportionThreshold>k__BackingField: 0.7
+  <InfluenceOnMajorityBet>k__BackingField:
+    <Hit>k__BackingField: -7
+    <Stand>k__BackingField: 0
+    <Pass>k__BackingField: 8
+  <InfluenceOnAllIn>k__BackingField:
+    <Hit>k__BackingField: -10
+    <Stand>k__BackingField: 0
+    <Pass>k__BackingField: 15
+  <SmallBetPercent>k__BackingField: 0.05
+  <InfluenceTryComeback>k__BackingField:
+    <Hit>k__BackingField: 10
+    <Stand>k__BackingField: -10
+    <Pass>k__BackingField: 0.01

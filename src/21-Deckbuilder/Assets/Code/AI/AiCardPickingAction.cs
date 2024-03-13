@@ -26,6 +26,8 @@ namespace Code.System
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
 			=> context.CreateCollector(Get<Hit>().Added());
 
+		private Entity<Game> Rules => _contexts.Get<Game>().Unique.GetEntity<Rules>();
+
 		protected override bool Filter(Entity<Game> entity) => entity.Is<Ai>() && entity.Is<Hit>();
 
 		protected override void Execute(List<Entity<Game>> entities)
@@ -38,7 +40,14 @@ namespace Code.System
 
 				void Decide()
 				{
-					if (Random.value >= _config.TakeVsBurnCandidateProbability
+					var max = Rules.Get<MaxPointsThreshold>().Value;
+					var tooBigCard = dealer.Get<Score>().Value + Candidate.Get<Points>().Value <= max;
+					var value = Random.value;
+
+					if (tooBigCard)
+						value += _config.RelustanceToOverdraw;
+
+					if (value < _config.TakeVsBurnCandidateProbability
 					    || Candidate.Has<CanNotBeBurn>())
 					{
 						_contexts.Get<Game>().CreateEntity().Is<TakeCandidate>(true);
