@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Code.Component;
 using Code.Scope;
 using Entitas;
 using Entitas.Generic;
-using Random = UnityEngine.Random;
+using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.Scope.Game>;
 
 namespace Code.System
@@ -14,17 +13,30 @@ namespace Code.System
 	{
 		private readonly Contexts _contexts;
 		private readonly AiConfig _config;
+		private readonly CalculateScoreCommand _calculateScore;
+		private readonly TurnActionDecisionMaker _decisionMaker;
 		private readonly IGroup<Entity<Game>> _entities;
 
-		public AiTurnAction(Contexts contexts, AiConfig config)
+		[Inject]
+		public AiTurnAction
+		(
+			Contexts contexts,
+			AiConfig config,
+			CalculateScoreCommand calculateScore,
+			TurnActionDecisionMaker decisionMaker
+		)
 			: base(contexts.Get<Game>())
 		{
 			_contexts = contexts;
 			_config = config;
+			_calculateScore = calculateScore;
+			_decisionMaker = decisionMaker;
 		}
 
 		private bool         HasCandidate => _contexts.Get<Game>().Unique.Has<Candidate>();
 		private Entity<Game> Rules        => _contexts.Get<Game>().Unique.GetEntity<Rules>();
+
+		private Entity<Game> Bank => _contexts.Get<Game>().Unique.GetEntity<Bank>();
 
 		protected override ICollector<Entity<Game>> GetTrigger(IContext<Entity<Game>> context)
 			=> context.CreateCollector(Get<CurrentTurn>().Added());
@@ -36,32 +48,49 @@ namespace Code.System
 
 		protected override void Execute(List<Entity<Game>> entities)
 		{
+			_calculateScore.Do();
+
 			foreach (var dealer in entities)
+				MakeTurnAction(dealer);
+		}
+
+		private void MakeTurnAction(Entity<Game> dealer)
+		{
+			dealer.Add<Waiting, float>(_config.TurnActionThinkingDuration);
+			dealer.Add<Callback, Action>(Decide);
+			return;
+
+			void Decide()
 			{
-				// if !dealer.Has<Waiting>()
-				dealer.Add<Waiting, float>(_config.TurnActionThinkingDuration);
-				dealer.Add<Callback, Action>(Decide);
-				return;
+				_decisionMaker.Reset();
+				_decisionMaker.Influence(_config.BaseTurnActionInfluence);
 
-				void Decide()
-				{
-					if (Random.value <= _config.PassProbability)
-					{
-						dealer.Is<Pass>(true);
-						return;
-					}
+				var score = dealer.Get<Score>().Value;
+				var maxScore = Rules.Get<MaxPointsThreshold>().Value;
+				var deltaToMaxScore = maxScore - score;
 
-					if (Random.value >= _config.HitVsStandProbability
-					    && dealer.GetCards().Count() < Rules.Get<MaxCardsInHand>().Value)
-					{
-						dealer.Is<Hit>(true);
-					}
-					else
-					{
-						dealer.Is<Stand>(false);
-						dealer.Is<Stand>(true);
-					}
-				}
+				var cardsCount = dealer.GetCards().Count;
+				var maxCardsCount = Rules.Get<MaxCardsInHand>().Value;
+				var tooManyCards = cardsCount >= maxCardsCount;
+
+				if (deltaToMaxScore >= _config.ThresholdDeltaToTryHit)
+					_decisionMaker.Influence(_config.InfluenceOnSafeDrawRelative);
+
+				if (deltaToMaxScore <= _config.CloseEnoughToMaxToStand)
+					_decisionMaker.Influence(_config.InfluenceOnNiceScore);
+
+				var currentBet = Bank.Get<CurrentBet>().Value;
+				var ourMoney = dealer.GetMoney();
+				var changeOnBet = ourMoney - currentBet;
+				if (changeOnBet < 0)
+					_decisionMaker.Influence(_config.InfluenceOnAllIn);
+				else if ((float)currentBet / ourMoney >= _config.BigBetProportionThreshold)
+					_decisionMaker.Influence(_config.InfluenceOnBigBet);
+
+				if (tooManyCards)
+					_decisionMaker.Exclude("Hit");
+
+				_decisionMaker.DoAction();
 			}
 		}
 	}

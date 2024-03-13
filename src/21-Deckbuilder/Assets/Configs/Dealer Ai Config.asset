@@ -20,3 +20,26 @@ MonoBehaviour:
   <BetChance>k__BackingField: 0.95
   <RaiseBetChance>k__BackingField: 0.05
   <RaiseBetStep>k__BackingField: 50
+  <BaseTurnActionInfluence>k__BackingField:
+    <Hit>k__BackingField: 2
+    <Stand>k__BackingField: 1
+    <Pass>k__BackingField: 0
+  <ThresholdDeltaToTryHit>k__BackingField: 11
+  <InfluenceOnSafeDrawRelative>k__BackingField:
+    <Hit>k__BackingField: 10
+    <Stand>k__BackingField: -1
+    <Pass>k__BackingField: 0
+  <CloseEnoughToMaxToStand>k__BackingField: 4
+  <InfluenceOnNiceScore>k__BackingField:
+    <Hit>k__BackingField: -2
+    <Stand>k__BackingField: 10
+    <Pass>k__BackingField: 0
+  <BigBetProportionThreshold>k__BackingField: 0.55
+  <InfluenceOnBigBet>k__BackingField:
+    <Hit>k__BackingField: -1
+    <Stand>k__BackingField: 0
+    <Pass>k__BackingField: 1
+  <InfluenceOnAllIn>k__BackingField:
+    <Hit>k__BackingField: -5
+    <Stand>k__BackingField: 0
+    <Pass>k__BackingField: 5

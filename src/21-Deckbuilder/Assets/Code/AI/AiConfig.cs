@@ -24,5 +24,27 @@ namespace Code.System
 		[field: Tooltip(RandomTooltip)] [field: SerializeField] public float BetChance      { get; private set; }
 		[field: Tooltip(RandomTooltip)] [field: SerializeField] public float RaiseBetChance { get; private set; }
 		[field: Tooltip(RandomTooltip)] [field: SerializeField] public int   RaiseBetStep   { get; private set; }
+
+		[field: Header("Turn Action Influences")]
+		[field: SerializeField] public TurnActionInfluence BaseTurnActionInfluence { get; private set; }
+
+		[field: Space]
+		[field: Tooltip("MaxScore - CurrentDealerScore > ThresholdDeltaToTryHit")]
+		[field: SerializeField] public float ThresholdDeltaToTryHit { get; private set; }
+
+		[field: Tooltip("If we can take a card without risks af overdraw.\nWill be multiplied by delta to max score")]
+		[field: SerializeField] public TurnActionInfluence InfluenceOnSafeDrawRelative { get; private set; }
+
+		[field: Space]
+		[field: SerializeField] public float               CloseEnoughToMaxToStand { get; private set; }
+		[field: SerializeField] public TurnActionInfluence InfluenceOnNiceScore    { get; private set; }
+
+		[field: Space]
+		[field: Range(0f, 1f)]
+		[field: SerializeField] public float BigBetProportionThreshold { get; private set; }
+
+		[field: SerializeField] public TurnActionInfluence InfluenceOnBigBet { get; private set; }
+		[field: Space]
+		[field: SerializeField] public TurnActionInfluence InfluenceOnAllIn  { get; private set; }
 	}
 }
