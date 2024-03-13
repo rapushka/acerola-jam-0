@@ -14,6 +14,7 @@ namespace Code.System
 		[field: Header("Probabilities")]
 		[field: Tooltip(RandomTooltip)]
 		[field: SerializeField] public float TakeVsBurnCandidateProbability { get; private set; }
+		[field: SerializeField] public float RelustanceToOverdraw { get; private set; }
 
 		[field: Tooltip(RandomTooltip)] [field: SerializeField] public float BetChance      { get; private set; }
 		[field: Tooltip(RandomTooltip)] [field: SerializeField] public float RaiseBetChance { get; private set; }
