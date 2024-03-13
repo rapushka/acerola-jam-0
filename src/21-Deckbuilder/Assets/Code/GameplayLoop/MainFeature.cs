@@ -88,6 +88,7 @@ namespace Code
 			Add<CheckBankruptcy>();
 
 			Add<CalculateScore>();
+			Add<SortCardsInOrder>();
 
 			// ---
 			// # View

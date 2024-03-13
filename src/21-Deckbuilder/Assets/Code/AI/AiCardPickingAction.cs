@@ -41,7 +41,7 @@ namespace Code.System
 				void Decide()
 				{
 					var max = Rules.Get<MaxPointsThreshold>().Value;
-					var tooBigCard = dealer.Get<Score>().Value + Candidate.Get<Points>().Value <= max;
+					var tooBigCard = dealer.Get<Score>().Value + Candidate.Get<Points>().Value > max;
 					var value = Random.value;
 
 					if (tooBigCard)

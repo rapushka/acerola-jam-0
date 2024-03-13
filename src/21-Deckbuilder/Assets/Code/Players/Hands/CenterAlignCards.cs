@@ -1,3 +1,4 @@
+using System.Linq;
 using Code.Component;
 using Code.Scope;
 using Entitas;
@@ -28,16 +29,17 @@ namespace Code.System
 
 		public void Execute()
 		{
-			foreach (var e in _sides)
+			foreach (var entity in _sides)
 			{
-				var side = e.Get<Component.Side>().Value;
-				var cards = e.GetCards();
+				var side = entity.Get<Component.Side>().Value;
+				var unsortedCards = entity.GetCards();
+				var cards = unsortedCards.OrderBy((e) => e.Get<SortingOrder>().Value);
 
 				var spacing = IsScoring
 					? _viewConfig.OnScoringDistance
 					: _viewConfig.DistanceBetweenCards;
 
-				var length = (cards.Count - 1) * spacing;
+				var length = (unsortedCards.Count - 1) * spacing;
 				var currentX = length * -0.5f;
 
 				if (!IsScoring)

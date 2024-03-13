@@ -17,6 +17,7 @@ namespace Code.System
 			Add<SelfEventSystem<Game, Points>>();
 			Add<SelfEventSystem<Game, ToBurn>>();
 			Add<SelfEventSystem<Game, Money>>();
+			Add<SelfEventSystem<Game, SortingOrder>>();
 
 			Add<RemoveComponentsSystem<Game, Hit>>();
 			Add<RemoveComponentsSystem<Game, TurnEnded>>();
