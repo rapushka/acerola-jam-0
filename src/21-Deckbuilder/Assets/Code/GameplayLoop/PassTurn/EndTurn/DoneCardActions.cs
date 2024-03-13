@@ -37,7 +37,7 @@ namespace Code.System
 
 				continue;
 
-				void DoEndTurn() => side.Is<CardActionDone>(true);
+				void DoEndTurn() => side.Remark<CardActionDone>();
 			}
 		}
 	}
